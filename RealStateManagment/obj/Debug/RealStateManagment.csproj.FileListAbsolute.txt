@@ -1,0 +1,51 @@
+D:\Projects\Hasnain\RealStateManagment\RealStateManagment\bin\Debug\RealStateManagment.exe
+D:\Projects\Hasnain\RealStateManagment\RealStateManagment\bin\Debug\RealStateManagment.pdb
+D:\Projects\Hasnain\RealStateManagment\RealStateManagment\obj\Debug\RealStateManagment.csprojResolveAssemblyReference.cache
+D:\Projects\Hasnain\RealStateManagment\RealStateManagment\obj\Debug\RealStateManagment.Form1.resources
+D:\Projects\Hasnain\RealStateManagment\RealStateManagment\obj\Debug\RealStateManagment.Properties.Resources.resources
+D:\Projects\Hasnain\RealStateManagment\RealStateManagment\obj\Debug\RealStateManagment.csproj.GenerateResource.Cache
+D:\Projects\Hasnain\RealStateManagment\RealStateManagment\obj\Debug\RealStateManagment.exe
+D:\Projects\Hasnain\RealStateManagment\RealStateManagment\obj\Debug\RealStateManagment.pdb
+D:\Projects\Hasnain\RealStateManagment\RealStateManagment\obj\Debug\RealStateManagment.frmMain.resources
+D:\Projects\Hasnain\RealStateManagment\RealStateManagment\obj\Debug\RealStateManagment.Dashboard.resources
+D:\Projects\Hasnain\RealStateManagment\RealStateManagment\obj\Debug\RealStateManagment.Customer.CustomerMain.resources
+D:\Projects\Hasnain\RealStateManagment\RealStateManagment\bin\Debug\MetroFramework.Design.dll
+D:\Projects\Hasnain\RealStateManagment\RealStateManagment\bin\Debug\MetroFramework.dll
+D:\Projects\Hasnain\RealStateManagment\RealStateManagment\bin\Debug\MetroFramework.Fonts.dll
+D:\Projects\Hasnain\RealStateManagment\RealStateManagment\obj\Debug\RealStateManagment.Customer.AddCustomer.resources
+D:\Projects\Hasnain\RealStateManagment\RealStateManagment\obj\Debug\RealStateManagment.Customer.CustomerReport.resources
+D:\Projects\Hasnain\RealStateManagment\RealStateManagment\obj\Debug\RealStateManagment.Colony.AddColony.resources
+D:\Projects\Hasnain\RealStateManagment\RealStateManagment\obj\Debug\RealStateManagment.Colony.AddPlot.resources
+D:\Projects\Hasnain\RealStateManagment\RealStateManagment\obj\Debug\RealStateManagment.Colony.ViewColony.resources
+D:\Projects\Hasnain\RealStateManagment\RealStateManagment\obj\Debug\RealStateManagment.Customer.CustomerLedger.resources
+D:\Projects\Hasnain\RealStateManagment\RealStateManagment\obj\Debug\RealStateManagment.Customer.ViewCustomer.resources
+C:\Users\ARSALAN COMPUTER LAB\Desktop\New folder (2)\RealStateManagment\obj\Debug\RealStateManagment.exe
+C:\Users\ARSALAN COMPUTER LAB\Desktop\New folder (2)\RealStateManagment\obj\Debug\RealStateManagment.pdb
+C:\Users\ARSALAN COMPUTER LAB\Desktop\New folder (2)\RealStateManagment\bin\Debug\RealStateManagment.exe
+C:\Users\ARSALAN COMPUTER LAB\Desktop\New folder (2)\RealStateManagment\bin\Debug\RealStateManagment.pdb
+C:\Users\ARSALAN COMPUTER LAB\Desktop\New folder (2)\RealStateManagment\bin\Debug\MetroFramework.Design.dll
+C:\Users\ARSALAN COMPUTER LAB\Desktop\New folder (2)\RealStateManagment\bin\Debug\MetroFramework.dll
+C:\Users\ARSALAN COMPUTER LAB\Desktop\New folder (2)\RealStateManagment\bin\Debug\MetroFramework.Fonts.dll
+C:\Users\ARSALAN COMPUTER LAB\Desktop\New folder (2)\RealStateManagment\obj\Debug\RealStateManagment.csprojResolveAssemblyReference.cache
+C:\Users\ARSALAN COMPUTER LAB\Desktop\New folder (2)\RealStateManagment\obj\Debug\RealStateManagment.Customer.CustomerLedger.resources
+C:\Users\ARSALAN COMPUTER LAB\Desktop\New folder (2)\RealStateManagment\obj\Debug\RealStateManagment.Customer.CustomerMain.resources
+C:\Users\ARSALAN COMPUTER LAB\Desktop\New folder (2)\RealStateManagment\obj\Debug\RealStateManagment.Customer.CustomerReport.resources
+C:\Users\ARSALAN COMPUTER LAB\Desktop\New folder (2)\RealStateManagment\obj\Debug\RealStateManagment.Dashboard.resources
+C:\Users\ARSALAN COMPUTER LAB\Desktop\New folder (2)\RealStateManagment\obj\Debug\RealStateManagment.Form1.resources
+C:\Users\ARSALAN COMPUTER LAB\Desktop\New folder (2)\RealStateManagment\obj\Debug\RealStateManagment.frmMain.resources
+C:\Users\ARSALAN COMPUTER LAB\Desktop\New folder (2)\RealStateManagment\obj\Debug\RealStateManagment.Properties.Resources.resources
+C:\Users\ARSALAN COMPUTER LAB\Desktop\New folder (2)\RealStateManagment\obj\Debug\RealStateManagment.csproj.GenerateResource.Cache
+C:\Users\ARSALAN COMPUTER LAB\Desktop\New folder (2)\RealStateManagment\obj\Debug\RealStateManagment.Customer.AddClient.resources
+C:\Users\ARSALAN COMPUTER LAB\Desktop\New folder (2)\RealStateManagment\obj\Debug\RealStateManagment.Customer.ViewClient.resources
+C:\Users\ARSALAN COMPUTER LAB\Desktop\New folder (2)\RealStateManagment\obj\Debug\RealStateManagment.ColonyManagement.FrmColony.resources
+C:\Users\ARSALAN COMPUTER LAB\Desktop\New folder (2)\RealStateManagment\obj\Debug\RealStateManagment.ColonyManagement.FrmAddColony.resources
+C:\Users\ARSALAN COMPUTER LAB\Desktop\New folder (2)\RealStateManagment\obj\Debug\RealStateManagment.ColonyManagement.ViewColony.resources
+C:\Users\ARSALAN COMPUTER LAB\Desktop\New folder (2)\RealStateManagment\obj\Debug\RealStateManagment.ColonyManagement.FrmAddPlot.resources
+C:\Users\ARSALAN COMPUTER LAB\Desktop\New folder (2)\RealStateManagment\obj\Debug\RealStateManagment.ColonyManagement.ViewPlot.resources
+C:\Users\ARSALAN COMPUTER LAB\Desktop\New folder (2)\RealStateManagment\obj\Debug\RealStateManagment.SalePurchase.FrmSale.resources
+C:\Users\ARSALAN COMPUTER LAB\Desktop\New folder (2)\RealStateManagment\obj\Debug\RealStateManagment.SalePurchase.FrmSaleMain.resources
+C:\Users\ARSALAN COMPUTER LAB\Desktop\New folder (2)\RealStateManagment\bin\Debug\RealStateManagment.exe.config
+C:\Users\ARSALAN COMPUTER LAB\Desktop\New folder (2)\RealStateManagment\bin\Debug\EntityFramework.dll
+C:\Users\ARSALAN COMPUTER LAB\Desktop\New folder (2)\RealStateManagment\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\ARSALAN COMPUTER LAB\Desktop\New folder (2)\RealStateManagment\bin\Debug\EntityFramework.xml
+C:\Users\ARSALAN COMPUTER LAB\Desktop\New folder (2)\RealStateManagment\bin\Debug\EntityFramework.SqlServer.xml
