@@ -32,7 +32,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.dgvClient = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtTestname = new System.Windows.Forms.TextBox();
+            this.txtSearch = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClient)).BeginInit();
             this.SuspendLayout();
@@ -74,13 +74,14 @@
             this.label2.TabIndex = 46;
             this.label2.Text = "Client name:";
             // 
-            // txtTestname
+            // txtSearch
             // 
-            this.txtTestname.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.txtTestname.Location = new System.Drawing.Point(144, 116);
-            this.txtTestname.Name = "txtTestname";
-            this.txtTestname.Size = new System.Drawing.Size(282, 22);
-            this.txtTestname.TabIndex = 45;
+            this.txtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.txtSearch.Location = new System.Drawing.Point(144, 116);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(282, 22);
+            this.txtSearch.TabIndex = 45;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtTestname_TextChanged);
             // 
             // ViewClient
             // 
@@ -88,7 +89,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(904, 500);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtTestname);
+            this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.panel1);
             this.Name = "ViewClient";
             this.Text = "View Client";
@@ -105,6 +106,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridView dgvClient;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtTestname;
+        private System.Windows.Forms.TextBox txtSearch;
     }
 }

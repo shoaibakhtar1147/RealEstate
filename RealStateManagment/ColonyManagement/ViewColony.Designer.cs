@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.label2 = new System.Windows.Forms.Label();
-            this.txtTestname = new System.Windows.Forms.TextBox();
+            this.txtColonyname = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dgvColony = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
@@ -47,13 +47,14 @@
             this.label2.TabIndex = 49;
             this.label2.Text = "Colony name:";
             // 
-            // txtTestname
+            // txtColonyname
             // 
-            this.txtTestname.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.txtTestname.Location = new System.Drawing.Point(144, 116);
-            this.txtTestname.Name = "txtTestname";
-            this.txtTestname.Size = new System.Drawing.Size(282, 22);
-            this.txtTestname.TabIndex = 48;
+            this.txtColonyname.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.txtColonyname.Location = new System.Drawing.Point(144, 116);
+            this.txtColonyname.Name = "txtColonyname";
+            this.txtColonyname.Size = new System.Drawing.Size(282, 22);
+            this.txtColonyname.TabIndex = 48;
+            this.txtColonyname.TextChanged += new System.EventHandler(this.txtTestname_TextChanged);
             // 
             // panel1
             // 
@@ -78,10 +79,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(904, 500);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtTestname);
+            this.Controls.Add(this.txtColonyname);
             this.Controls.Add(this.panel1);
             this.Name = "ViewColony";
             this.Text = "View Colony";
+            this.Load += new System.EventHandler(this.ViewColony_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvColony)).EndInit();
             this.ResumeLayout(false);
@@ -92,7 +94,7 @@
         #endregion
 
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtTestname;
+        private System.Windows.Forms.TextBox txtColonyname;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridView dgvColony;
     }

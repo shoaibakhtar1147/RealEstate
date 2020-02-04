@@ -28,38 +28,39 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtTestname = new System.Windows.Forms.TextBox();
+            this.txtSearch = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvClient = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvClient)).BeginInit();
             this.SuspendLayout();
             // 
-            // txtTestname
+            // txtSearch
             // 
-            this.txtTestname.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.txtTestname.Location = new System.Drawing.Point(144, 116);
-            this.txtTestname.Name = "txtTestname";
-            this.txtTestname.Size = new System.Drawing.Size(282, 22);
-            this.txtTestname.TabIndex = 47;
+            this.txtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.txtSearch.Location = new System.Drawing.Point(144, 116);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(282, 22);
+            this.txtSearch.TabIndex = 47;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtTestname_TextChanged);
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.dataGridView1);
+            this.panel1.Controls.Add(this.dgvClient);
             this.panel1.Location = new System.Drawing.Point(3, 154);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(898, 319);
             this.panel1.TabIndex = 46;
             // 
-            // dataGridView1
+            // dgvClient
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(898, 319);
-            this.dataGridView1.TabIndex = 0;
+            this.dgvClient.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvClient.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvClient.Location = new System.Drawing.Point(0, 0);
+            this.dgvClient.Name = "dgvClient";
+            this.dgvClient.Size = new System.Drawing.Size(898, 319);
+            this.dgvClient.TabIndex = 0;
             // 
             // label2
             // 
@@ -78,11 +79,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(904, 500);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtTestname);
+            this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.panel1);
             this.Name = "CustomerLedger";
+            this.Text = "Client Ledger";
+            this.Load += new System.EventHandler(this.CustomerLedger_Load);
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvClient)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -90,9 +93,9 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox txtTestname;
+        private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvClient;
         private System.Windows.Forms.Label label2;
     }
 }

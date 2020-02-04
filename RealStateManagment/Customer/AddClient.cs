@@ -51,7 +51,7 @@ namespace RealStateManagment.Customer
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-
+            ClearGroup();
         }
 
         private void btnSave_Click(object sender, EventArgs e)

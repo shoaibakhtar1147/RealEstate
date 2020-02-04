@@ -21,5 +21,12 @@ namespace RealStateManagment.SalePurchase
             FrmSale objSale = new FrmSale();
             objSale.ShowDialog();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FrmSaleInstallment obj = new FrmSaleInstallment();
+            obj.ShowDialog();
+            
+        }
     }
 }

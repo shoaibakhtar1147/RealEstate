@@ -65,7 +65,33 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Accounts\FrmAccountMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Accounts\FrmAccountMain.Designer.cs">
+      <DependentUpon>FrmAccountMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Accounts\FrmAddPartner.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Accounts\FrmAddPartner.Designer.cs">
+      <DependentUpon>FrmAddPartner.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Accounts\FrmViewPartner.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Accounts\FrmViewPartner.Designer.cs">
+      <DependentUpon>FrmViewPartner.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Accounts\PartnerLedger.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Accounts\PartnerLedger.Designer.cs">
+      <DependentUpon>PartnerLedger.cs</DependentUpon>
+    </Compile>
     <Compile Include="BL\ClientBL.cs" />
+    <Compile Include="BL\ColonyBL.cs" />
+    <Compile Include="BL\PlotBL.cs" />
     <Compile Include="ColonyManagement\FrmAddColony.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -162,8 +188,23 @@
     <Compile Include="Model\Tbl_Client.cs">
       <DependentUpon>RealEstateModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\Tbl_Colony.cs">
+      <DependentUpon>RealEstateModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Tbl_Plot.cs">
+      <DependentUpon>RealEstateModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\View_Plot.cs">
+      <DependentUpon>RealEstateModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SalePurchase\FrmSaleInstallment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SalePurchase\FrmSaleInstallment.Designer.cs">
+      <DependentUpon>FrmSaleInstallment.cs</DependentUpon>
+    </Compile>
     <Compile Include="SalePurchase\FrmSale.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -176,6 +217,18 @@
     <Compile Include="SalePurchase\FrmSaleMain.Designer.cs">
       <DependentUpon>FrmSaleMain.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Accounts\FrmAccountMain.resx">
+      <DependentUpon>FrmAccountMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Accounts\FrmAddPartner.resx">
+      <DependentUpon>FrmAddPartner.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Accounts\FrmViewPartner.resx">
+      <DependentUpon>FrmViewPartner.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Accounts\PartnerLedger.resx">
+      <DependentUpon>PartnerLedger.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ColonyManagement\FrmAddColony.resx">
       <DependentUpon>FrmAddColony.cs</DependentUpon>
     </EmbeddedResource>
@@ -227,6 +280,9 @@
     </Compile>
     <EmbeddedResource Include="SalePurchase\FrmSale.resx">
       <DependentUpon>FrmSale.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SalePurchase\FrmSaleInstallment.resx">
+      <DependentUpon>FrmSaleInstallment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SalePurchase\FrmSaleMain.resx">
       <DependentUpon>FrmSaleMain.cs</DependentUpon>
@@ -294,8 +350,7 @@
     <None Include="Resources\images51.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Accounts\" />
-    <Folder Include="Reports\" />
+    <Folder Include="Resources\Reports\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\logout.png" />

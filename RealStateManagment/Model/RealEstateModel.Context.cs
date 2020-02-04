@@ -26,5 +26,8 @@ namespace RealStateManagment.Model
         }
     
         public virtual DbSet<Tbl_Client> Tbl_Client { get; set; }
+        public virtual DbSet<Tbl_Colony> Tbl_Colony { get; set; }
+        public virtual DbSet<Tbl_Plot> Tbl_Plot { get; set; }
+        public virtual DbSet<View_Plot> View_Plot { get; set; }
     }
 }

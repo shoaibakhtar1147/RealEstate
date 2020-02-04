@@ -2,6 +2,9 @@
 <Schema Namespace="RealEstateModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityContainer Name="RealEstateEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Tbl_Client" EntityType="RealEstateModel.Tbl_Client" />
+    <EntitySet Name="Tbl_Colony" EntityType="RealEstateModel.Tbl_Colony" />
+    <EntitySet Name="Tbl_Plot" EntityType="RealEstateModel.Tbl_Plot" />
+    <EntitySet Name="View_Plot" EntityType="RealEstateModel.View_Plot" />
   </EntityContainer>
   <EntityType Name="Tbl_Client">
     <Key>
@@ -15,5 +18,41 @@
     <Property Name="PhoneNo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Tbl_Colony">
+    <Key>
+      <PropertyRef Name="ColonyId" />
+    </Key>
+    <Property Name="ColonyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ColonyName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Location" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Area" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="OwnerName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="FName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Cnic" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Tbl_Plot">
+    <Key>
+      <PropertyRef Name="PlotId" />
+    </Key>
+    <Property Name="PlotId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PlotNo" Type="Int32" />
+    <Property Name="PlotArea" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PlotAmount" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Status" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="ColonyId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="View_Plot">
+    <Key>
+      <PropertyRef Name="PlotId" />
+    </Key>
+    <Property Name="PlotId" Type="Int32" Nullable="false" />
+    <Property Name="PlotNo" Type="Int32" />
+    <Property Name="PlotArea" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PlotAmount" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ColonyId" Type="Int32" />
+    <Property Name="ColonyName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
   </EntityType>
 </Schema>

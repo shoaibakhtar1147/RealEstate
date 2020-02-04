@@ -31,13 +31,13 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pnlmain = new System.Windows.Forms.Panel();
             this.btnLogOff = new System.Windows.Forms.Button();
             this.btnReports = new System.Windows.Forms.Button();
             this.btnAccounts = new System.Windows.Forms.Button();
             this.btnSalePurchase = new System.Windows.Forms.Button();
             this.btnColony = new System.Windows.Forms.Button();
             this.btnCustomer = new System.Windows.Forms.Button();
+            this.pnlmain = new System.Windows.Forms.Panel();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -78,14 +78,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(97, 524);
             this.panel1.TabIndex = 33;
-            // 
-            // pnlmain
-            // 
-            this.pnlmain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlmain.Location = new System.Drawing.Point(97, 36);
-            this.pnlmain.Name = "pnlmain";
-            this.pnlmain.Size = new System.Drawing.Size(1119, 524);
-            this.pnlmain.TabIndex = 34;
             // 
             // btnLogOff
             // 
@@ -144,6 +136,7 @@
             this.btnAccounts.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnAccounts.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnAccounts.UseVisualStyleBackColor = false;
+            this.btnAccounts.Click += new System.EventHandler(this.btnAccounts_Click_1);
             // 
             // btnSalePurchase
             // 
@@ -204,6 +197,14 @@
             this.btnCustomer.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnCustomer.UseVisualStyleBackColor = false;
             this.btnCustomer.Click += new System.EventHandler(this.btnCustomer_Click_2);
+            // 
+            // pnlmain
+            // 
+            this.pnlmain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlmain.Location = new System.Drawing.Point(97, 36);
+            this.pnlmain.Name = "pnlmain";
+            this.pnlmain.Size = new System.Drawing.Size(1119, 524);
+            this.pnlmain.TabIndex = 34;
             // 
             // frmMain
             // 

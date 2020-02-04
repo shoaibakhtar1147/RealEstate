@@ -13,7 +13,58 @@
     <Property Name="Email" Type="varchar" MaxLength="50" />
     <Property Name="Address" Type="varchar(max)" />
   </EntityType>
+  <EntityType Name="Tbl_Colony">
+    <Key>
+      <PropertyRef Name="ColonyId" />
+    </Key>
+    <Property Name="ColonyId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ColonyName" Type="varchar(max)" />
+    <Property Name="Location" Type="varchar(max)" />
+    <Property Name="Area" Type="varchar" MaxLength="50" />
+    <Property Name="OwnerName" Type="varchar" MaxLength="100" />
+    <Property Name="FName" Type="varchar" MaxLength="100" />
+    <Property Name="Cnic" Type="varchar" MaxLength="20" />
+    <Property Name="Address" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="Tbl_Plot">
+    <Key>
+      <PropertyRef Name="PlotId" />
+    </Key>
+    <Property Name="PlotId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PlotNo" Type="int" />
+    <Property Name="PlotArea" Type="varchar" MaxLength="50" />
+    <Property Name="PlotAmount" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Status" Type="varchar" MaxLength="20" />
+    <Property Name="ColonyId" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'RealEstate.dbo.View_Plot' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="View_Plot">
+    <Key>
+      <PropertyRef Name="PlotId" />
+    </Key>
+    <Property Name="PlotId" Type="int" Nullable="false" />
+    <Property Name="PlotNo" Type="int" />
+    <Property Name="PlotArea" Type="varchar" MaxLength="50" />
+    <Property Name="PlotAmount" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Status" Type="varchar" MaxLength="20" />
+    <Property Name="ColonyId" Type="int" />
+    <Property Name="ColonyName" Type="varchar(max)" />
+  </EntityType>
   <EntityContainer Name="RealEstateModelStoreContainer">
     <EntitySet Name="Tbl_Client" EntityType="Self.Tbl_Client" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Colony" EntityType="Self.Tbl_Colony" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Plot" EntityType="Self.Tbl_Plot" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="View_Plot" EntityType="Self.View_Plot" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [View_Plot].[PlotId] AS [PlotId], 
+    [View_Plot].[PlotNo] AS [PlotNo], 
+    [View_Plot].[PlotArea] AS [PlotArea], 
+    [View_Plot].[PlotAmount] AS [PlotAmount], 
+    [View_Plot].[Status] AS [Status], 
+    [View_Plot].[ColonyId] AS [ColonyId], 
+    [View_Plot].[ColonyName] AS [ColonyName]
+    FROM [dbo].[View_Plot] AS [View_Plot]</DefiningQuery>
+    </EntitySet>
   </EntityContainer>
 </Schema>

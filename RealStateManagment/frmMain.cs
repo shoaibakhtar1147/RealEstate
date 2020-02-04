@@ -1,4 +1,5 @@
-﻿using RealStateManagment.ColonyManagement;
+﻿using RealStateManagment.Accounts;
+using RealStateManagment.ColonyManagement;
 using RealStateManagment.Customer;
 using RealStateManagment.SalePurchase;
 using System;
@@ -97,6 +98,11 @@ namespace RealStateManagment
         {
             ShowForm((new FrmSaleMain()));
            
+        }
+
+        private void btnAccounts_Click_1(object sender, EventArgs e)
+        {
+            ShowForm((new FrmAccountMain()));
         }
 
       

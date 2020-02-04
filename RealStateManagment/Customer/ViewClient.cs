@@ -50,5 +50,29 @@ namespace RealStateManagment.Customer
             dgvClient.ColumnHeadersDefaultCellStyle.BackColor = Color.Firebrick;
             dgvClient.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
         }
+
+        private void txtTestname_TextChanged(object sender, EventArgs e)
+        {
+            if(!string.IsNullOrEmpty(txtSearch.Text))
+            {
+                ClientBL objSearch = new ClientBL() 
+                {
+                 ClientName=txtSearch.Text
+                };
+                var dt = objSearch.Search();
+                AutoCompleteStringCollection coll = new AutoCompleteStringCollection();
+                txtSearch.AutoCompleteMode = AutoCompleteMode.Suggest;
+                txtSearch.AutoCompleteSource = AutoCompleteSource.CustomSource;
+                txtSearch.AutoCompleteCustomSource = coll;
+                if(dt != null && dt.Count>0)
+                {
+                    dgvClient.DataSource = dt;
+                }
+            }
+            else
+            {
+                LoadData();
+            }
+        }
     }
 }

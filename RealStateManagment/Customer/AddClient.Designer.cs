@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtPhoneNo = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.txtFName = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtCnic = new System.Windows.Forms.MaskedTextBox();
@@ -44,8 +46,6 @@
             this.btnClear = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnAddNew = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtPhoneNo = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -65,7 +65,7 @@
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.txtClientName);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.groupBox1.Location = new System.Drawing.Point(109, 85);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -76,6 +76,26 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Client Information";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // txtPhoneNo
+            // 
+            this.txtPhoneNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.txtPhoneNo.Location = new System.Drawing.Point(521, 173);
+            this.txtPhoneNo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtPhoneNo.Name = "txtPhoneNo";
+            this.txtPhoneNo.Size = new System.Drawing.Size(199, 22);
+            this.txtPhoneNo.TabIndex = 7;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.label5.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label5.Location = new System.Drawing.Point(429, 176);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(71, 16);
+            this.label5.TabIndex = 35;
+            this.label5.Text = "Phone No:";
             // 
             // txtFName
             // 
@@ -247,26 +267,6 @@
             this.btnAddNew.Text = "New";
             this.btnAddNew.UseVisualStyleBackColor = false;
             this.btnAddNew.Click += new System.EventHandler(this.btnAddNew_Click);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.label5.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label5.Location = new System.Drawing.Point(429, 176);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(71, 16);
-            this.label5.TabIndex = 35;
-            this.label5.Text = "Phone No:";
-            // 
-            // txtPhoneNo
-            // 
-            this.txtPhoneNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.txtPhoneNo.Location = new System.Drawing.Point(521, 173);
-            this.txtPhoneNo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtPhoneNo.Name = "txtPhoneNo";
-            this.txtPhoneNo.Size = new System.Drawing.Size(199, 22);
-            this.txtPhoneNo.TabIndex = 7;
             // 
             // AddClient
             // 

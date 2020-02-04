@@ -43,6 +43,14 @@ namespace RealStateManagment.BL
                     return context.Tbl_Client.ToList();
                 }
             }
+
+        public List<Tbl_Client> Search()
+            {
+            using(var context=new RealEstateEntities())
+            {
+                return context.Tbl_Client.Where(a => a.ClientName.Contains(ClientName.ToLower())||a.Cnic==Cnic).ToList();
+            }
+            }
        }
     }
 

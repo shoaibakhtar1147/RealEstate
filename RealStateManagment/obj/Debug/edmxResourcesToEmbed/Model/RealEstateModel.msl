@@ -15,5 +15,44 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_Colony">
+      <EntityTypeMapping TypeName="RealEstateModel.Tbl_Colony">
+        <MappingFragment StoreEntitySet="Tbl_Colony">
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Cnic" ColumnName="Cnic" />
+          <ScalarProperty Name="FName" ColumnName="FName" />
+          <ScalarProperty Name="OwnerName" ColumnName="OwnerName" />
+          <ScalarProperty Name="Area" ColumnName="Area" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="ColonyName" ColumnName="ColonyName" />
+          <ScalarProperty Name="ColonyId" ColumnName="ColonyId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_Plot">
+      <EntityTypeMapping TypeName="RealEstateModel.Tbl_Plot">
+        <MappingFragment StoreEntitySet="Tbl_Plot">
+          <ScalarProperty Name="ColonyId" ColumnName="ColonyId" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="PlotAmount" ColumnName="PlotAmount" />
+          <ScalarProperty Name="PlotArea" ColumnName="PlotArea" />
+          <ScalarProperty Name="PlotNo" ColumnName="PlotNo" />
+          <ScalarProperty Name="PlotId" ColumnName="PlotId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="View_Plot">
+      <EntityTypeMapping TypeName="RealEstateModel.View_Plot">
+        <MappingFragment StoreEntitySet="View_Plot">
+          <ScalarProperty Name="ColonyName" ColumnName="ColonyName" />
+          <ScalarProperty Name="ColonyId" ColumnName="ColonyId" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="PlotAmount" ColumnName="PlotAmount" />
+          <ScalarProperty Name="PlotArea" ColumnName="PlotArea" />
+          <ScalarProperty Name="PlotNo" ColumnName="PlotNo" />
+          <ScalarProperty Name="PlotId" ColumnName="PlotId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>
