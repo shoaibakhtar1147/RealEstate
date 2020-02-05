@@ -21,6 +21,24 @@ namespace RealStateManagment.ColonyManagement
         private void ViewColony_Load(object sender, EventArgs e)
         {
             LoadData();
+            GridDesign();
+        }
+
+        private void GridDesign()
+        {
+
+            //designing code=:
+            //dgvTest = Border3DStyle.Flat;
+            dgvColony.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(238, 239, 249);
+            dgvColony.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dgvColony.DefaultCellStyle.SelectionBackColor = Color.DarkTurquoise;
+            dgvColony.DefaultCellStyle.SelectionForeColor = Color.WhiteSmoke;
+            dgvColony.BackgroundColor = Color.White;
+
+            dgvColony.EnableHeadersVisualStyles = false;
+            dgvColony.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dgvColony.ColumnHeadersDefaultCellStyle.BackColor = Color.Firebrick;
+            dgvColony.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
         }
 
         private void LoadData()

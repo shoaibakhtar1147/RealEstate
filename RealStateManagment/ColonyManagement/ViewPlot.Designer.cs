@@ -28,12 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dgvPlot = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.txtColonyName = new System.Windows.Forms.ComboBox();
             this.txtPlotNo = new System.Windows.Forms.ComboBox();
+            this.btnSearch = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPlot)).BeginInit();
             this.SuspendLayout();
@@ -59,6 +61,15 @@
             // 
             // dgvPlot
             // 
+            this.dgvPlot.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPlot.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvPlot.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPlot.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvPlot.Location = new System.Drawing.Point(0, 0);
@@ -85,7 +96,7 @@
             this.txtColonyName.Name = "txtColonyName";
             this.txtColonyName.Size = new System.Drawing.Size(238, 24);
             this.txtColonyName.TabIndex = 55;
-            this.txtColonyName.SelectedIndexChanged += new System.EventHandler(this.txtColonyName_SelectedIndexChanged);
+            this.txtColonyName.Leave += new System.EventHandler(this.txtColonyName_Leave);
             // 
             // txtPlotNo
             // 
@@ -95,13 +106,29 @@
             this.txtPlotNo.Name = "txtPlotNo";
             this.txtPlotNo.Size = new System.Drawing.Size(238, 24);
             this.txtPlotNo.TabIndex = 56;
-            this.txtPlotNo.SelectedIndexChanged += new System.EventHandler(this.txtPlotNo_SelectedIndexChanged);
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.BackColor = System.Drawing.Color.Firebrick;
+            this.btnSearch.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSearch.FlatAppearance.BorderSize = 0;
+            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.btnSearch.ForeColor = System.Drawing.Color.White;
+            this.btnSearch.Location = new System.Drawing.Point(388, 115);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(126, 24);
+            this.btnSearch.TabIndex = 57;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // ViewPlot
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(904, 500);
+            this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.txtPlotNo);
             this.Controls.Add(this.txtColonyName);
             this.Controls.Add(this.label1);
@@ -125,5 +152,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox txtColonyName;
         private System.Windows.Forms.ComboBox txtPlotNo;
+        private System.Windows.Forms.Button btnSearch;
     }
 }

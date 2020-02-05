@@ -20,9 +20,38 @@ namespace RealStateManagment.ColonyManagement
 
         private void FrmAddPlot_Load(object sender, EventArgs e)
         {
-
+            FormDisable();
         }
 
+        private void FormDisable()
+        {
+            txtAmount.Enabled = false;
+            txtColonyName.Enabled = false;
+            txtKanal.Enabled = false;
+            txtMarla.Enabled = false;
+            txtLength.Enabled = false;
+            txtWidth.Enabled = false;
+            txtPlotNo.Enabled = false;
+            txtStatus.Enabled = false;
+            btnSave.Enabled = false;
+            btnClear.Enabled = false;
+        }
+
+
+        private void FormEnable()
+        {
+            txtAmount.Enabled = true;
+            txtColonyName.Enabled = true;
+            txtKanal.Enabled = true;
+            txtMarla.Enabled = true;
+            txtLength.Enabled = true;
+            txtWidth.Enabled = true;
+            txtPlotNo.Enabled = true;
+            txtStatus.Enabled = true;
+            btnSave.Enabled = true;
+            btnClear.Enabled = true;
+            btnAddNew.Enabled = false;
+        }
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
@@ -79,6 +108,7 @@ namespace RealStateManagment.ColonyManagement
 
                 MessageBox.Show("Saved Successfull");
                 ClearGroup();
+                btnAddNew.Enabled = true;
             }
             catch(Exception ex)
             {
@@ -88,8 +118,11 @@ namespace RealStateManagment.ColonyManagement
 
         private void btnAddNew_Click(object sender, EventArgs e)
         {
+            FormEnable();
             LoadColony();
         }
+
+        
 
         private void LoadColony()
         {
