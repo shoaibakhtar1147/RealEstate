@@ -17,9 +17,10 @@ namespace RealStateManagment.Model
         public int PlotId { get; set; }
         public Nullable<int> PlotNo { get; set; }
         public string PlotArea { get; set; }
-        public Nullable<decimal> PlotAmount { get; set; }
+        public Nullable<decimal> Cash { get; set; }
         public string Status { get; set; }
         public Nullable<int> ColonyId { get; set; }
         public string ColonyName { get; set; }
+        public Nullable<decimal> Installment { get; set; }
     }
 }

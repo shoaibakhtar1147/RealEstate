@@ -32,6 +32,7 @@
     <EntitySetMapping Name="Tbl_Plot">
       <EntityTypeMapping TypeName="RealEstateModel.Tbl_Plot">
         <MappingFragment StoreEntitySet="Tbl_Plot">
+          <ScalarProperty Name="AmountOnInstall" ColumnName="AmountOnInstall" />
           <ScalarProperty Name="ColonyId" ColumnName="ColonyId" />
           <ScalarProperty Name="Status" ColumnName="Status" />
           <ScalarProperty Name="PlotAmount" ColumnName="PlotAmount" />
@@ -44,13 +45,55 @@
     <EntitySetMapping Name="View_Plot">
       <EntityTypeMapping TypeName="RealEstateModel.View_Plot">
         <MappingFragment StoreEntitySet="View_Plot">
+          <ScalarProperty Name="Installment" ColumnName="Installment" />
           <ScalarProperty Name="ColonyName" ColumnName="ColonyName" />
           <ScalarProperty Name="ColonyId" ColumnName="ColonyId" />
           <ScalarProperty Name="Status" ColumnName="Status" />
-          <ScalarProperty Name="PlotAmount" ColumnName="PlotAmount" />
+          <ScalarProperty Name="Cash" ColumnName="Cash" />
           <ScalarProperty Name="PlotArea" ColumnName="PlotArea" />
           <ScalarProperty Name="PlotNo" ColumnName="PlotNo" />
           <ScalarProperty Name="PlotId" ColumnName="PlotId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_Partner">
+      <EntityTypeMapping TypeName="RealEstateModel.Tbl_Partner">
+        <MappingFragment StoreEntitySet="Tbl_Partner">
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
+          <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+          <ScalarProperty Name="Cnic" ColumnName="Cnic" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="FName" ColumnName="FName" />
+          <ScalarProperty Name="PartnerName" ColumnName="PartnerName" />
+          <ScalarProperty Name="PartnerId" ColumnName="PartnerId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_Partner_Transaction">
+      <EntityTypeMapping TypeName="RealEstateModel.Tbl_Partner_Transaction">
+        <MappingFragment StoreEntitySet="Tbl_Partner_Transaction">
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Credit" ColumnName="Credit" />
+          <ScalarProperty Name="Debit" ColumnName="Debit" />
+          <ScalarProperty Name="PartnerId" ColumnName="PartnerId" />
+          <ScalarProperty Name="TransactionId" ColumnName="TransactionId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="View_PartnerTransaction">
+      <EntityTypeMapping TypeName="RealEstateModel.View_PartnerTransaction">
+        <MappingFragment StoreEntitySet="View_PartnerTransaction">
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Credit" ColumnName="Credit" />
+          <ScalarProperty Name="Debit" ColumnName="Debit" />
+          <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
+          <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+          <ScalarProperty Name="Cnic" ColumnName="Cnic" />
+          <ScalarProperty Name="FName" ColumnName="FName" />
+          <ScalarProperty Name="PartnerName" ColumnName="PartnerName" />
+          <ScalarProperty Name="PartnerId" ColumnName="PartnerId" />
+          <ScalarProperty Name="TransactionId" ColumnName="TransactionId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

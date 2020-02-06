@@ -37,7 +37,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.txtWidth = new System.Windows.Forms.TextBox();
-            this.txtAmount = new System.Windows.Forms.TextBox();
+            this.txtCash = new System.Windows.Forms.TextBox();
             this.txtStatus = new System.Windows.Forms.ComboBox();
             this.txtPlotNo = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -50,12 +50,16 @@
             this.btnClear = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnAddNew = new System.Windows.Forms.Button();
+            this.txtInstallment = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.White;
+            this.groupBox1.Controls.Add(this.txtInstallment);
+            this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.txtMarla);
@@ -64,7 +68,7 @@
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.txtWidth);
-            this.groupBox1.Controls.Add(this.txtAmount);
+            this.groupBox1.Controls.Add(this.txtCash);
             this.groupBox1.Controls.Add(this.txtStatus);
             this.groupBox1.Controls.Add(this.txtPlotNo);
             this.groupBox1.Controls.Add(this.label5);
@@ -167,14 +171,14 @@
             this.txtWidth.Size = new System.Drawing.Size(68, 22);
             this.txtWidth.TabIndex = 39;
             // 
-            // txtAmount
+            // txtCash
             // 
-            this.txtAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.txtAmount.Location = new System.Drawing.Point(526, 59);
-            this.txtAmount.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtAmount.Name = "txtAmount";
-            this.txtAmount.Size = new System.Drawing.Size(228, 22);
-            this.txtAmount.TabIndex = 38;
+            this.txtCash.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.txtCash.Location = new System.Drawing.Point(526, 59);
+            this.txtCash.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtCash.Name = "txtCash";
+            this.txtCash.Size = new System.Drawing.Size(228, 22);
+            this.txtCash.TabIndex = 38;
             // 
             // txtStatus
             // 
@@ -184,7 +188,7 @@
             "",
             "Available",
             "Unavailable"});
-            this.txtStatus.Location = new System.Drawing.Point(526, 106);
+            this.txtStatus.Location = new System.Drawing.Point(526, 151);
             this.txtStatus.Name = "txtStatus";
             this.txtStatus.Size = new System.Drawing.Size(228, 24);
             this.txtStatus.TabIndex = 37;
@@ -238,16 +242,16 @@
             this.label2.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label2.Location = new System.Drawing.Point(429, 65);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(82, 16);
+            this.label2.Size = new System.Drawing.Size(42, 16);
             this.label2.TabIndex = 25;
-            this.label2.Text = "Plot Amount:";
+            this.label2.Text = "Cash:";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.label9.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label9.Location = new System.Drawing.Point(429, 114);
+            this.label9.Location = new System.Drawing.Point(429, 159);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(48, 16);
             this.label9.TabIndex = 10;
@@ -321,6 +325,26 @@
             this.btnAddNew.UseVisualStyleBackColor = false;
             this.btnAddNew.Click += new System.EventHandler(this.btnAddNew_Click);
             // 
+            // txtInstallment
+            // 
+            this.txtInstallment.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.txtInstallment.Location = new System.Drawing.Point(526, 104);
+            this.txtInstallment.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtInstallment.Name = "txtInstallment";
+            this.txtInstallment.Size = new System.Drawing.Size(228, 22);
+            this.txtInstallment.TabIndex = 49;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.label3.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label3.Location = new System.Drawing.Point(429, 110);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(74, 16);
+            this.label3.TabIndex = 48;
+            this.label3.Text = "Installment:";
+            // 
             // FrmAddPlot
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -356,7 +380,7 @@
         private System.Windows.Forms.ComboBox txtColonyName;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtWidth;
-        private System.Windows.Forms.TextBox txtAmount;
+        private System.Windows.Forms.TextBox txtCash;
         private System.Windows.Forms.ComboBox txtStatus;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label6;
@@ -364,5 +388,7 @@
         private System.Windows.Forms.TextBox txtMarla;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtKanal;
+        private System.Windows.Forms.TextBox txtInstallment;
+        private System.Windows.Forms.Label label3;
     }
 }

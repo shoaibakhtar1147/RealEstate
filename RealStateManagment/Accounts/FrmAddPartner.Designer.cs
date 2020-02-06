@@ -248,6 +248,7 @@
             this.btnSave.TabIndex = 30;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnAddNew
             // 
@@ -263,6 +264,7 @@
             this.btnAddNew.TabIndex = 29;
             this.btnAddNew.Text = "New";
             this.btnAddNew.UseVisualStyleBackColor = false;
+            this.btnAddNew.Click += new System.EventHandler(this.btnAddNew_Click);
             // 
             // FrmAddPartner
             // 

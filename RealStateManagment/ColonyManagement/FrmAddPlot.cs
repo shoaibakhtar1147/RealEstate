@@ -25,7 +25,7 @@ namespace RealStateManagment.ColonyManagement
 
         private void FormDisable()
         {
-            txtAmount.Enabled = false;
+            txtCash.Enabled = false;
             txtColonyName.Enabled = false;
             txtKanal.Enabled = false;
             txtMarla.Enabled = false;
@@ -40,7 +40,7 @@ namespace RealStateManagment.ColonyManagement
 
         private void FormEnable()
         {
-            txtAmount.Enabled = true;
+            txtCash.Enabled = true;
             txtColonyName.Enabled = true;
             txtKanal.Enabled = true;
             txtMarla.Enabled = true;
@@ -71,7 +71,8 @@ namespace RealStateManagment.ColonyManagement
                 {
                     obj.PlotNo = Convert.ToInt32(txtPlotNo.Text);
                     obj.PlotArea = txtLength.Text + "x" + txtWidth.Text;
-                    obj.PlotAmount = Convert.ToDecimal(txtAmount.Text);
+                    obj.PlotAmount = Convert.ToDecimal(txtCash.Text);
+                    obj.AmountOnInstall = Convert.ToDecimal(txtInstallment.Text);
                     obj.Status = txtStatus.Text;
                     obj.ColonyId = Convert.ToInt32(txtColonyName.SelectedValue);
                     obj.Save();
@@ -81,7 +82,8 @@ namespace RealStateManagment.ColonyManagement
                 {
                     obj.PlotNo = Convert.ToInt32(txtPlotNo.Text);
                     obj.PlotArea = txtKanal.Text +" Kanal " + txtMarla.Text+" Marla";
-                    obj.PlotAmount = Convert.ToDecimal(txtAmount.Text);
+                    obj.PlotAmount = Convert.ToDecimal(txtCash.Text);
+                    obj.AmountOnInstall = Convert.ToDecimal(txtInstallment.Text);
                     obj.Status = txtStatus.Text;
                     obj.ColonyId = Convert.ToInt32(txtColonyName.SelectedValue);
                     obj.Save();
@@ -91,7 +93,8 @@ namespace RealStateManagment.ColonyManagement
                 {
                     obj.PlotNo = Convert.ToInt32(txtPlotNo.Text);
                     obj.PlotArea = txtKanal.Text+" Kanal";
-                    obj.PlotAmount = Convert.ToDecimal(txtAmount.Text);
+                    obj.PlotAmount = Convert.ToDecimal(txtCash.Text);
+                    obj.AmountOnInstall = Convert.ToDecimal(txtInstallment.Text);
                     obj.Status = txtStatus.Text;
                     obj.ColonyId = Convert.ToInt32(txtColonyName.SelectedValue);
                     obj.Save();
@@ -100,7 +103,8 @@ namespace RealStateManagment.ColonyManagement
                 {
                     obj.PlotNo = Convert.ToInt32(txtPlotNo.Text);
                     obj.PlotArea =  txtMarla.Text +" Marla";
-                    obj.PlotAmount = Convert.ToDecimal(txtAmount.Text);
+                    obj.PlotAmount = Convert.ToDecimal(txtCash.Text);
+                    obj.AmountOnInstall = Convert.ToDecimal(txtInstallment.Text);
                     obj.Status = txtStatus.Text;
                     obj.ColonyId = Convert.ToInt32(txtColonyName.SelectedValue);
                     obj.Save();

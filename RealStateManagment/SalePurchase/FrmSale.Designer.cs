@@ -29,27 +29,27 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.txtBalance = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.txtBuyDate = new System.Windows.Forms.DateTimePicker();
             this.label11 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtMonthlyPayment = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
+            this.txtMonths = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtDownPayment = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.txtPaymentType = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.txtCusID = new System.Windows.Forms.TextBox();
+            this.txtTotalAmount = new System.Windows.Forms.TextBox();
+            this.txtContractID = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtClientName = new System.Windows.Forms.ComboBox();
+            this.txtPlotNo = new System.Windows.Forms.ComboBox();
+            this.txtArea = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.txtColonyName = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -62,27 +62,27 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.White;
-            this.groupBox1.Controls.Add(this.textBox5);
+            this.groupBox1.Controls.Add(this.txtBalance);
             this.groupBox1.Controls.Add(this.label12);
-            this.groupBox1.Controls.Add(this.dateTimePicker1);
+            this.groupBox1.Controls.Add(this.txtBuyDate);
             this.groupBox1.Controls.Add(this.label11);
-            this.groupBox1.Controls.Add(this.textBox4);
+            this.groupBox1.Controls.Add(this.txtMonthlyPayment);
             this.groupBox1.Controls.Add(this.label10);
-            this.groupBox1.Controls.Add(this.comboBox5);
+            this.groupBox1.Controls.Add(this.txtMonths);
             this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.txtDownPayment);
             this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.comboBox4);
+            this.groupBox1.Controls.Add(this.txtPaymentType);
             this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.txtCusID);
+            this.groupBox1.Controls.Add(this.txtTotalAmount);
+            this.groupBox1.Controls.Add(this.txtContractID);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.comboBox2);
-            this.groupBox1.Controls.Add(this.comboBox3);
-            this.groupBox1.Controls.Add(this.textBox3);
+            this.groupBox1.Controls.Add(this.txtClientName);
+            this.groupBox1.Controls.Add(this.txtPlotNo);
+            this.groupBox1.Controls.Add(this.txtArea);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.comboBox1);
+            this.groupBox1.Controls.Add(this.txtColonyName);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
@@ -97,14 +97,14 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Installment Information";
             // 
-            // textBox5
+            // txtBalance
             // 
-            this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.textBox5.Location = new System.Drawing.Point(487, 268);
-            this.textBox5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(148, 22);
-            this.textBox5.TabIndex = 71;
+            this.txtBalance.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.txtBalance.Location = new System.Drawing.Point(486, 268);
+            this.txtBalance.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtBalance.Name = "txtBalance";
+            this.txtBalance.Size = new System.Drawing.Size(148, 22);
+            this.txtBalance.TabIndex = 71;
             // 
             // label12
             // 
@@ -117,14 +117,14 @@
             this.label12.TabIndex = 70;
             this.label12.Text = "Balance:";
             // 
-            // dateTimePicker1
+            // txtBuyDate
             // 
-            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(125, 268);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(148, 22);
-            this.dateTimePicker1.TabIndex = 69;
+            this.txtBuyDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.txtBuyDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.txtBuyDate.Location = new System.Drawing.Point(125, 268);
+            this.txtBuyDate.Name = "txtBuyDate";
+            this.txtBuyDate.Size = new System.Drawing.Size(148, 22);
+            this.txtBuyDate.TabIndex = 69;
             // 
             // label11
             // 
@@ -137,14 +137,14 @@
             this.label11.TabIndex = 68;
             this.label11.Text = "Date Buy:";
             // 
-            // textBox4
+            // txtMonthlyPayment
             // 
-            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.textBox4.Location = new System.Drawing.Point(486, 229);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(148, 22);
-            this.textBox4.TabIndex = 67;
+            this.txtMonthlyPayment.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.txtMonthlyPayment.Location = new System.Drawing.Point(486, 229);
+            this.txtMonthlyPayment.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtMonthlyPayment.Name = "txtMonthlyPayment";
+            this.txtMonthlyPayment.Size = new System.Drawing.Size(148, 22);
+            this.txtMonthlyPayment.TabIndex = 67;
             // 
             // label10
             // 
@@ -157,14 +157,20 @@
             this.label10.TabIndex = 66;
             this.label10.Text = "Monthly Payment:";
             // 
-            // comboBox5
+            // txtMonths
             // 
-            this.comboBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Location = new System.Drawing.Point(125, 229);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(148, 24);
-            this.comboBox5.TabIndex = 65;
+            this.txtMonths.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.txtMonths.FormattingEnabled = true;
+            this.txtMonths.Items.AddRange(new object[] {
+            "6",
+            "12",
+            "18",
+            "24"});
+            this.txtMonths.Location = new System.Drawing.Point(125, 229);
+            this.txtMonths.Name = "txtMonths";
+            this.txtMonths.Size = new System.Drawing.Size(148, 24);
+            this.txtMonths.TabIndex = 65;
+            this.txtMonths.SelectedIndexChanged += new System.EventHandler(this.txtMonths_SelectedIndexChanged);
             // 
             // label8
             // 
@@ -173,18 +179,18 @@
             this.label8.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label8.Location = new System.Drawing.Point(21, 232);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(85, 16);
+            this.label8.Size = new System.Drawing.Size(92, 16);
             this.label8.TabIndex = 64;
-            this.label8.Text = "No of  Years:";
+            this.label8.Text = "No of  Months:";
             // 
-            // textBox1
+            // txtDownPayment
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.textBox1.Location = new System.Drawing.Point(486, 193);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(148, 22);
-            this.textBox1.TabIndex = 63;
+            this.txtDownPayment.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.txtDownPayment.Location = new System.Drawing.Point(486, 193);
+            this.txtDownPayment.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtDownPayment.Name = "txtDownPayment";
+            this.txtDownPayment.Size = new System.Drawing.Size(148, 22);
+            this.txtDownPayment.TabIndex = 63;
             // 
             // label7
             // 
@@ -197,44 +203,48 @@
             this.label7.TabIndex = 62;
             this.label7.Text = "Down Payment:";
             // 
-            // comboBox4
+            // txtPaymentType
             // 
-            this.comboBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(125, 188);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(148, 24);
-            this.comboBox4.TabIndex = 61;
+            this.txtPaymentType.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.txtPaymentType.FormattingEnabled = true;
+            this.txtPaymentType.Items.AddRange(new object[] {
+            "Installment",
+            "Cash"});
+            this.txtPaymentType.Location = new System.Drawing.Point(486, 152);
+            this.txtPaymentType.Name = "txtPaymentType";
+            this.txtPaymentType.Size = new System.Drawing.Size(148, 24);
+            this.txtPaymentType.TabIndex = 61;
+            this.txtPaymentType.Leave += new System.EventHandler(this.txtPaymentType_Leave);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.label6.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label6.Location = new System.Drawing.Point(21, 191);
+            this.label6.Location = new System.Drawing.Point(367, 155);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(99, 16);
             this.label6.TabIndex = 60;
             this.label6.Text = "Payment Type:";
             // 
-            // textBox2
+            // txtTotalAmount
             // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.textBox2.Location = new System.Drawing.Point(486, 152);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(148, 22);
-            this.textBox2.TabIndex = 59;
+            this.txtTotalAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.txtTotalAmount.Location = new System.Drawing.Point(125, 190);
+            this.txtTotalAmount.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtTotalAmount.Name = "txtTotalAmount";
+            this.txtTotalAmount.Size = new System.Drawing.Size(148, 22);
+            this.txtTotalAmount.TabIndex = 59;
             // 
-            // txtCusID
+            // txtContractID
             // 
-            this.txtCusID.Enabled = false;
-            this.txtCusID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.txtCusID.Location = new System.Drawing.Point(125, 152);
-            this.txtCusID.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtCusID.Name = "txtCusID";
-            this.txtCusID.Size = new System.Drawing.Size(148, 22);
-            this.txtCusID.TabIndex = 58;
+            this.txtContractID.Enabled = false;
+            this.txtContractID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.txtContractID.Location = new System.Drawing.Point(125, 152);
+            this.txtContractID.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtContractID.Name = "txtContractID";
+            this.txtContractID.Size = new System.Drawing.Size(148, 22);
+            this.txtContractID.TabIndex = 58;
             // 
             // label3
             // 
@@ -252,38 +262,39 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.label9.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label9.Location = new System.Drawing.Point(368, 155);
+            this.label9.Location = new System.Drawing.Point(21, 193);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(86, 16);
             this.label9.TabIndex = 56;
             this.label9.Text = "Total Amont::";
             // 
-            // comboBox2
+            // txtClientName
             // 
-            this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(125, 65);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(359, 24);
-            this.comboBox2.TabIndex = 42;
+            this.txtClientName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.txtClientName.FormattingEnabled = true;
+            this.txtClientName.Location = new System.Drawing.Point(125, 65);
+            this.txtClientName.Name = "txtClientName";
+            this.txtClientName.Size = new System.Drawing.Size(359, 24);
+            this.txtClientName.TabIndex = 42;
             // 
-            // comboBox3
+            // txtPlotNo
             // 
-            this.comboBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(486, 110);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(148, 24);
-            this.comboBox3.TabIndex = 40;
+            this.txtPlotNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.txtPlotNo.FormattingEnabled = true;
+            this.txtPlotNo.Location = new System.Drawing.Point(486, 110);
+            this.txtPlotNo.Name = "txtPlotNo";
+            this.txtPlotNo.Size = new System.Drawing.Size(148, 24);
+            this.txtPlotNo.TabIndex = 40;
+            this.txtPlotNo.Leave += new System.EventHandler(this.txtPlotNo_Leave);
             // 
-            // textBox3
+            // txtArea
             // 
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.textBox3.Location = new System.Drawing.Point(709, 110);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(86, 22);
-            this.textBox3.TabIndex = 39;
+            this.txtArea.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.txtArea.Location = new System.Drawing.Point(709, 110);
+            this.txtArea.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtArea.Name = "txtArea";
+            this.txtArea.Size = new System.Drawing.Size(86, 22);
+            this.txtArea.TabIndex = 39;
             // 
             // label5
             // 
@@ -296,14 +307,15 @@
             this.label5.TabIndex = 36;
             this.label5.Text = "Area:";
             // 
-            // comboBox1
+            // txtColonyName
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(125, 109);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(228, 24);
-            this.comboBox1.TabIndex = 34;
+            this.txtColonyName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.txtColonyName.FormattingEnabled = true;
+            this.txtColonyName.Location = new System.Drawing.Point(125, 109);
+            this.txtColonyName.Name = "txtColonyName";
+            this.txtColonyName.Size = new System.Drawing.Size(228, 24);
+            this.txtColonyName.TabIndex = 34;
+            this.txtColonyName.SelectedIndexChanged += new System.EventHandler(this.txtColonyName_SelectedIndexChanged);
             // 
             // label4
             // 
@@ -382,6 +394,7 @@
             this.btnAddNew.TabIndex = 36;
             this.btnAddNew.Text = "New";
             this.btnAddNew.UseVisualStyleBackColor = false;
+            this.btnAddNew.Click += new System.EventHandler(this.btnAddNew_Click);
             // 
             // FrmSale
             // 
@@ -405,29 +418,29 @@
 
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox txtColonyName;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox txtBalance;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker txtBuyDate;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtMonthlyPayment;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.ComboBox comboBox5;
+        private System.Windows.Forms.ComboBox txtMonths;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtDownPayment;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.ComboBox txtPaymentType;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox txtCusID;
+        private System.Windows.Forms.TextBox txtTotalAmount;
+        private System.Windows.Forms.TextBox txtContractID;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.ComboBox txtClientName;
+        private System.Windows.Forms.ComboBox txtPlotNo;
+        private System.Windows.Forms.TextBox txtArea;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnAddNew;

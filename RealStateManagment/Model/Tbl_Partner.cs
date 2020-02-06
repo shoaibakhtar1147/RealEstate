@@ -12,14 +12,15 @@ namespace RealStateManagment.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class Tbl_Plot
+    public partial class Tbl_Partner
     {
-        public int PlotId { get; set; }
-        public Nullable<int> PlotNo { get; set; }
-        public string PlotArea { get; set; }
-        public Nullable<decimal> PlotAmount { get; set; }
-        public string Status { get; set; }
-        public Nullable<int> ColonyId { get; set; }
-        public Nullable<decimal> AmountOnInstall { get; set; }
+        public int PartnerId { get; set; }
+        public string PartnerName { get; set; }
+        public string FName { get; set; }
+        public string Email { get; set; }
+        public string Cnic { get; set; }
+        public string MobileNo { get; set; }
+        public string PhoneNo { get; set; }
+        public string Address { get; set; }
     }
 }

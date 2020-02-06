@@ -15,6 +15,7 @@ namespace RealStateManagment.BL
      public string Status{get;set;}
      public int ColonyId { get; set; }
      public string ColonyName { get; set; }
+     public decimal AmountOnInstall { get; set; }
 
     public void Save()
      {
@@ -26,7 +27,8 @@ namespace RealStateManagment.BL
               PlotArea=PlotArea,
               PlotAmount=PlotAmount,
               Status=Status,
-              ColonyId=ColonyId
+              ColonyId=ColonyId,
+              AmountOnInstall=AmountOnInstall
             };
             context.Tbl_Plot.Add(objPlot);
             context.SaveChanges();

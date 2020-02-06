@@ -91,7 +91,9 @@
     </Compile>
     <Compile Include="BL\ClientBL.cs" />
     <Compile Include="BL\ColonyBL.cs" />
+    <Compile Include="BL\PartnerBL.cs" />
     <Compile Include="BL\PlotBL.cs" />
+    <Compile Include="BL\TransactionBL.cs" />
     <Compile Include="ColonyManagement\FrmAddColony.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -191,7 +193,16 @@
     <Compile Include="Model\Tbl_Colony.cs">
       <DependentUpon>RealEstateModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\Tbl_Partner.cs">
+      <DependentUpon>RealEstateModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Tbl_Partner_Transaction.cs">
+      <DependentUpon>RealEstateModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\Tbl_Plot.cs">
+      <DependentUpon>RealEstateModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\View_PartnerTransaction.cs">
       <DependentUpon>RealEstateModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\View_Plot.cs">
