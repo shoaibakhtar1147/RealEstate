@@ -57,23 +57,48 @@ namespace RealStateManagment.Accounts
             btnClear.Enabled = false;
         }
 
+        private bool SearchCnic()
+        {
+            PartnerBL obj = new PartnerBL() 
+            {
+             Cnic=txtCnic.Text
+            };
+            var dt = obj.Search();
+            if(dt.Count>0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
         private void btnSave_Click(object sender, EventArgs e)
         {
             try
             {
-                PartnerBL objPart = new PartnerBL() 
+               
+                if(SearchCnic()!=true)
                 {
-                 PartnerName=txtPartnerName.Text,
-                 FName=txtFName.Text,
-                 Email=txtEmail.Text,
-                 Cnic=txtCnic.Text,
-                 MobileNo=txtMobNo.Text,
-                 PhoneNo=txtPhoneNo.Text,
-                 Address=txtAddress.Text
-                };
-                objPart.Save();
-                MessageBox.Show(txtPartnerName.Text + " Saved Successfull");
-                ClearGroup();
+                    PartnerBL objPart = new PartnerBL()    
+                    {
+                        PartnerName = txtPartnerName.Text,
+                        FName = txtFName.Text,
+                        Email = txtEmail.Text,
+                        Cnic = txtCnic.Text,
+                        MobileNo = txtMobNo.Text,
+                        PhoneNo = txtPhoneNo.Text,
+                        Address = txtAddress.Text,
+                    };
+                    objPart.Save();
+                    MessageBox.Show(txtPartnerName.Text + " Saved Successfull");
+                    ClearGroup();
+                }
+                else
+                {
+                    MessageBox.Show(txtCnic.Text+(" Cnic has already exist"));
+                }
+                
             }
             catch(Exception ex)
             {

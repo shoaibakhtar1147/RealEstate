@@ -1,4 +1,6 @@
 ﻿using MetroFramework.Forms;
+using RealStateManagment.BL;
+using RealStateManagment.Report;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,7 +21,46 @@ namespace RealStateManagment.Accounts
 
         private void PartnerLedger_Load(object sender, EventArgs e)
         {
+            //LoadData();
+            Design.Designform(this);
+        }
 
+       
+
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            TransactionBL obj = new TransactionBL()
+            {
+                Cnic = txtSearch.Text
+            };
+            var dt = obj.Search();
+            if (dt.Count > 0 && dt != null)
+            {
+                dgvPartner.DataSource = dt;
+                this.dgvPartner.Columns["PartnerId"].Visible = false;
+                this.dgvPartner.Columns["MobileNo"].Visible = false;
+                this.dgvPartner.Columns["PartnerName"].Visible = false;
+                this.dgvPartner.Columns["PhoneNo"].Visible = false;
+                this.dgvPartner.Columns["FName"].Visible = false;
+               
+
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if(dgvPartner.DataSource != null)
+            {
+                PartnerTransactionReport objRep = new PartnerTransactionReport();
+                FrmReportViewer objView = new FrmReportViewer();
+                objRep.SetParameterValue("@Cnic", txtSearch.Text);
+                objView.crptViewer.ReportSource = objRep;
+                objView.WindowState = FormWindowState.Normal;
+                objView.ShowDialog();
+
+
+            }
         }
     }
 }

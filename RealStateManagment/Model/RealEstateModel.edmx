@@ -43,6 +43,7 @@
           <Property Name="MobileNo" Type="varchar" MaxLength="20" />
           <Property Name="PhoneNo" Type="varchar" MaxLength="20" />
           <Property Name="Address" Type="varchar(max)" />
+          <Property Name="Amount" Type="decimal" Precision="18" Scale="2" />
         </EntityType>
         <EntityType Name="Tbl_Partner_Transaction">
           <Key>
@@ -50,9 +51,11 @@
           </Key>
           <Property Name="TransactionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="PartnerId" Type="int" />
+          <Property Name="Amount" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="TransactionDate" Type="datetime" />
           <Property Name="Debit" Type="decimal" Precision="18" Scale="2" />
           <Property Name="Credit" Type="decimal" Precision="18" Scale="2" />
-          <Property Name="Amount" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Description" Type="varchar(max)" />
         </EntityType>
         <EntityType Name="Tbl_Plot">
           <Key>
@@ -60,11 +63,12 @@
           </Key>
           <Property Name="PlotId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="PlotNo" Type="int" />
-          <Property Name="PlotArea" Type="varchar" MaxLength="50" />
+          <Property Name="Size" Type="varchar" MaxLength="50" />
           <Property Name="PlotAmount" Type="decimal" Precision="18" Scale="2" />
           <Property Name="Status" Type="varchar" MaxLength="20" />
           <Property Name="ColonyId" Type="int" />
           <Property Name="AmountOnInstall" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Area" Type="varchar" MaxLength="30" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'RealEstate.dbo.View_PartnerTransaction' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -79,8 +83,10 @@ warning 6002: The table/view 'RealEstate.dbo.View_PartnerTransaction' does not h
           <Property Name="Cnic" Type="varchar" MaxLength="20" />
           <Property Name="MobileNo" Type="varchar" MaxLength="20" />
           <Property Name="PhoneNo" Type="varchar" MaxLength="20" />
-          <Property Name="Debit" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="TransactionDate" Type="datetime" />
+          <Property Name="Description" Type="varchar(max)" />
           <Property Name="Credit" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Debit" Type="decimal" Precision="18" Scale="2" />
           <Property Name="Amount" Type="decimal" Precision="18" Scale="2" />
         </EntityType>
         <!--Errors Found During Generation:
@@ -91,8 +97,9 @@ warning 6002: The table/view 'RealEstate.dbo.View_Plot' does not have a primary 
           </Key>
           <Property Name="PlotId" Type="int" Nullable="false" />
           <Property Name="PlotNo" Type="int" />
-          <Property Name="PlotArea" Type="varchar" MaxLength="50" />
           <Property Name="Cash" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Size" Type="varchar" MaxLength="50" />
+          <Property Name="Area" Type="varchar" MaxLength="50" />
           <Property Name="Status" Type="varchar" MaxLength="20" />
           <Property Name="ColonyId" Type="int" />
           <Property Name="ColonyName" Type="varchar(max)" />
@@ -113,8 +120,10 @@ warning 6002: The table/view 'RealEstate.dbo.View_Plot' does not have a primary 
     [View_PartnerTransaction].[Cnic] AS [Cnic], 
     [View_PartnerTransaction].[MobileNo] AS [MobileNo], 
     [View_PartnerTransaction].[PhoneNo] AS [PhoneNo], 
-    [View_PartnerTransaction].[Debit] AS [Debit], 
+    [View_PartnerTransaction].[TransactionDate] AS [TransactionDate], 
+    [View_PartnerTransaction].[Description] AS [Description], 
     [View_PartnerTransaction].[Credit] AS [Credit], 
+    [View_PartnerTransaction].[Debit] AS [Debit], 
     [View_PartnerTransaction].[Amount] AS [Amount]
     FROM [dbo].[View_PartnerTransaction] AS [View_PartnerTransaction]</DefiningQuery>
           </EntitySet>
@@ -122,8 +131,9 @@ warning 6002: The table/view 'RealEstate.dbo.View_Plot' does not have a primary 
             <DefiningQuery>SELECT 
     [View_Plot].[PlotId] AS [PlotId], 
     [View_Plot].[PlotNo] AS [PlotNo], 
-    [View_Plot].[PlotArea] AS [PlotArea], 
     [View_Plot].[Cash] AS [Cash], 
+    [View_Plot].[Size] AS [Size], 
+    [View_Plot].[Area] AS [Area], 
     [View_Plot].[Status] AS [Status], 
     [View_Plot].[ColonyId] AS [ColonyId], 
     [View_Plot].[ColonyName] AS [ColonyName], 
@@ -138,9 +148,9 @@ warning 6002: The table/view 'RealEstate.dbo.View_Plot' does not have a primary 
         <EntityContainer Name="RealEstateEntities" annotation:LazyLoadingEnabled="true" >
           <EntitySet Name="Tbl_Client" EntityType="RealEstateModel.Tbl_Client" />
           <EntitySet Name="Tbl_Colony" EntityType="RealEstateModel.Tbl_Colony" />
+          <EntitySet Name="Tbl_Partner" EntityType="RealEstateModel.Tbl_Partner" />
           <EntitySet Name="Tbl_Plot" EntityType="RealEstateModel.Tbl_Plot" />
           <EntitySet Name="View_Plot" EntityType="RealEstateModel.View_Plot" />
-          <EntitySet Name="Tbl_Partner" EntityType="RealEstateModel.Tbl_Partner" />
           <EntitySet Name="Tbl_Partner_Transaction" EntityType="RealEstateModel.Tbl_Partner_Transaction" />
           <EntitySet Name="View_PartnerTransaction" EntityType="RealEstateModel.View_PartnerTransaction" />
         </EntityContainer>
@@ -170,31 +180,6 @@ warning 6002: The table/view 'RealEstate.dbo.View_Plot' does not have a primary 
           <Property Name="Cnic" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
-        <EntityType Name="Tbl_Plot">
-          <Key>
-            <PropertyRef Name="PlotId" />
-          </Key>
-          <Property Name="PlotId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="PlotNo" Type="Int32" />
-          <Property Name="PlotArea" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="PlotAmount" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="Status" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
-          <Property Name="ColonyId" Type="Int32" />
-          <Property Name="AmountOnInstall" Type="Decimal" Precision="18" Scale="2" />
-        </EntityType>
-        <EntityType Name="View_Plot">
-          <Key>
-            <PropertyRef Name="PlotId" />
-          </Key>
-          <Property Name="PlotId" Type="Int32" Nullable="false" />
-          <Property Name="PlotNo" Type="Int32" />
-          <Property Name="PlotArea" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Cash" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="ColonyId" Type="Int32" />
-          <Property Name="ColonyName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="Installment" Type="Decimal" Precision="18" Scale="2" />
-        </EntityType>
         <EntityType Name="Tbl_Partner">
           <Key>
             <PropertyRef Name="PartnerId" />
@@ -207,6 +192,34 @@ warning 6002: The table/view 'RealEstate.dbo.View_Plot' does not have a primary 
           <Property Name="MobileNo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="PhoneNo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Amount" Type="Decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="Tbl_Plot">
+          <Key>
+            <PropertyRef Name="PlotId" />
+          </Key>
+          <Property Name="PlotId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PlotNo" Type="Int32" />
+          <Property Name="Size" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PlotAmount" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ColonyId" Type="Int32" />
+          <Property Name="AmountOnInstall" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Area" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="View_Plot">
+          <Key>
+            <PropertyRef Name="PlotId" />
+          </Key>
+          <Property Name="PlotId" Type="Int32" Nullable="false" />
+          <Property Name="PlotNo" Type="Int32" />
+          <Property Name="Cash" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Size" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Area" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ColonyId" Type="Int32" />
+          <Property Name="ColonyName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Installment" Type="Decimal" Precision="18" Scale="2" />
         </EntityType>
         <EntityType Name="Tbl_Partner_Transaction">
           <Key>
@@ -214,9 +227,11 @@ warning 6002: The table/view 'RealEstate.dbo.View_Plot' does not have a primary 
           </Key>
           <Property Name="TransactionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="PartnerId" Type="Int32" />
+          <Property Name="Amount" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="TransactionDate" Type="DateTime" Precision="3" />
           <Property Name="Debit" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="Credit" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="Amount" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="View_PartnerTransaction">
           <Key>
@@ -229,8 +244,10 @@ warning 6002: The table/view 'RealEstate.dbo.View_Plot' does not have a primary 
           <Property Name="Cnic" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="MobileNo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="PhoneNo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="Debit" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="TransactionDate" Type="DateTime" Precision="3" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Credit" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Debit" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="Amount" Type="Decimal" Precision="18" Scale="2" />
         </EntityType>
       </Schema>
@@ -267,14 +284,30 @@ warning 6002: The table/view 'RealEstate.dbo.View_Plot' does not have a primary 
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_Partner">
+            <EntityTypeMapping TypeName="RealEstateModel.Tbl_Partner">
+              <MappingFragment StoreEntitySet="Tbl_Partner">
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
+                <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+                <ScalarProperty Name="Cnic" ColumnName="Cnic" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="FName" ColumnName="FName" />
+                <ScalarProperty Name="PartnerName" ColumnName="PartnerName" />
+                <ScalarProperty Name="PartnerId" ColumnName="PartnerId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Tbl_Plot">
             <EntityTypeMapping TypeName="RealEstateModel.Tbl_Plot">
               <MappingFragment StoreEntitySet="Tbl_Plot">
+                <ScalarProperty Name="Area" ColumnName="Area" />
                 <ScalarProperty Name="AmountOnInstall" ColumnName="AmountOnInstall" />
                 <ScalarProperty Name="ColonyId" ColumnName="ColonyId" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="PlotAmount" ColumnName="PlotAmount" />
-                <ScalarProperty Name="PlotArea" ColumnName="PlotArea" />
+                <ScalarProperty Name="Size" ColumnName="Size" />
                 <ScalarProperty Name="PlotNo" ColumnName="PlotNo" />
                 <ScalarProperty Name="PlotId" ColumnName="PlotId" />
               </MappingFragment>
@@ -287,33 +320,22 @@ warning 6002: The table/view 'RealEstate.dbo.View_Plot' does not have a primary 
                 <ScalarProperty Name="ColonyName" ColumnName="ColonyName" />
                 <ScalarProperty Name="ColonyId" ColumnName="ColonyId" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Area" ColumnName="Area" />
+                <ScalarProperty Name="Size" ColumnName="Size" />
                 <ScalarProperty Name="Cash" ColumnName="Cash" />
-                <ScalarProperty Name="PlotArea" ColumnName="PlotArea" />
                 <ScalarProperty Name="PlotNo" ColumnName="PlotNo" />
                 <ScalarProperty Name="PlotId" ColumnName="PlotId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Tbl_Partner">
-            <EntityTypeMapping TypeName="RealEstateModel.Tbl_Partner">
-              <MappingFragment StoreEntitySet="Tbl_Partner">
-                <ScalarProperty Name="Address" ColumnName="Address" />
-                <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
-                <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
-                <ScalarProperty Name="Cnic" ColumnName="Cnic" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="FName" ColumnName="FName" />
-                <ScalarProperty Name="PartnerName" ColumnName="PartnerName" />
-                <ScalarProperty Name="PartnerId" ColumnName="PartnerId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Tbl_Partner_Transaction">
             <EntityTypeMapping TypeName="RealEstateModel.Tbl_Partner_Transaction">
               <MappingFragment StoreEntitySet="Tbl_Partner_Transaction">
-                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="Credit" ColumnName="Credit" />
                 <ScalarProperty Name="Debit" ColumnName="Debit" />
+                <ScalarProperty Name="TransactionDate" ColumnName="TransactionDate" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
                 <ScalarProperty Name="PartnerId" ColumnName="PartnerId" />
                 <ScalarProperty Name="TransactionId" ColumnName="TransactionId" />
               </MappingFragment>
@@ -323,8 +345,10 @@ warning 6002: The table/view 'RealEstate.dbo.View_Plot' does not have a primary 
             <EntityTypeMapping TypeName="RealEstateModel.View_PartnerTransaction">
               <MappingFragment StoreEntitySet="View_PartnerTransaction">
                 <ScalarProperty Name="Amount" ColumnName="Amount" />
-                <ScalarProperty Name="Credit" ColumnName="Credit" />
                 <ScalarProperty Name="Debit" ColumnName="Debit" />
+                <ScalarProperty Name="Credit" ColumnName="Credit" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="TransactionDate" ColumnName="TransactionDate" />
                 <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
                 <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
                 <ScalarProperty Name="Cnic" ColumnName="Cnic" />

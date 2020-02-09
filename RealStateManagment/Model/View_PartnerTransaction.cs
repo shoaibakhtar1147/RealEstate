@@ -21,8 +21,10 @@ namespace RealStateManagment.Model
         public string Cnic { get; set; }
         public string MobileNo { get; set; }
         public string PhoneNo { get; set; }
-        public Nullable<decimal> Debit { get; set; }
+        public Nullable<System.DateTime> TransactionDate { get; set; }
+        public string Description { get; set; }
         public Nullable<decimal> Credit { get; set; }
+        public Nullable<decimal> Debit { get; set; }
         public Nullable<decimal> Amount { get; set; }
     }
 }

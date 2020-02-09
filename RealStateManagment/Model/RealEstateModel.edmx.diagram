@@ -7,9 +7,9 @@
       <Diagram DiagramId="833a7d408b224918a42b55a7ad73b2a8" Name="Diagram1" >
         <EntityTypeShape EntityType="RealEstateModel.Tbl_Client" Width="1.5" PointX="0.75" PointY="0.75" />
         <EntityTypeShape EntityType="RealEstateModel.Tbl_Colony" Width="1.5" PointX="3.375" PointY="0.75" />
-        <EntityTypeShape EntityType="RealEstateModel.Tbl_Plot" Width="1.5" PointX="0.75" PointY="4.75" />
-        <EntityTypeShape EntityType="RealEstateModel.View_Plot" Width="1.5" PointX="3.375" PointY="4.75" />
         <EntityTypeShape EntityType="RealEstateModel.Tbl_Partner" Width="1.5" PointX="5.375" PointY="0.75" />
+        <EntityTypeShape EntityType="RealEstateModel.Tbl_Plot" Width="1.5" PointX="0.75" PointY="4.75" />
+        <EntityTypeShape EntityType="RealEstateModel.View_Plot" Width="1.5" PointX="2.75" PointY="4.75" />
         <EntityTypeShape EntityType="RealEstateModel.Tbl_Partner_Transaction" Width="1.5" PointX="5.375" PointY="4.75" />
         <EntityTypeShape EntityType="RealEstateModel.View_PartnerTransaction" Width="1.5" PointX="7.375" PointY="0.75" />
       </Diagram>

@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtInstallment = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.txtMarla = new System.Windows.Forms.TextBox();
@@ -50,8 +52,6 @@
             this.btnClear = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnAddNew = new System.Windows.Forms.Button();
-            this.txtInstallment = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -88,6 +88,26 @@
             this.groupBox1.TabIndex = 28;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Plot Information";
+            // 
+            // txtInstallment
+            // 
+            this.txtInstallment.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.txtInstallment.Location = new System.Drawing.Point(526, 104);
+            this.txtInstallment.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtInstallment.Name = "txtInstallment";
+            this.txtInstallment.Size = new System.Drawing.Size(228, 22);
+            this.txtInstallment.TabIndex = 49;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.label3.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label3.Location = new System.Drawing.Point(429, 110);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(74, 16);
+            this.label3.TabIndex = 48;
+            this.label3.Text = "Installment:";
             // 
             // label6
             // 
@@ -210,9 +230,9 @@
             this.label5.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label5.Location = new System.Drawing.Point(58, 160);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(40, 16);
+            this.label5.Size = new System.Drawing.Size(37, 16);
             this.label5.TabIndex = 36;
-            this.label5.Text = "Area:";
+            this.label5.Text = "Size:";
             this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // txtColonyName
@@ -324,26 +344,6 @@
             this.btnAddNew.Text = "New";
             this.btnAddNew.UseVisualStyleBackColor = false;
             this.btnAddNew.Click += new System.EventHandler(this.btnAddNew_Click);
-            // 
-            // txtInstallment
-            // 
-            this.txtInstallment.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.txtInstallment.Location = new System.Drawing.Point(526, 104);
-            this.txtInstallment.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtInstallment.Name = "txtInstallment";
-            this.txtInstallment.Size = new System.Drawing.Size(228, 22);
-            this.txtInstallment.TabIndex = 49;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.label3.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label3.Location = new System.Drawing.Point(429, 110);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(74, 16);
-            this.label3.TabIndex = 48;
-            this.label3.Text = "Installment:";
             // 
             // FrmAddPlot
             // 

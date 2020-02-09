@@ -16,8 +16,10 @@ namespace RealStateManagment.Model
     {
         public int TransactionId { get; set; }
         public Nullable<int> PartnerId { get; set; }
+        public Nullable<decimal> Amount { get; set; }
+        public Nullable<System.DateTime> TransactionDate { get; set; }
         public Nullable<decimal> Debit { get; set; }
         public Nullable<decimal> Credit { get; set; }
-        public Nullable<decimal> Amount { get; set; }
+        public string Description { get; set; }
     }
 }

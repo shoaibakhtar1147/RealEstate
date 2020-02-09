@@ -38,6 +38,7 @@
     <Property Name="MobileNo" Type="varchar" MaxLength="20" />
     <Property Name="PhoneNo" Type="varchar" MaxLength="20" />
     <Property Name="Address" Type="varchar(max)" />
+    <Property Name="Amount" Type="decimal" Precision="18" Scale="2" />
   </EntityType>
   <EntityType Name="Tbl_Partner_Transaction">
     <Key>
@@ -45,9 +46,11 @@
     </Key>
     <Property Name="TransactionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="PartnerId" Type="int" />
+    <Property Name="Amount" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="TransactionDate" Type="datetime" />
     <Property Name="Debit" Type="decimal" Precision="18" Scale="2" />
     <Property Name="Credit" Type="decimal" Precision="18" Scale="2" />
-    <Property Name="Amount" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Description" Type="varchar(max)" />
   </EntityType>
   <EntityType Name="Tbl_Plot">
     <Key>
@@ -55,11 +58,12 @@
     </Key>
     <Property Name="PlotId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="PlotNo" Type="int" />
-    <Property Name="PlotArea" Type="varchar" MaxLength="50" />
+    <Property Name="Size" Type="varchar" MaxLength="50" />
     <Property Name="PlotAmount" Type="decimal" Precision="18" Scale="2" />
     <Property Name="Status" Type="varchar" MaxLength="20" />
     <Property Name="ColonyId" Type="int" />
     <Property Name="AmountOnInstall" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Area" Type="varchar" MaxLength="30" />
   </EntityType>
   <!--Errors Found During Generation:
 warning 6002: The table/view 'RealEstate.dbo.View_PartnerTransaction' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -74,8 +78,10 @@ warning 6002: The table/view 'RealEstate.dbo.View_PartnerTransaction' does not h
     <Property Name="Cnic" Type="varchar" MaxLength="20" />
     <Property Name="MobileNo" Type="varchar" MaxLength="20" />
     <Property Name="PhoneNo" Type="varchar" MaxLength="20" />
-    <Property Name="Debit" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="TransactionDate" Type="datetime" />
+    <Property Name="Description" Type="varchar(max)" />
     <Property Name="Credit" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Debit" Type="decimal" Precision="18" Scale="2" />
     <Property Name="Amount" Type="decimal" Precision="18" Scale="2" />
   </EntityType>
   <!--Errors Found During Generation:
@@ -86,8 +92,9 @@ warning 6002: The table/view 'RealEstate.dbo.View_Plot' does not have a primary 
     </Key>
     <Property Name="PlotId" Type="int" Nullable="false" />
     <Property Name="PlotNo" Type="int" />
-    <Property Name="PlotArea" Type="varchar" MaxLength="50" />
     <Property Name="Cash" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Size" Type="varchar" MaxLength="50" />
+    <Property Name="Area" Type="varchar" MaxLength="50" />
     <Property Name="Status" Type="varchar" MaxLength="20" />
     <Property Name="ColonyId" Type="int" />
     <Property Name="ColonyName" Type="varchar(max)" />
@@ -108,8 +115,10 @@ warning 6002: The table/view 'RealEstate.dbo.View_Plot' does not have a primary 
     [View_PartnerTransaction].[Cnic] AS [Cnic], 
     [View_PartnerTransaction].[MobileNo] AS [MobileNo], 
     [View_PartnerTransaction].[PhoneNo] AS [PhoneNo], 
-    [View_PartnerTransaction].[Debit] AS [Debit], 
+    [View_PartnerTransaction].[TransactionDate] AS [TransactionDate], 
+    [View_PartnerTransaction].[Description] AS [Description], 
     [View_PartnerTransaction].[Credit] AS [Credit], 
+    [View_PartnerTransaction].[Debit] AS [Debit], 
     [View_PartnerTransaction].[Amount] AS [Amount]
     FROM [dbo].[View_PartnerTransaction] AS [View_PartnerTransaction]</DefiningQuery>
     </EntitySet>
@@ -117,8 +126,9 @@ warning 6002: The table/view 'RealEstate.dbo.View_Plot' does not have a primary 
       <DefiningQuery>SELECT 
     [View_Plot].[PlotId] AS [PlotId], 
     [View_Plot].[PlotNo] AS [PlotNo], 
-    [View_Plot].[PlotArea] AS [PlotArea], 
     [View_Plot].[Cash] AS [Cash], 
+    [View_Plot].[Size] AS [Size], 
+    [View_Plot].[Area] AS [Area], 
     [View_Plot].[Status] AS [Status], 
     [View_Plot].[ColonyId] AS [ColonyId], 
     [View_Plot].[ColonyName] AS [ColonyName], 

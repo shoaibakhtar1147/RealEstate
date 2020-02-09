@@ -38,5 +38,11 @@ namespace RealStateManagment.Accounts
             PartnerLedger objled = new PartnerLedger();
             objled.ShowDialog();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FrmTransaction objTrans = new FrmTransaction();
+            objTrans.ShowDialog();
+        }
     }
 }

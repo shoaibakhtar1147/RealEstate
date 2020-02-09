@@ -127,7 +127,7 @@ namespace RealStateManagment.SalePurchase
             };
             var dt = obj.Search();
             {
-                txtArea.Text = Convert.ToString(dt[0].PlotArea);
+                txtArea.Text = Convert.ToString(dt[0].Area);
             }
         }
 

@@ -20,8 +20,10 @@ namespace RealStateManagment.ColonyManagement
 
         private void ViewColony_Load(object sender, EventArgs e)
         {
+            Design.Designform(this);
             LoadData();
-            GridDesign();
+            
+            //GridDesign();
         }
 
         private void GridDesign()

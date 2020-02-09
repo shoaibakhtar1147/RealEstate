@@ -54,24 +54,47 @@ namespace RealStateManagment.Customer
             ClearGroup();
         }
 
+        private bool SearchCnic()
+        {
+            ClientBL obj = new ClientBL()
+            {
+                Cnic = txtCnic.Text
+            };
+            var dt = obj.Search();
+            if (dt.Count > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         private void btnSave_Click(object sender, EventArgs e)
         {
             try
             {
-                ClientBL objClient = new ClientBL() 
+                if (SearchCnic() != true)
                 {
-                 ClientName=txtClientName.Text,
-                  FatherName=txtFName.Text,
-                   Cnic=txtCnic.Text,
-                    Email=txtEmail.Text,
-                     MobNo=txtMobNo.Text,
-                     PhoneNo=txtPhoneNo.Text,
-                      Address=txtAddress.Text
-                };
-                objClient.Save();
-                MessageBox.Show(txtClientName.Text +" Save Successfully ");
-                ClearGroup();
-
+                    ClientBL objClient = new ClientBL()
+                    {
+                        ClientName = txtClientName.Text,
+                        FatherName = txtFName.Text,
+                        Cnic = txtCnic.Text,
+                        Email = txtEmail.Text,
+                        MobNo = txtMobNo.Text,
+                        PhoneNo = txtPhoneNo.Text,
+                        Address = txtAddress.Text
+                    };
+                    objClient.Save();
+                    MessageBox.Show(txtClientName.Text + " Save Successfully ");
+                    ClearGroup();
+                }
+                else
+                {
+                    MessageBox.Show(txtCnic.Text + (" Cnic has already exist"));
+                }
             }
             catch(Exception ex)
             {

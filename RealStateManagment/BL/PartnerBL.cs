@@ -50,7 +50,20 @@ namespace RealStateManagment.BL
         {
             using(var context=new RealEstateEntities())
             {
-                return context.Tbl_Partner.Where(a => a.PartnerName.Contains(PartnerName.ToLower())).ToList();
+                return context.Tbl_Partner.Where(a => a.PartnerName.Contains(PartnerName.ToLower())||a.Cnic==Cnic).ToList();
+            }
+        }
+        public bool UpdateBalance(decimal amount,int partnerid)
+        {
+            using (var context = new RealEstateEntities())
+            {
+                var partner = context.Tbl_Partner.Where(m => m.PartnerId == partnerid).FirstOrDefault();
+                if (partner != null)
+                {
+                    partner.Amount = amount;
+                }
+                context.SaveChanges();
+                return true;
             }
         }
     }

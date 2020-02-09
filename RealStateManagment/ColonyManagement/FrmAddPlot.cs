@@ -67,22 +67,12 @@ namespace RealStateManagment.ColonyManagement
             try
             {
                 PlotBL obj = new PlotBL();
-                if(txtLength.Text !="" && txtWidth.Text !="")
-                {
-                    obj.PlotNo = Convert.ToInt32(txtPlotNo.Text);
-                    obj.PlotArea = txtLength.Text + "x" + txtWidth.Text;
-                    obj.PlotAmount = Convert.ToDecimal(txtCash.Text);
-                    obj.AmountOnInstall = Convert.ToDecimal(txtInstallment.Text);
-                    obj.Status = txtStatus.Text;
-                    obj.ColonyId = Convert.ToInt32(txtColonyName.SelectedValue);
-                    obj.Save();
-                }
-
-                else if(txtKanal.Text !="" &&txtMarla.Text !="")
+                if(txtKanal.Text !="" &&txtMarla.Text !="")
                 {
                     obj.PlotNo = Convert.ToInt32(txtPlotNo.Text);
                     obj.PlotArea = txtKanal.Text +" Kanal " + txtMarla.Text+" Marla";
                     obj.PlotAmount = Convert.ToDecimal(txtCash.Text);
+                    obj.Size = txtLength.Text + " * " + txtWidth.Text;
                     obj.AmountOnInstall = Convert.ToDecimal(txtInstallment.Text);
                     obj.Status = txtStatus.Text;
                     obj.ColonyId = Convert.ToInt32(txtColonyName.SelectedValue);
@@ -94,6 +84,7 @@ namespace RealStateManagment.ColonyManagement
                     obj.PlotNo = Convert.ToInt32(txtPlotNo.Text);
                     obj.PlotArea = txtKanal.Text+" Kanal";
                     obj.PlotAmount = Convert.ToDecimal(txtCash.Text);
+                    obj.Size = txtLength.Text + " * " + txtWidth.Text;
                     obj.AmountOnInstall = Convert.ToDecimal(txtInstallment.Text);
                     obj.Status = txtStatus.Text;
                     obj.ColonyId = Convert.ToInt32(txtColonyName.SelectedValue);
@@ -103,6 +94,7 @@ namespace RealStateManagment.ColonyManagement
                 {
                     obj.PlotNo = Convert.ToInt32(txtPlotNo.Text);
                     obj.PlotArea =  txtMarla.Text +" Marla";
+                    obj.Size = txtLength.Text + " * " + txtWidth.Text;
                     obj.PlotAmount = Convert.ToDecimal(txtCash.Text);
                     obj.AmountOnInstall = Convert.ToDecimal(txtInstallment.Text);
                     obj.Status = txtStatus.Text;

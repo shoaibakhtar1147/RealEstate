@@ -22,5 +22,6 @@ namespace RealStateManagment.Model
         public string MobileNo { get; set; }
         public string PhoneNo { get; set; }
         public string Address { get; set; }
+        public Nullable<decimal> Amount { get; set; }
     }
 }
