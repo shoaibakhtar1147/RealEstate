@@ -30,7 +30,9 @@
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtDescription = new System.Windows.Forms.TextBox();
             this.txtDate = new System.Windows.Forms.DateTimePicker();
+            this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.txtAmount = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -56,8 +58,6 @@
             this.btnClear = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnAddNew = new System.Windows.Forms.Button();
-            this.txtDescription = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -111,6 +111,16 @@
             this.groupBox2.TabIndex = 97;
             this.groupBox2.TabStop = false;
             // 
+            // txtDescription
+            // 
+            this.txtDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.txtDescription.Location = new System.Drawing.Point(142, 123);
+            this.txtDescription.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtDescription.Multiline = true;
+            this.txtDescription.Name = "txtDescription";
+            this.txtDescription.Size = new System.Drawing.Size(595, 67);
+            this.txtDescription.TabIndex = 98;
+            // 
             // txtDate
             // 
             this.txtDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
@@ -121,12 +131,23 @@
             this.txtDate.TabIndex = 98;
             this.txtDate.ValueChanged += new System.EventHandler(this.txtDate_ValueChanged);
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.label11.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label11.Location = new System.Drawing.Point(42, 126);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(79, 16);
+            this.label11.TabIndex = 99;
+            this.label11.Text = "Description:";
+            // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.label10.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label10.Location = new System.Drawing.Point(406, 28);
+            this.label10.Location = new System.Drawing.Point(395, 28);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(40, 16);
             this.label10.TabIndex = 97;
@@ -212,7 +233,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.label8.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label8.Location = new System.Drawing.Point(409, 197);
+            this.label8.Location = new System.Drawing.Point(398, 197);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(71, 16);
             this.label8.TabIndex = 96;
@@ -254,7 +275,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.label9.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label9.Location = new System.Drawing.Point(409, 151);
+            this.label9.Location = new System.Drawing.Point(398, 151);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(73, 16);
             this.label9.TabIndex = 84;
@@ -304,7 +325,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.label2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label2.Location = new System.Drawing.Point(409, 102);
+            this.label2.Location = new System.Drawing.Point(398, 102);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(37, 16);
             this.label2.TabIndex = 41;
@@ -377,6 +398,7 @@
             this.btnClear.TabIndex = 34;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = false;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnSave
             // 
@@ -409,27 +431,6 @@
             this.btnAddNew.Text = "New";
             this.btnAddNew.UseVisualStyleBackColor = false;
             this.btnAddNew.Click += new System.EventHandler(this.btnAddNew_Click);
-            // 
-            // txtDescription
-            // 
-            this.txtDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.txtDescription.Location = new System.Drawing.Point(142, 123);
-            this.txtDescription.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtDescription.Multiline = true;
-            this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(595, 67);
-            this.txtDescription.TabIndex = 98;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.label11.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label11.Location = new System.Drawing.Point(42, 126);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(79, 16);
-            this.label11.TabIndex = 99;
-            this.label11.Text = "Description:";
             // 
             // FrmTransaction
             // 

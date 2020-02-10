@@ -32,13 +32,15 @@ namespace RealStateManagment.SalePurchase
             txtMonthlyPayment.Enabled = false;
             txtArea.Enabled = false;
             txtMonths.Enabled = false;
-            txtPaymentType.Enabled = false;
+            rdCash.Enabled = false;
+            rdInstallment.Enabled = false;
             txtPlotNo.Enabled = false;
             txtTotalAmount.Enabled = false;
             txtBuyDate.Enabled = false;
             txtBalance.Enabled = false;
             btnSave.Enabled = false;
             btnClear.Enabled = false;
+            groupBox2.Visible = false;
         }
 
 
@@ -47,7 +49,8 @@ namespace RealStateManagment.SalePurchase
             txtClientName.Enabled = true;
             txtColonyName.Enabled = true;
             txtMonths.Enabled = true;
-            txtPaymentType.Enabled = true;
+            rdCash.Enabled = true;
+            rdInstallment.Enabled = true;
             txtPlotNo.Enabled = true;
             txtBuyDate.Enabled = true;
             btnSave.Enabled = true;
@@ -59,6 +62,8 @@ namespace RealStateManagment.SalePurchase
             FormEnable();
             LoadClient();
             LoadColony();
+            btnAddNew.Enabled = false;
+           
         }
 
         private void LoadClient()
@@ -126,20 +131,28 @@ namespace RealStateManagment.SalePurchase
                 PlotNo=Convert.ToInt32(txtPlotNo.Text)
             };
             var dt = obj.Search();
+            if(rdInstallment.Checked==true)
             {
-                txtArea.Text = Convert.ToString(dt[0].Area);
+                txtArea.Text = Convert.ToString(dt[0].Size);
+                txtTotalAmount.Text = Convert.ToString(dt[0].Installment);
+            }
+            else if(rdCash.Checked==true)
+            {
+
+                txtArea.Text = Convert.ToString(dt[0].Size);
+                txtTotalAmount.Text = Convert.ToString(dt[0].Cash);
             }
         }
 
         private void txtPaymentType_Leave(object sender, EventArgs e)
         {
-            if(string.IsNullOrEmpty(txtPaymentType.Text))
+            if(rdInstallment.Checked&& rdCash.Checked==false)
             {
                 MessageBox.Show("Please Enter Payment Type");
                 return;
             }
 
-            else if(txtPaymentType.Text=="Installment")
+            else if(rdInstallment.Checked==true)
             {
                 PlotBL obj = new PlotBL()
                 {
@@ -155,7 +168,7 @@ namespace RealStateManagment.SalePurchase
                 //MonthlyPayment();
             }
 
-            else
+            else if(rdCash.Checked==true)
             {
                 PlotBL obj = new PlotBL()
                 {
@@ -188,7 +201,7 @@ namespace RealStateManagment.SalePurchase
 
         private void MonthlyPayment()
         {
-            decimal val = Convert.ToDecimal(txtBalance.Text);
+            decimal val = Convert.ToDecimal(txtTotalAmount.Text);
             decimal val1 = Convert.ToDecimal(txtMonths.Text);
             decimal val2 = Convert.ToDecimal(val / val1);
             txtMonthlyPayment.Text = val2.ToString("N2");
@@ -198,7 +211,51 @@ namespace RealStateManagment.SalePurchase
         private void txtMonths_SelectedIndexChanged(object sender, EventArgs e)
         {
             MonthlyPayment();
+            DownPament();
+            Balance();
         }
+
+        private void rdInstallment_CheckedChanged(object sender, EventArgs e)
+        {
+            if(rdInstallment.Checked==true)
+            {
+                groupBox2.Visible = true;
+            }
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            btnAddNew.Enabled = true;
+        }
+
+        private void rdCash_CheckedChanged(object sender, EventArgs e)
+        {
+            groupBox2.Visible = false;
+        }
+
+        
+
+        //private void rdCash_CheckedChanged(object sender, EventArgs e)
+        //{
+        //    PlotBL obj = new PlotBL()
+        //    {
+        //        ColonyName = txtColonyName.Text,
+        //        PlotNo = Convert.ToInt32(txtPlotNo.Text)
+        //    };
+        //    var dt = obj.Search();
+        //    if (rdInstallment.Checked == true)
+        //    {
+        //        txtArea.Text = Convert.ToString(dt[0].Size);
+        //        txtTotalAmount.Text = Convert.ToString(dt[0].Installment);
+        //    }
+        //    else if (rdCash.Checked == true)
+        //    {
+
+        //        txtArea.Text = Convert.ToString(dt[0].Size);
+        //        txtTotalAmount.Text = Convert.ToString(dt[0].Cash);
+        //    }
+
+        //}
        
     }
 }

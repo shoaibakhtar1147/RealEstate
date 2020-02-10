@@ -36,12 +36,13 @@ namespace RealStateManagment.Accounts
             rdCredit.Enabled = false;
             txtDate.Enabled = false;
             txtTransactionId.Enabled = false;
+            txtDescription.Enabled = false;
         }
 
         private void FormEnable()
         {
             txtPartnerName.Enabled = true;
-
+            txtDescription.Enabled = true;
             txtAmount.Enabled = true;
             rdCredit.Enabled = true;
             rdDebit.Enabled = true;
@@ -120,6 +121,8 @@ namespace RealStateManagment.Accounts
             //objView.crptViewer.ReportSource = objRep;
             //objView.WindowState = FormWindowState.Normal;
            // objView.ShowDialog();
+            ClearGroup();
+            FormDisable();
             btnAddNew.Enabled = true;
 
 
@@ -166,6 +169,32 @@ namespace RealStateManagment.Accounts
         private void txtDate_ValueChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            ClearGroup();
+        }
+
+        private void ClearGroup()
+        {
+            foreach (Control c in groupBox1.Controls)
+            {
+                if (c is TextBox || c is ComboBox || c is MaskedTextBox)
+                {
+                    c.Text = "";
+                }
+            }
+
+            foreach (Control c in groupBox2.Controls)
+            {
+                if (c is TextBox || c is ComboBox || c is MaskedTextBox)
+                {
+                    c.Text = "";
+                }
+            }
+            rdCredit.Checked = false;
+            rdDebit.Checked = false;
         }
 
 

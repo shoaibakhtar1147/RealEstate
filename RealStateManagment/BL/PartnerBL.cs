@@ -17,6 +17,7 @@ namespace RealStateManagment.BL
       public string MobileNo{get;set;}
       public string PhoneNo{get;set;}
       public string Address { get; set; }
+      public decimal Amount { get; set; }
 
 
         public void Save()
@@ -31,7 +32,8 @@ namespace RealStateManagment.BL
                   Cnic=Cnic,
                   MobileNo=MobileNo,
                   PhoneNo=PhoneNo,
-                  Address=Address
+                  Address=Address,
+                  Amount=Amount
                 };
                 context.Tbl_Partner.Add(objPartner);
                 context.SaveChanges();

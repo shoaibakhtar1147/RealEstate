@@ -50,13 +50,13 @@ namespace RealStateManagment.Accounts
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if(dgvPartner.DataSource != null)
+            if(!string.IsNullOrEmpty(txtSearch.Text))
             {
-                PartnerTransactionReport objRep = new PartnerTransactionReport();
+              PartnerTransactionReport objRep = new  PartnerTransactionReport();
                 FrmReportViewer objView = new FrmReportViewer();
                 objRep.SetParameterValue("@Cnic", txtSearch.Text);
                 objView.crptViewer.ReportSource = objRep;
-                objView.WindowState = FormWindowState.Normal;
+                objView.WindowState = FormWindowState.Maximized;
                 objView.ShowDialog();
 
 

@@ -89,6 +89,7 @@ namespace RealStateManagment.Accounts
                         MobileNo = txtMobNo.Text,
                         PhoneNo = txtPhoneNo.Text,
                         Address = txtAddress.Text,
+                        Amount=Convert.ToDecimal("0.00")
                     };
                     objPart.Save();
                     MessageBox.Show(txtPartnerName.Text + " Saved Successfull");
