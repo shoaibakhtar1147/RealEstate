@@ -104,5 +104,20 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_Sale">
+      <EntityTypeMapping TypeName="RealEstateModel.Tbl_Sale">
+        <MappingFragment StoreEntitySet="Tbl_Sale">
+          <ScalarProperty Name="DateOfPay" ColumnName="DateOfPay" />
+          <ScalarProperty Name="MonthlyPayment" ColumnName="MonthlyPayment" />
+          <ScalarProperty Name="NoOfMonth" ColumnName="NoOfMonth" />
+          <ScalarProperty Name="SaleDate" ColumnName="SaleDate" />
+          <ScalarProperty Name="SaleStatus" ColumnName="SaleStatus" />
+          <ScalarProperty Name="PlotId" ColumnName="PlotId" />
+          <ScalarProperty Name="ColonyId" ColumnName="ColonyId" />
+          <ScalarProperty Name="ContractId" ColumnName="ContractId" />
+          <ScalarProperty Name="SaleId" ColumnName="SaleId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

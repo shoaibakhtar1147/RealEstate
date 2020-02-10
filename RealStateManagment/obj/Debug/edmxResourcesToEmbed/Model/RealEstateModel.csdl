@@ -8,6 +8,7 @@
     <EntitySet Name="View_Plot" EntityType="RealEstateModel.View_Plot" />
     <EntitySet Name="Tbl_Partner_Transaction" EntityType="RealEstateModel.Tbl_Partner_Transaction" />
     <EntitySet Name="View_PartnerTransaction" EntityType="RealEstateModel.View_PartnerTransaction" />
+    <EntitySet Name="Tbl_Sale" EntityType="RealEstateModel.Tbl_Sale" />
   </EntityContainer>
   <EntityType Name="Tbl_Client">
     <Key>
@@ -104,5 +105,19 @@
     <Property Name="Credit" Type="Decimal" Precision="18" Scale="2" />
     <Property Name="Debit" Type="Decimal" Precision="18" Scale="2" />
     <Property Name="Amount" Type="Decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="Tbl_Sale">
+    <Key>
+      <PropertyRef Name="SaleId" />
+    </Key>
+    <Property Name="SaleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ContractId" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ColonyId" Type="Int32" />
+    <Property Name="PlotId" Type="Int32" />
+    <Property Name="SaleStatus" Type="Int32" />
+    <Property Name="SaleDate" Type="DateTime" Precision="3" />
+    <Property Name="NoOfMonth" Type="Int32" />
+    <Property Name="MonthlyPayment" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="DateOfPay" Type="Int32" />
   </EntityType>
 </Schema>

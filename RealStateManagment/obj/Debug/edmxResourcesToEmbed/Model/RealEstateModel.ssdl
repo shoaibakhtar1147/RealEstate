@@ -65,6 +65,20 @@
     <Property Name="AmountOnInstall" Type="decimal" Precision="18" Scale="2" />
     <Property Name="Area" Type="varchar" MaxLength="30" />
   </EntityType>
+  <EntityType Name="Tbl_Sale">
+    <Key>
+      <PropertyRef Name="SaleId" />
+    </Key>
+    <Property Name="SaleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ContractId" Type="varchar" MaxLength="100" />
+    <Property Name="ColonyId" Type="int" />
+    <Property Name="PlotId" Type="int" />
+    <Property Name="SaleStatus" Type="int" />
+    <Property Name="SaleDate" Type="datetime" />
+    <Property Name="NoOfMonth" Type="int" />
+    <Property Name="MonthlyPayment" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="DateOfPay" Type="int" />
+  </EntityType>
   <!--Errors Found During Generation:
 warning 6002: The table/view 'RealEstate.dbo.View_PartnerTransaction' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="View_PartnerTransaction">
@@ -106,6 +120,7 @@ warning 6002: The table/view 'RealEstate.dbo.View_Plot' does not have a primary 
     <EntitySet Name="Tbl_Partner" EntityType="Self.Tbl_Partner" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Tbl_Partner_Transaction" EntityType="Self.Tbl_Partner_Transaction" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Tbl_Plot" EntityType="Self.Tbl_Plot" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Sale" EntityType="Self.Tbl_Sale" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="View_PartnerTransaction" EntityType="Self.View_PartnerTransaction" store:Type="Views" store:Schema="dbo">
       <DefiningQuery>SELECT 
     [View_PartnerTransaction].[TransactionId] AS [TransactionId], 

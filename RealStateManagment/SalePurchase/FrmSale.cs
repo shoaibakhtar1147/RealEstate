@@ -62,8 +62,38 @@ namespace RealStateManagment.SalePurchase
             FormEnable();
             LoadClient();
             LoadColony();
+            ContractNo();
+            //ContractNoBL objBL = new ContractNoBL() 
+            //{  
+            //    ColonyId=Convert.ToInt32(txtColonyName.SelectedIndex),
+            //     PlotId=Convert.ToInt32(txtPlotNo.SelectedIndex)
+
+            //};
+            //var dt = objBL.CountContractNo();
+            //if(dt != null)
+            //{
+                
+            //    txtContractID.Text = Convert.ToString(dt.Rows[0]["PlotId"]);
+            //}
             btnAddNew.Enabled = false;
            
+        }
+
+        private void ContractNo()
+        {
+            ContractNoBL objBL = new ContractNoBL() 
+            {
+             ColonyId=Convert.ToInt32(txtColonyName.SelectedIndex),
+              PlotId=Convert.ToInt32(txtPlotNo.SelectedIndex)
+            
+            };
+            var dt = objBL.CountContractNo();
+          // var contract=("CN"+(objBL.ColonyId=Convert.ToInt32(txtColonyName.SelectedIndex))+"-PL"+(objBL.PlotId=Convert.ToInt32(txtPlotNo.SelectedIndex))+"-"+(objBL.CountContractNo().ToString().PadLeft(7-objBL.CountContractNo().ToString().Count(),'0')));
+           if(dt != null)
+           {
+               txtContractID.Text =("CN"+(objBL.ColonyId=Convert.ToInt32(txtColonyName.SelectedIndex))+"-PL"+(objBL.PlotId=Convert.ToInt32(txtPlotNo.SelectedIndex))+"-"+(objBL.CountContractNo().ToString().PadLeft(7-objBL.CountContractNo().ToString().Count())));
+           }
+            
         }
 
         private void LoadClient()
