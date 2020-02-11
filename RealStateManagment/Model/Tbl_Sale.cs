@@ -23,5 +23,6 @@ namespace RealStateManagment.Model
         public Nullable<int> NoOfMonth { get; set; }
         public Nullable<decimal> MonthlyPayment { get; set; }
         public Nullable<int> DateOfPay { get; set; }
+        public Nullable<int> ClientId { get; set; }
     }
 }

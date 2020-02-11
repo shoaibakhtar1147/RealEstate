@@ -5,10 +5,10 @@
     <EntitySet Name="Tbl_Colony" EntityType="RealEstateModel.Tbl_Colony" />
     <EntitySet Name="Tbl_Partner" EntityType="RealEstateModel.Tbl_Partner" />
     <EntitySet Name="Tbl_Plot" EntityType="RealEstateModel.Tbl_Plot" />
-    <EntitySet Name="View_Plot" EntityType="RealEstateModel.View_Plot" />
     <EntitySet Name="Tbl_Partner_Transaction" EntityType="RealEstateModel.Tbl_Partner_Transaction" />
     <EntitySet Name="View_PartnerTransaction" EntityType="RealEstateModel.View_PartnerTransaction" />
     <EntitySet Name="Tbl_Sale" EntityType="RealEstateModel.Tbl_Sale" />
+    <EntitySet Name="View_Plot" EntityType="RealEstateModel.View_Plot" />
   </EntityContainer>
   <EntityType Name="Tbl_Client">
     <Key>
@@ -63,20 +63,6 @@
     <Property Name="AmountOnInstall" Type="Decimal" Precision="18" Scale="2" />
     <Property Name="Area" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
   </EntityType>
-  <EntityType Name="View_Plot">
-    <Key>
-      <PropertyRef Name="PlotId" />
-    </Key>
-    <Property Name="PlotId" Type="Int32" Nullable="false" />
-    <Property Name="PlotNo" Type="Int32" />
-    <Property Name="Cash" Type="Decimal" Precision="18" Scale="2" />
-    <Property Name="Size" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Area" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-    <Property Name="ColonyId" Type="Int32" />
-    <Property Name="ColonyName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <Property Name="Installment" Type="Decimal" Precision="18" Scale="2" />
-  </EntityType>
   <EntityType Name="Tbl_Partner_Transaction">
     <Key>
       <PropertyRef Name="TransactionId" />
@@ -119,5 +105,21 @@
     <Property Name="NoOfMonth" Type="Int32" />
     <Property Name="MonthlyPayment" Type="Decimal" Precision="18" Scale="0" />
     <Property Name="DateOfPay" Type="Int32" />
+    <Property Name="ClientId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="View_Plot">
+    <Key>
+      <PropertyRef Name="PlotId" />
+    </Key>
+    <Property Name="PlotId" Type="Int32" Nullable="false" />
+    <Property Name="PlotNo" Type="Int32" />
+    <Property Name="PlotArea" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Size" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Cash" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="ColonyArea" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ColonyId" Type="Int32" />
+    <Property Name="ColonyName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Installment" Type="Decimal" Precision="18" Scale="2" />
   </EntityType>
 </Schema>

@@ -78,6 +78,7 @@
     <Property Name="NoOfMonth" Type="int" />
     <Property Name="MonthlyPayment" Type="decimal" Precision="18" Scale="0" />
     <Property Name="DateOfPay" Type="int" />
+    <Property Name="ClientId" Type="int" />
   </EntityType>
   <!--Errors Found During Generation:
 warning 6002: The table/view 'RealEstate.dbo.View_PartnerTransaction' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -106,9 +107,10 @@ warning 6002: The table/view 'RealEstate.dbo.View_Plot' does not have a primary 
     </Key>
     <Property Name="PlotId" Type="int" Nullable="false" />
     <Property Name="PlotNo" Type="int" />
-    <Property Name="Cash" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="PlotArea" Type="varchar" MaxLength="30" />
     <Property Name="Size" Type="varchar" MaxLength="50" />
-    <Property Name="Area" Type="varchar" MaxLength="50" />
+    <Property Name="Cash" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="ColonyArea" Type="varchar" MaxLength="50" />
     <Property Name="Status" Type="varchar" MaxLength="20" />
     <Property Name="ColonyId" Type="int" />
     <Property Name="ColonyName" Type="varchar(max)" />
@@ -141,9 +143,10 @@ warning 6002: The table/view 'RealEstate.dbo.View_Plot' does not have a primary 
       <DefiningQuery>SELECT 
     [View_Plot].[PlotId] AS [PlotId], 
     [View_Plot].[PlotNo] AS [PlotNo], 
-    [View_Plot].[Cash] AS [Cash], 
+    [View_Plot].[PlotArea] AS [PlotArea], 
     [View_Plot].[Size] AS [Size], 
-    [View_Plot].[Area] AS [Area], 
+    [View_Plot].[Cash] AS [Cash], 
+    [View_Plot].[ColonyArea] AS [ColonyArea], 
     [View_Plot].[Status] AS [Status], 
     [View_Plot].[ColonyId] AS [ColonyId], 
     [View_Plot].[ColonyName] AS [ColonyName], 

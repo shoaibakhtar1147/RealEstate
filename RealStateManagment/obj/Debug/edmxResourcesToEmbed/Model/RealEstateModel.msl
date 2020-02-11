@@ -58,21 +58,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="View_Plot">
-      <EntityTypeMapping TypeName="RealEstateModel.View_Plot">
-        <MappingFragment StoreEntitySet="View_Plot">
-          <ScalarProperty Name="Installment" ColumnName="Installment" />
-          <ScalarProperty Name="ColonyName" ColumnName="ColonyName" />
-          <ScalarProperty Name="ColonyId" ColumnName="ColonyId" />
-          <ScalarProperty Name="Status" ColumnName="Status" />
-          <ScalarProperty Name="Area" ColumnName="Area" />
-          <ScalarProperty Name="Size" ColumnName="Size" />
-          <ScalarProperty Name="Cash" ColumnName="Cash" />
-          <ScalarProperty Name="PlotNo" ColumnName="PlotNo" />
-          <ScalarProperty Name="PlotId" ColumnName="PlotId" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Tbl_Partner_Transaction">
       <EntityTypeMapping TypeName="RealEstateModel.Tbl_Partner_Transaction">
         <MappingFragment StoreEntitySet="Tbl_Partner_Transaction">
@@ -107,6 +92,7 @@
     <EntitySetMapping Name="Tbl_Sale">
       <EntityTypeMapping TypeName="RealEstateModel.Tbl_Sale">
         <MappingFragment StoreEntitySet="Tbl_Sale">
+          <ScalarProperty Name="ClientId" ColumnName="ClientId" />
           <ScalarProperty Name="DateOfPay" ColumnName="DateOfPay" />
           <ScalarProperty Name="MonthlyPayment" ColumnName="MonthlyPayment" />
           <ScalarProperty Name="NoOfMonth" ColumnName="NoOfMonth" />
@@ -116,6 +102,22 @@
           <ScalarProperty Name="ColonyId" ColumnName="ColonyId" />
           <ScalarProperty Name="ContractId" ColumnName="ContractId" />
           <ScalarProperty Name="SaleId" ColumnName="SaleId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="View_Plot">
+      <EntityTypeMapping TypeName="RealEstateModel.View_Plot">
+        <MappingFragment StoreEntitySet="View_Plot">
+          <ScalarProperty Name="Installment" ColumnName="Installment" />
+          <ScalarProperty Name="ColonyName" ColumnName="ColonyName" />
+          <ScalarProperty Name="ColonyId" ColumnName="ColonyId" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="ColonyArea" ColumnName="ColonyArea" />
+          <ScalarProperty Name="Cash" ColumnName="Cash" />
+          <ScalarProperty Name="Size" ColumnName="Size" />
+          <ScalarProperty Name="PlotArea" ColumnName="PlotArea" />
+          <ScalarProperty Name="PlotNo" ColumnName="PlotNo" />
+          <ScalarProperty Name="PlotId" ColumnName="PlotId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

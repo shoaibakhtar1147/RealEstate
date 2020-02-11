@@ -37,6 +37,20 @@ namespace RealStateManagment.BL
 
         }
      }
+        public void Update()
+    {
+            using(var context=new RealEstateEntities())
+            {
+                var res = context.Tbl_Plot.Where(a => a.ColonyId==ColonyId && a.PlotNo == PlotNo).SingleOrDefault();
+                if(res != null)
+                {
+                    res.Status = Status;
+                    context.SaveChanges();
+
+                }
+
+            }
+    }
 
         public List<View_Plot> Select()
     {
@@ -50,7 +64,7 @@ namespace RealStateManagment.BL
         {
             using(var context=new RealEstateEntities())
             {
-                return context.View_Plot.Where(a => a.ColonyName == ColonyName|| a.PlotNo==PlotNo && ColonyName==ColonyName).ToList();
+                return context.View_Plot.Where(a => a.ColonyName == ColonyName|| a.PlotNo==PlotNo && ColonyName==ColonyName||ColonyId==ColonyId).ToList();
             }
         }
     }

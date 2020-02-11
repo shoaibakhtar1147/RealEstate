@@ -79,7 +79,7 @@ namespace RealStateManagment.ColonyManagement
                     obj.Save();
                 }
 
-                else if(txtKanal.Text != "")
+                else if(!string.IsNullOrEmpty(txtKanal.Text))
                 {
                     obj.PlotNo = Convert.ToInt32(txtPlotNo.Text);
                     obj.PlotArea = txtKanal.Text+" Kanal";
@@ -90,7 +90,7 @@ namespace RealStateManagment.ColonyManagement
                     obj.ColonyId = Convert.ToInt32(txtColonyName.SelectedValue);
                     obj.Save();
                 }
-                else if(txtMarla.Text != "")
+                else if(!string.IsNullOrEmpty(txtMarla.Text))
                 {
                     obj.PlotNo = Convert.ToInt32(txtPlotNo.Text);
                     obj.PlotArea =  txtMarla.Text +" Marla";

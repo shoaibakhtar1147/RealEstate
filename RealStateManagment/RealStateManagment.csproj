@@ -125,6 +125,7 @@
     <Compile Include="BL\ContractNoBL.cs" />
     <Compile Include="BL\PartnerBL.cs" />
     <Compile Include="BL\PlotBL.cs" />
+    <Compile Include="BL\SaleBL.cs" />
     <Compile Include="BL\TransactionBL.cs" />
     <Compile Include="ColonyManagement\FrmAddColony.cs">
       <SubType>Form</SubType>

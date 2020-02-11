@@ -61,8 +61,9 @@ namespace RealStateManagment.SalePurchase
         {
             FormEnable();
             LoadClient();
-            LoadColony();
             ContractNo();
+            LoadColony();
+           
             //ContractNoBL objBL = new ContractNoBL() 
             //{  
             //    ColonyId=Convert.ToInt32(txtColonyName.SelectedIndex),
@@ -134,24 +135,7 @@ namespace RealStateManagment.SalePurchase
 
         }
 
-        private void txtColonyName_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            PlotBL obj = new PlotBL() 
-            {
-             ColonyName=txtColonyName.Text
-            };
-            var dt = obj.Search();
-            if(dt.Count>0 && dt != null)
-            {
-                txtPlotNo.Text =Convert.ToString(dt[0].PlotNo);
-               
-                //txtPlotNo.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-                //txtPlotNo.AutoCompleteSource = AutoCompleteSource.ListItems;
-                //txtPlotNo.ValueMember = "PlotId";
-                //txtPlotNo.DisplayMember = "PlotNo";
-            }
-            
-        }
+       
 
         private void txtPlotNo_Leave(object sender, EventArgs e)
         {
@@ -255,13 +239,102 @@ namespace RealStateManagment.SalePurchase
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            btnAddNew.Enabled = true;
+            try
+            {
+                SaleBL objSale = new SaleBL();
+                if (rdCash.Checked == true)
+                {
+                    objSale.ContractId = txtContractID.Text;
+                    objSale.ClientId = Convert.ToInt32(txtClientName.SelectedValue);
+                    objSale.ColonyId = Convert.ToInt32(txtColonyName.SelectedValue);
+                    objSale.PlotId = Convert.ToInt32(txtPlotNo.SelectedValue);
+                    objSale.SaleStatus = Convert.ToInt32(rdCash.Checked ? 1 : 2);
+                    objSale.SaleDate = Convert.ToDateTime(txtBuyDate.Text);
+                }
+
+                else if (rdInstallment.Checked == true)
+                {
+                    objSale.ContractId = txtContractID.Text;
+                    objSale.ClientId = Convert.ToInt32(txtClientName.SelectedValue);
+                    objSale.ColonyId = Convert.ToInt32(txtColonyName.SelectedValue);
+                    objSale.PlotId = Convert.ToInt32(txtPlotNo.SelectedValue);
+                    objSale.SaleStatus = Convert.ToInt32(rdInstallment.Checked ? 2 : 1);
+                    objSale.SaleDate = Convert.ToDateTime(txtBuyDate.Text);
+                    objSale.NoOfMonth = Convert.ToInt32(txtMonths.Text);
+                    objSale.MonthlyPayment = Convert.ToDecimal(txtMonthlyPayment.Text);
+                    objSale.DateOfPay = Convert.ToInt32(txtPayDate.Text);
+                }
+                objSale.Save();
+                PlotBL obj = new PlotBL() 
+                {
+                  PlotId=Convert.ToInt32(txtPlotNo.SelectedValue),
+                  ColonyId=Convert.ToInt32(txtColonyName.SelectedValue),
+                  Status = "Unavailable"
+                };
+                 obj.Update();
+
+                MessageBox.Show("Contract Save Successfull");
+                btnAddNew.Enabled = true;
+                ClearGroup();
+            }
+
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        private void ClearGroup()
+        {
+            foreach (Control c in groupBox1.Controls)
+            {
+                if (c is TextBox || c is ComboBox || c is MaskedTextBox)
+                {
+                    c.Text = "";
+                }
+            }
+            foreach (Control c in groupBox2.Controls)
+            {
+                if (c is TextBox || c is ComboBox || c is MaskedTextBox)
+                {
+                    c.Text = "";
+                }
+            }
+            rdInstallment.Checked = false;
+            rdCash.Checked = false;
         }
 
         private void rdCash_CheckedChanged(object sender, EventArgs e)
         {
             groupBox2.Visible = false;
         }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            ClearGroup();
+        }
+
+        
+
+        private void txtColonyName_Leave(object sender, EventArgs e)
+        {
+            PlotBL obj = new PlotBL()
+            {
+                ColonyId = Convert.ToInt32(txtColonyName.SelectedValue)
+            };
+            var dt = obj.Search();
+            if (dt.Count > 0 && dt != null)
+            {
+                txtPlotNo.DataSource = dt;
+                txtPlotNo.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+                txtPlotNo.AutoCompleteSource = AutoCompleteSource.ListItems;
+                txtPlotNo.DisplayMember = "PlotNo";
+                txtPlotNo.ValueMember = "PlotId";
+            }
+        }
+
+      
 
         
 

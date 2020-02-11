@@ -83,6 +83,7 @@
           <Property Name="NoOfMonth" Type="int" />
           <Property Name="MonthlyPayment" Type="decimal" Precision="18" Scale="0" />
           <Property Name="DateOfPay" Type="int" />
+          <Property Name="ClientId" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'RealEstate.dbo.View_PartnerTransaction' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -111,9 +112,10 @@ warning 6002: The table/view 'RealEstate.dbo.View_Plot' does not have a primary 
           </Key>
           <Property Name="PlotId" Type="int" Nullable="false" />
           <Property Name="PlotNo" Type="int" />
-          <Property Name="Cash" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="PlotArea" Type="varchar" MaxLength="30" />
           <Property Name="Size" Type="varchar" MaxLength="50" />
-          <Property Name="Area" Type="varchar" MaxLength="50" />
+          <Property Name="Cash" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="ColonyArea" Type="varchar" MaxLength="50" />
           <Property Name="Status" Type="varchar" MaxLength="20" />
           <Property Name="ColonyId" Type="int" />
           <Property Name="ColonyName" Type="varchar(max)" />
@@ -146,9 +148,10 @@ warning 6002: The table/view 'RealEstate.dbo.View_Plot' does not have a primary 
             <DefiningQuery>SELECT 
     [View_Plot].[PlotId] AS [PlotId], 
     [View_Plot].[PlotNo] AS [PlotNo], 
-    [View_Plot].[Cash] AS [Cash], 
+    [View_Plot].[PlotArea] AS [PlotArea], 
     [View_Plot].[Size] AS [Size], 
-    [View_Plot].[Area] AS [Area], 
+    [View_Plot].[Cash] AS [Cash], 
+    [View_Plot].[ColonyArea] AS [ColonyArea], 
     [View_Plot].[Status] AS [Status], 
     [View_Plot].[ColonyId] AS [ColonyId], 
     [View_Plot].[ColonyName] AS [ColonyName], 
@@ -165,10 +168,10 @@ warning 6002: The table/view 'RealEstate.dbo.View_Plot' does not have a primary 
           <EntitySet Name="Tbl_Colony" EntityType="RealEstateModel.Tbl_Colony" />
           <EntitySet Name="Tbl_Partner" EntityType="RealEstateModel.Tbl_Partner" />
           <EntitySet Name="Tbl_Plot" EntityType="RealEstateModel.Tbl_Plot" />
-          <EntitySet Name="View_Plot" EntityType="RealEstateModel.View_Plot" />
           <EntitySet Name="Tbl_Partner_Transaction" EntityType="RealEstateModel.Tbl_Partner_Transaction" />
           <EntitySet Name="View_PartnerTransaction" EntityType="RealEstateModel.View_PartnerTransaction" />
           <EntitySet Name="Tbl_Sale" EntityType="RealEstateModel.Tbl_Sale" />
+          <EntitySet Name="View_Plot" EntityType="RealEstateModel.View_Plot" />
         </EntityContainer>
         <EntityType Name="Tbl_Client">
           <Key>
@@ -223,20 +226,6 @@ warning 6002: The table/view 'RealEstate.dbo.View_Plot' does not have a primary 
           <Property Name="AmountOnInstall" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="Area" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
         </EntityType>
-        <EntityType Name="View_Plot">
-          <Key>
-            <PropertyRef Name="PlotId" />
-          </Key>
-          <Property Name="PlotId" Type="Int32" Nullable="false" />
-          <Property Name="PlotNo" Type="Int32" />
-          <Property Name="Cash" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="Size" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Area" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="ColonyId" Type="Int32" />
-          <Property Name="ColonyName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="Installment" Type="Decimal" Precision="18" Scale="2" />
-        </EntityType>
         <EntityType Name="Tbl_Partner_Transaction">
           <Key>
             <PropertyRef Name="TransactionId" />
@@ -279,6 +268,22 @@ warning 6002: The table/view 'RealEstate.dbo.View_Plot' does not have a primary 
           <Property Name="NoOfMonth" Type="Int32" />
           <Property Name="MonthlyPayment" Type="Decimal" Precision="18" Scale="0" />
           <Property Name="DateOfPay" Type="Int32" />
+          <Property Name="ClientId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="View_Plot">
+          <Key>
+            <PropertyRef Name="PlotId" />
+          </Key>
+          <Property Name="PlotId" Type="Int32" Nullable="false" />
+          <Property Name="PlotNo" Type="Int32" />
+          <Property Name="PlotArea" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Size" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Cash" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="ColonyArea" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ColonyId" Type="Int32" />
+          <Property Name="ColonyName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Installment" Type="Decimal" Precision="18" Scale="2" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -343,21 +348,6 @@ warning 6002: The table/view 'RealEstate.dbo.View_Plot' does not have a primary 
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="View_Plot">
-            <EntityTypeMapping TypeName="RealEstateModel.View_Plot">
-              <MappingFragment StoreEntitySet="View_Plot">
-                <ScalarProperty Name="Installment" ColumnName="Installment" />
-                <ScalarProperty Name="ColonyName" ColumnName="ColonyName" />
-                <ScalarProperty Name="ColonyId" ColumnName="ColonyId" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="Area" ColumnName="Area" />
-                <ScalarProperty Name="Size" ColumnName="Size" />
-                <ScalarProperty Name="Cash" ColumnName="Cash" />
-                <ScalarProperty Name="PlotNo" ColumnName="PlotNo" />
-                <ScalarProperty Name="PlotId" ColumnName="PlotId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Tbl_Partner_Transaction">
             <EntityTypeMapping TypeName="RealEstateModel.Tbl_Partner_Transaction">
               <MappingFragment StoreEntitySet="Tbl_Partner_Transaction">
@@ -392,6 +382,7 @@ warning 6002: The table/view 'RealEstate.dbo.View_Plot' does not have a primary 
           <EntitySetMapping Name="Tbl_Sale">
             <EntityTypeMapping TypeName="RealEstateModel.Tbl_Sale">
               <MappingFragment StoreEntitySet="Tbl_Sale">
+                <ScalarProperty Name="ClientId" ColumnName="ClientId" />
                 <ScalarProperty Name="DateOfPay" ColumnName="DateOfPay" />
                 <ScalarProperty Name="MonthlyPayment" ColumnName="MonthlyPayment" />
                 <ScalarProperty Name="NoOfMonth" ColumnName="NoOfMonth" />
@@ -401,6 +392,22 @@ warning 6002: The table/view 'RealEstate.dbo.View_Plot' does not have a primary 
                 <ScalarProperty Name="ColonyId" ColumnName="ColonyId" />
                 <ScalarProperty Name="ContractId" ColumnName="ContractId" />
                 <ScalarProperty Name="SaleId" ColumnName="SaleId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_Plot">
+            <EntityTypeMapping TypeName="RealEstateModel.View_Plot">
+              <MappingFragment StoreEntitySet="View_Plot">
+                <ScalarProperty Name="Installment" ColumnName="Installment" />
+                <ScalarProperty Name="ColonyName" ColumnName="ColonyName" />
+                <ScalarProperty Name="ColonyId" ColumnName="ColonyId" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="ColonyArea" ColumnName="ColonyArea" />
+                <ScalarProperty Name="Cash" ColumnName="Cash" />
+                <ScalarProperty Name="Size" ColumnName="Size" />
+                <ScalarProperty Name="PlotArea" ColumnName="PlotArea" />
+                <ScalarProperty Name="PlotNo" ColumnName="PlotNo" />
+                <ScalarProperty Name="PlotId" ColumnName="PlotId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
