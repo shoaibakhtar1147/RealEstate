@@ -20,7 +20,9 @@ namespace RealStateManagment.Customer
 
         private void CustomerLedger_Load(object sender, EventArgs e)
         {
+            Design.Designform(this);
             LoadData();
+
         }
 
         private void LoadData()

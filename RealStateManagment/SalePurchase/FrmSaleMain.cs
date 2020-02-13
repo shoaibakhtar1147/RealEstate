@@ -28,5 +28,15 @@ namespace RealStateManagment.SalePurchase
             obj.ShowDialog();
             
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            (new FrmSaleLedger()).ShowDialog();
+        }
+
+        private void btnCustomerLedger_Click(object sender, EventArgs e)
+        {
+            (new FrmSaleView()).ShowDialog();
+        }
     }
 }

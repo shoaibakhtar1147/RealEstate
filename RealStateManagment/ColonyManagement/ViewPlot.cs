@@ -20,85 +20,84 @@ namespace RealStateManagment.ColonyManagement
 
         private void ViewPlot_Load(object sender, EventArgs e)
         {
-            LoadColony();
-            LoadData();
-            GridDesign();
+            Design.Designform(this);
+            LoadData(1);
+            LoadData(2);
+           
         }
-        private void GridDesign()
+       
+        private void LoadData(int option)
         {
-
-            //designing code=:
-            //dgvTest = Border3DStyle.Flat;
-            dgvPlot.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(238, 239, 249);
-            dgvPlot.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            dgvPlot.DefaultCellStyle.SelectionBackColor = Color.DarkTurquoise;
-            dgvPlot.DefaultCellStyle.SelectionForeColor = Color.WhiteSmoke;
-            dgvPlot.BackgroundColor = Color.White;
-
-            dgvPlot.EnableHeadersVisualStyles = false;
-            dgvPlot.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dgvPlot.ColumnHeadersDefaultCellStyle.BackColor = Color.Firebrick;
-            dgvPlot.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
-        }
-
-        private void LoadData()
-        {
-            PlotBL objSelect = new PlotBL();
+           switch(option)
+           {
+               case 1:
+                    PlotBL objSelect = new PlotBL();
             var dt = objSelect.Select();
             if(dt.Count>0)
             {
                 dgvPlot.DataSource = dt;
             }
-        }
+            break;
 
-        private void LoadColony()
-        {
-            ColonyBL objSelect = new ColonyBL();
-            var dt = objSelect.Select();
-            if(dt.Count>0)
-            {
-                txtColonyName.DataSource = dt;
+               case 2:
+            var colonyname = (new ColonyBL()).Select();
+            colonyname.OrderBy(a => a.ColonyId).ToList().ForEach(a =>
+                {
+                    txtColonyName.Items.Add(new ComboBoxItem(a.ColonyName, a.ColonyId));
+                });
                 txtColonyName.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
                 txtColonyName.AutoCompleteSource = AutoCompleteSource.ListItems;
                 txtColonyName.ValueMember = "ColonyId";
                 txtColonyName.DisplayMember = "ColonyName";
-            }
+                txtColonyName.Text = "---Select---";
+          
+            break;
+
+               case 3:
+            var ColonyId = ((ComboBoxItem)txtColonyName.SelectedItem).SelectedValue;
+            var plotId = (new PlotBL { ColonyId = ColonyId }.Search());
+                txtPlotNo.DataSource = plotId;
+                txtPlotNo.AutoCompleteMode = AutoCompleteMode.Suggest;
+                txtPlotNo.AutoCompleteSource = AutoCompleteSource.ListItems;
+                txtPlotNo.DisplayMember = "PlotNo";
+                txtPlotNo.ValueMember = "PlotId";
+                
+            //}
+            break;
+
+           }
         }
+
+       
 
         
 
-        private void btnClear_Click(object sender, EventArgs e)
+       
+       
+        private void txtColonyName_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            if (((ComboBoxItem)txtColonyName.SelectedItem).SelectedValue > 0)
+            {
+                LoadData(3);
+            }
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
         {
             PlotBL obj = new PlotBL()
             {
 
                 ColonyName = txtColonyName.Text,
-                PlotNo =Convert.ToInt32(txtPlotNo.Text)
-                
+                PlotNo = Convert.ToInt32(txtPlotNo.Text)
+
             };
             var dt = obj.Search();
-            
+
             if (dt.Count > 0 && dt != null)
             {
                 dgvPlot.DataSource = dt;
             }  
-        }
-
-        private void txtColonyName_Leave(object sender, EventArgs e)
-        {
-            PlotBL obj = new PlotBL()
-            {
-                ColonyName = txtColonyName.Text
-            };
-            var dt = obj.Search();
-            if (dt.Count > 0 && dt != null)
-            {
-                txtPlotNo.DataSource = dt;
-                txtPlotNo.AutoCompleteMode = AutoCompleteMode.Suggest;
-                txtPlotNo.AutoCompleteSource = AutoCompleteSource.ListItems;
-                txtPlotNo.DisplayMember = "PlotNo";
-                txtPlotNo.ValueMember = "PlotId";
-            }
         }
     }
 }

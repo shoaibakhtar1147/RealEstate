@@ -205,7 +205,6 @@
             this.txtStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.txtStatus.FormattingEnabled = true;
             this.txtStatus.Items.AddRange(new object[] {
-            "",
             "Available",
             "Unavailable"});
             this.txtStatus.Location = new System.Drawing.Point(526, 151);

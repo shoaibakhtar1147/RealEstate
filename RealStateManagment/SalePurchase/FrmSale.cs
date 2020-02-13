@@ -1,5 +1,7 @@
 ﻿using MetroFramework.Forms;
 using RealStateManagment.BL;
+using RealStateManagment.ColonyManagement;
+using RealStateManagment.Report;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -32,6 +34,7 @@ namespace RealStateManagment.SalePurchase
             txtMonthlyPayment.Enabled = false;
             txtArea.Enabled = false;
             txtMonths.Enabled = false;
+            cmbDownPayment.Enabled = false;
             rdCash.Enabled = false;
             rdInstallment.Enabled = false;
             txtPlotNo.Enabled = false;
@@ -60,9 +63,11 @@ namespace RealStateManagment.SalePurchase
         private void btnAddNew_Click(object sender, EventArgs e)
         {
             FormEnable();
+            //LoadData(1);
+            //LoadData(3);
             LoadClient();
             ContractNo();
-            LoadColony();
+           LoadColony();
            
             //ContractNoBL objBL = new ContractNoBL() 
             //{  
@@ -79,6 +84,59 @@ namespace RealStateManagment.SalePurchase
             btnAddNew.Enabled = false;
            
         }
+
+        //private void LoadData(int option)
+        //{
+        //    switch (option)
+        //    {
+                
+        //        case 1:
+        //            var colonyname = (new ColonyBL()).Select();
+        //            colonyname.OrderBy(a => a.ColonyId).ToList().ForEach(a =>
+        //            {
+        //                txtColonyName.Items.Add(new ComboBoxItem(a.ColonyName, a.ColonyId));
+        //            });
+        //            txtColonyName.DataSource = colonyname;
+        //            txtColonyName.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+        //            txtColonyName.AutoCompleteSource = AutoCompleteSource.ListItems;
+        //            txtColonyName.ValueMember = "ColonyId";
+        //            txtColonyName.DisplayMember = "ColonyName";
+        //            txtColonyName.Text = "---Select---";
+
+        //            break;
+
+        //        case 2:
+        //            var ColonyId = ((ComboBoxItem)txtColonyName.SelectedItem).SelectedValue;
+        //            var plotId = (new PlotBL { ColonyId = ColonyId }.Search());
+        //            txtPlotNo.DataSource = plotId;
+        //                txtPlotNo.AutoCompleteMode = AutoCompleteMode.Suggest;
+        //                txtPlotNo.AutoCompleteSource = AutoCompleteSource.ListItems;
+        //                txtPlotNo.DisplayMember = "PlotNo";
+        //                txtPlotNo.ValueMember = "PlotId";
+        //                txtPlotNo.Text = "---Select---";
+        //            //}
+        //            break;
+
+        //        case 3:
+
+        //             var client=(new ClientBL()).Select();
+        //            client.OrderBy(a=>a.ClientId).ToList().ForEach(a=>
+        //                {
+        //                    txtClientName.Items.Add(new ComboBoxItem(a.ClientName,a.ClientId));
+        //                });
+            
+        //        txtClientName.DataSource = client;
+        //        txtClientName.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+        //        txtClientName.AutoCompleteSource = AutoCompleteSource.ListItems;
+        //        txtClientName.DisplayMember = "ClientName";
+        //        txtClientName.ValueMember = "ClientId";
+        //        txtClientName.Text = "---Select---";
+        //        break;
+            
+        //    }
+        //}
+
+        
 
         private void ContractNo()
         {
@@ -101,7 +159,7 @@ namespace RealStateManagment.SalePurchase
         {
             ClientBL objClient = new ClientBL();
             var dt = objClient.Select();
-            if(dt != null)
+            if (dt != null)
             {
                 txtClientName.DataSource = dt;
                 txtClientName.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
@@ -110,7 +168,7 @@ namespace RealStateManagment.SalePurchase
                 txtClientName.ValueMember = "ClientId";
             }
 
-           else
+            else
             {
                 MessageBox.Show("No Record Found");
             }
@@ -120,7 +178,7 @@ namespace RealStateManagment.SalePurchase
         {
             ColonyBL objCol = new ColonyBL();
             var dt = objCol.Select();
-            if(dt != null)
+            if (dt != null)
             {
                 txtColonyName.DataSource = dt;
                 txtColonyName.AutoCompleteSource = AutoCompleteSource.ListItems;
@@ -139,94 +197,134 @@ namespace RealStateManagment.SalePurchase
 
         private void txtPlotNo_Leave(object sender, EventArgs e)
         {
-            PlotBL obj = new PlotBL() 
-            {
-                ColonyName=txtColonyName.Text,
-                PlotNo=Convert.ToInt32(txtPlotNo.Text)
-            };
-            var dt = obj.Search();
-            if(rdInstallment.Checked==true)
-            {
-                txtArea.Text = Convert.ToString(dt[0].Size);
-                txtTotalAmount.Text = Convert.ToString(dt[0].Installment);
-            }
-            else if(rdCash.Checked==true)
-            {
-
-                txtArea.Text = Convert.ToString(dt[0].Size);
-                txtTotalAmount.Text = Convert.ToString(dt[0].Cash);
-            }
-        }
-
-        private void txtPaymentType_Leave(object sender, EventArgs e)
-        {
-            if(rdInstallment.Checked&& rdCash.Checked==false)
-            {
-                MessageBox.Show("Please Enter Payment Type");
-                return;
-            }
-
-            else if(rdInstallment.Checked==true)
-            {
-                PlotBL obj = new PlotBL()
+           PlotBL obj = new PlotBL()
                 {
                     ColonyName = txtColonyName.Text,
                     PlotNo = Convert.ToInt32(txtPlotNo.Text)
                 };
                 var dt = obj.Search();
+                if (rdInstallment.Checked == true)
                 {
-                    txtTotalAmount.Text= Convert.ToString(dt[0].Installment);
+                    txtArea.Text = Convert.ToString(dt[0].Size);
+                    txtTotalAmount.Text = Convert.ToString(dt[0].Installment);
                 }
-                DownPament();
-                Balance();
-                //MonthlyPayment();
-            }
+                else if (rdCash.Checked == true)
+                {
 
-            else if(rdCash.Checked==true)
-            {
-                PlotBL obj = new PlotBL()
-                {
-                    ColonyName = txtColonyName.Text,
-                    PlotNo = Convert.ToInt32(txtPlotNo.Text)
-                };
-                var dt = obj.Search();
-                {
+                    txtArea.Text = Convert.ToString(dt[0].Size);
                     txtTotalAmount.Text = Convert.ToString(dt[0].Cash);
                 }
-            }
-            
         }
+
+        //private void txtPaymentType_Leave(object sender, EventArgs e)
+        //{
+        //    if(rdInstallment.Checked&& rdCash.Checked==false)
+        //    {
+        //        MessageBox.Show("Please Enter Payment Type");
+        //        return;
+        //    }
+
+        //    else if(rdInstallment.Checked==true)
+        //    {
+        //        PlotBL obj = new PlotBL()
+        //        {
+        //            ColonyName = txtColonyName.Text,
+        //            PlotNo = Convert.ToInt32(txtPlotNo.Text)
+        //        };
+        //        var dt = obj.Search();
+        //        {
+        //            txtTotalAmount.Text= Convert.ToString(dt[0].Installment);
+        //        }
+        //        DownPament();
+        //        Balance();
+        //        //MonthlyPayment();
+        //    }
+
+        //    else if(rdCash.Checked==true)
+        //    {
+        //        PlotBL obj = new PlotBL()
+        //        {
+        //            ColonyName = txtColonyName.Text,
+        //            PlotNo = Convert.ToInt32(txtPlotNo.Text)
+        //        };
+        //        var dt = obj.Search();
+        //        {
+        //            txtTotalAmount.Text = Convert.ToString(dt[0].Cash);
+        //        }
+        //    }
+            
+        //}
 
         private void DownPament()
         {
-            decimal val1 = Convert.ToDecimal(txtTotalAmount.Text);
-            decimal val=Convert.ToDecimal( 33.33);
-            decimal val2 = Convert.ToDecimal((val1 /100) * val);
-            txtDownPayment.Text = val2.ToString("N2");
+            if (!string.IsNullOrEmpty(cmbDownPayment.Text))
+           {
+               decimal val1 = Convert.ToDecimal(txtTotalAmount.Text);
+               decimal val3 = Convert.ToDecimal(cmbDownPayment.Text);
+               decimal val2 = Convert.ToDecimal((val1/100)*val3);
+               txtDownPayment.Text = val3.ToString("N2");
+               txtBalance.Text = val2.ToString();
+           }
+            else if (chkDownPayment.Checked == false&& string.IsNullOrEmpty(cmbDownPayment.Text))
+            {
+                decimal val1 = Convert.ToDecimal(txtTotalAmount.Text);
+                decimal val4 = Convert.ToDecimal(33);
+                decimal val2 = Convert.ToDecimal((val1 / 100) * val4);
+                txtDownPayment.Text = val2.ToString("N2");
+            }
         }
 
         private void Balance()
         {
-            decimal val = Convert.ToDecimal(txtTotalAmount.Text);
-            decimal val1 = Convert.ToDecimal(txtDownPayment.Text);
-            decimal val2 = Convert.ToDecimal(val - val1);
-            txtBalance.Text = val2.ToString("N2");
+            if (!string.IsNullOrEmpty(cmbDownPayment.Text))
+           {
+               decimal val = Convert.ToDecimal(txtTotalAmount.Text);
+               decimal val3 = Convert.ToDecimal(cmbDownPayment.Text);
+               decimal val2 = Convert.ToDecimal(val - val3);
+               txtBalance.Text = val2.ToString("N2");
+           }
+            else if (chkDownPayment.Checked == false && string.IsNullOrEmpty(cmbDownPayment.Text))
+            {
+                decimal val = Convert.ToDecimal(txtTotalAmount.Text);
+               // decimal val3 = Convert.ToDecimal(txtDownPayment.Text);
+                decimal val4 = Convert.ToDecimal(txtDownPayment.Text);
+                decimal val2 = Convert.ToDecimal(val-val4);
+                txtBalance.Text = val2.ToString("N2");
+            }
         }
 
         private void MonthlyPayment()
         {
-            decimal val = Convert.ToDecimal(txtTotalAmount.Text);
-            decimal val1 = Convert.ToDecimal(txtMonths.Text);
-            decimal val2 = Convert.ToDecimal(val / val1);
-            txtMonthlyPayment.Text = val2.ToString("N2");
+           if(!string.IsNullOrEmpty(cmbDownPayment.Text))
+           {
+               decimal val = Convert.ToDecimal(txtBalance.Text);
+               int val3 = Convert.ToInt32(txtMonths.Text);
+               int val2 = Convert.ToInt32((val/val3));
+               txtMonthlyPayment.Text = val2.ToString("N2");
+           }
+           else if (chkDownPayment.Checked == false && string.IsNullOrEmpty(cmbDownPayment.Text))
+           {
+               decimal val = Convert.ToDecimal(txtBalance.Text);
+               int val1 = Convert.ToInt32(txtMonths.Text);
+               decimal val2 = Convert.ToDecimal(val / val1);
+               txtMonthlyPayment.Text = val2.ToString("N2");
+           }
             
+        }
+        private void Years()
+        {
+            decimal val = Convert.ToDecimal(txtMonths.Text);
+            decimal val2 = Convert.ToDecimal(val / 12);
+            txtYears.Text = val2.ToString()+" y";
         }
 
         private void txtMonths_SelectedIndexChanged(object sender, EventArgs e)
         {
-            MonthlyPayment();
+            Years();
             DownPament();
             Balance();
+            MonthlyPayment();
+           
         }
 
         private void rdInstallment_CheckedChanged(object sender, EventArgs e)
@@ -241,30 +339,55 @@ namespace RealStateManagment.SalePurchase
         {
             try
             {
-                SaleBL objSale = new SaleBL();
+
                 if (rdCash.Checked == true)
                 {
-                    objSale.ContractId = txtContractID.Text;
-                    objSale.ClientId = Convert.ToInt32(txtClientName.SelectedValue);
-                    objSale.ColonyId = Convert.ToInt32(txtColonyName.SelectedValue);
-                    objSale.PlotId = Convert.ToInt32(txtPlotNo.SelectedValue);
-                    objSale.SaleStatus = Convert.ToInt32(rdCash.Checked ? 1 : 2);
-                    objSale.SaleDate = Convert.ToDateTime(txtBuyDate.Text);
+                    SaleBL objSale = new SaleBL()
+                    {
+                        ContractNo = txtContractID.Text,
+                        ClientId = Convert.ToInt32(txtClientName.SelectedValue),
+                        ColonyId = Convert.ToInt32(txtColonyName.SelectedValue),
+                        PlotId = Convert.ToInt32(txtPlotNo.SelectedValue),
+                        SaleStatus = "Cash",
+                        SaleDate = Convert.ToDateTime(txtBuyDate.Text),
+                        CashPayment = Convert.ToDecimal(txtTotalAmount.Text),
+                    };
+                    objSale.Save();
+                    SaleCashReport objRep = new SaleCashReport();
+                    FrmReportViewer objView = new FrmReportViewer();
+                    objRep.SetParameterValue("@ContractNo", txtContractID.Text);
+                    objView.crptViewer.ReportSource = objRep;
+                    objView.WindowState = FormWindowState.Maximized;
+                    objView.ShowDialog();
+
+                   
                 }
 
                 else if (rdInstallment.Checked == true)
                 {
-                    objSale.ContractId = txtContractID.Text;
-                    objSale.ClientId = Convert.ToInt32(txtClientName.SelectedValue);
-                    objSale.ColonyId = Convert.ToInt32(txtColonyName.SelectedValue);
-                    objSale.PlotId = Convert.ToInt32(txtPlotNo.SelectedValue);
-                    objSale.SaleStatus = Convert.ToInt32(rdInstallment.Checked ? 2 : 1);
-                    objSale.SaleDate = Convert.ToDateTime(txtBuyDate.Text);
-                    objSale.NoOfMonth = Convert.ToInt32(txtMonths.Text);
-                    objSale.MonthlyPayment = Convert.ToDecimal(txtMonthlyPayment.Text);
-                    objSale.DateOfPay = Convert.ToInt32(txtPayDate.Text);
+                    SaleInstallmentBL objIns = new  SaleInstallmentBL()
+                    {
+                        ContractNo = txtContractID.Text,
+                         ClienId = Convert.ToInt32(txtClientName.SelectedValue),
+                        ColonyId = Convert.ToInt32(txtColonyName.SelectedValue),
+                        PlotId = Convert.ToInt32(txtPlotNo.SelectedValue),
+                        SaleStatus = "Installment",
+                        SaleDate = Convert.ToDateTime(txtBuyDate.Text),
+                          TotalInstall=Convert.ToInt32(txtMonths.Text),
+                           DatOfPay=Convert.ToInt32(txtPayDate.Text),
+                            Balance=Convert.ToDecimal(txtBalance.Text),
+                             DownPayment=Convert.ToDecimal(txtDownPayment.Text),
+                              MonthlyPayment=Convert.ToDecimal(txtMonthlyPayment.Text)
+                    };
+                    objIns.Save();
+                    SaleInstallReport objInsRep = new SaleInstallReport();
+                    FrmReportViewer objView = new FrmReportViewer();
+                    objInsRep.SetParameterValue("@contractNo", txtContractID.Text);
+                    objView.crptViewer.ReportSource = objInsRep;
+                    objView.WindowState = FormWindowState.Maximized;
+                    objView.ShowDialog();
                 }
-                objSale.Save();
+                
                 PlotBL obj = new PlotBL() 
                 {
                   PlotId=Convert.ToInt32(txtPlotNo.SelectedValue),
@@ -274,6 +397,7 @@ namespace RealStateManagment.SalePurchase
                  obj.Update();
 
                 MessageBox.Show("Contract Save Successfull");
+                FromDisable();
                 btnAddNew.Enabled = true;
                 ClearGroup();
             }
@@ -317,11 +441,44 @@ namespace RealStateManagment.SalePurchase
 
         
 
+        
+
+     
+        private void cmbDownPayment_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            MonthlyPayment();
+            DownPament();
+            Balance();
+        }
+
+       
+        private void cmbDownPayment_TextChanged_1(object sender, EventArgs e)
+        {
+            DownPament();
+            Balance();
+            MonthlyPayment();
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+          
+        }
+
+        private void txtPlotNo_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtColonyName_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+           
+        }
+
         private void txtColonyName_Leave(object sender, EventArgs e)
         {
             PlotBL obj = new PlotBL()
             {
-                ColonyId = Convert.ToInt32(txtColonyName.SelectedValue)
+                ColonyName = txtColonyName.Text
             };
             var dt = obj.Search();
             if (dt.Count > 0 && dt != null)
@@ -329,10 +486,40 @@ namespace RealStateManagment.SalePurchase
                 txtPlotNo.DataSource = dt;
                 txtPlotNo.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
                 txtPlotNo.AutoCompleteSource = AutoCompleteSource.ListItems;
-                txtPlotNo.DisplayMember = "PlotNo";
                 txtPlotNo.ValueMember = "PlotId";
+                txtPlotNo.DisplayMember = "PlotNo";
+                txtPlotNo.Text = "---Select---";
+
+            }
+            //if (((ComboBoxItem)txtColonyName.SelectedItem).SelectedValue > 0)
+            //{
+            //    LoadData(2);
+            //}
+        }
+
+        private void chkDownPayment_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkDownPayment.Checked == true)
+            {
+                cmbDownPayment.Enabled = true;
+                txtDownPayment.Clear();
+                txtBalance.Clear();
+                txtMonthlyPayment.Clear();
+            }
+            else
+            {
+                cmbDownPayment.Enabled = true;
+                txtDownPayment.Clear();
+                txtBalance.Clear();
+                txtMonthlyPayment.Clear();
+                cmbDownPayment.Clear();
+                cmbDownPayment.Enabled = false;
             }
         }
+
+       
+
+       
 
       
 

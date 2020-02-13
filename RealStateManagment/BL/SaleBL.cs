@@ -10,37 +10,57 @@ namespace RealStateManagment.BL
     class SaleBL
     {
         public int  SaleId	{get;set;}
-        public string ContractId{get;set;}
+        public string ContractNo{get;set;}
          public int  ColonyId{get;set;}
         public int  PlotId{get;set;}
-        public int SaleStatus{get;set;}
+        public string SaleStatus{get;set;}
         public DateTime SaleDate{get;set;}
          public int  NoOfMonth{get;set;}
           public decimal MonthlyPayment{get;set;}
           public int DateOfPay { get; set; }
           public int ClientId { get; set; }
+          public string Cnic { get; set; }
+          public decimal DownPayment { get; set; }
+          public decimal Balance { get; set; }
+          public decimal CashPayment { get; set; }
+        
 
 
         public void Save()
           {
             using(var context=new RealEstateEntities())
             {
-                Tbl_Sale obj = new Tbl_Sale() 
+                Tbl_SaleCash obj = new Tbl_SaleCash() 
               {
-               ContractId=ContractId,
-               ColonyId=ColonyId,
+               ContractNo=ContractNo,
+               ColonyId=ColonyId, 
                PlotId=PlotId,
                SaleStatus=SaleStatus,
                SaleDate=SaleDate,
-               NoOfMonth=NoOfMonth,
-               MonthlyPayment=MonthlyPayment,
-               DateOfPay=DateOfPay,
-               ClientId=ClientId
+                ClienId=ClientId,
+               CashPayment=CashPayment
               };
-                context.Tbl_Sale.Add(obj);
+                context.Tbl_SaleCash.Add(obj);
                 context.SaveChanges();
             }
               
           }
+
+       
+        public List<View_SaleCash> Search()
+        {
+            using(var context=new RealEstateEntities())
+            {
+                return context.View_SaleCash.Where(a => a.Cnic == Cnic || ContractNo == ContractNo).ToList();
+            }
+        }
+
+        public List<View_SaleCash> Select()
+        {
+            using(var context=new RealEstateEntities())
+            {
+                return context.View_SaleCash.ToList();
+            }
+        }
     }
 }

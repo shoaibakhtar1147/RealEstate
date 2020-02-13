@@ -41,7 +41,7 @@ namespace RealStateManagment.BL
     {
             using(var context=new RealEstateEntities())
             {
-                var res = context.Tbl_Plot.Where(a => a.ColonyId==ColonyId && a.PlotNo == PlotNo).SingleOrDefault();
+                var res = context.Tbl_Plot.Where(a => a.ColonyId==ColonyId && a.PlotId == PlotId).SingleOrDefault();
                 if(res != null)
                 {
                     res.Status = Status;

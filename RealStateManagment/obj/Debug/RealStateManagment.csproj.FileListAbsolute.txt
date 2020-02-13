@@ -86,3 +86,5 @@ C:\Users\ARSALAN COMPUTER LAB\Desktop\New folder (2)\RealEstate\RealStateManagme
 C:\Users\ARSALAN COMPUTER LAB\Desktop\New folder (2)\RealEstate\RealStateManagment\obj\Debug\RealStateManagment.exe
 C:\Users\ARSALAN COMPUTER LAB\Desktop\New folder (2)\RealEstate\RealStateManagment\obj\Debug\RealStateManagment.pdb
 C:\Users\ARSALAN COMPUTER LAB\Desktop\New folder (2)\RealEstate\RealStateManagment\obj\Debug\RealStateManagment.csprojResolveAssemblyReference.cache
+C:\Users\ARSALAN COMPUTER LAB\Desktop\New folder (2)\RealEstate\RealStateManagment\obj\Debug\RealStateManagment.SalePurchase.FrmSaleLedger.resources
+C:\Users\ARSALAN COMPUTER LAB\Desktop\New folder (2)\RealEstate\RealStateManagment\obj\Debug\RealStateManagment.SalePurchase.FrmSaleView.resources

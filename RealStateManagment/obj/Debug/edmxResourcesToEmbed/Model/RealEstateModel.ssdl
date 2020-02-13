@@ -26,6 +26,17 @@
     <Property Name="Cnic" Type="varchar" MaxLength="20" />
     <Property Name="Address" Type="varchar(max)" />
   </EntityType>
+  <EntityType Name="Tbl_InstallDetail">
+    <Key>
+      <PropertyRef Name="IDetailId" />
+    </Key>
+    <Property Name="IDetailId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ISaleId" Type="int" />
+    <Property Name="InstallmentDate" Type="datetime" />
+    <Property Name="RemainingInstall" Type="int" />
+    <Property Name="Balance" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="InstallmentAmount" Type="decimal" Precision="18" Scale="2" />
+  </EntityType>
   <EntityType Name="Tbl_Partner">
     <Key>
       <PropertyRef Name="PartnerId" />
@@ -65,20 +76,36 @@
     <Property Name="AmountOnInstall" Type="decimal" Precision="18" Scale="2" />
     <Property Name="Area" Type="varchar" MaxLength="30" />
   </EntityType>
-  <EntityType Name="Tbl_Sale">
+  <EntityType Name="Tbl_SaleCash">
     <Key>
-      <PropertyRef Name="SaleId" />
+      <PropertyRef Name="CSaleId" />
     </Key>
-    <Property Name="SaleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="ContractId" Type="varchar" MaxLength="100" />
+    <Property Name="CSaleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ContractNo" Type="varchar(max)" />
+    <Property Name="ClientId" Type="int" />
     <Property Name="ColonyId" Type="int" />
     <Property Name="PlotId" Type="int" />
-    <Property Name="SaleStatus" Type="int" />
+    <Property Name="SaleStatus" Type="varchar" MaxLength="20" />
     <Property Name="SaleDate" Type="datetime" />
-    <Property Name="NoOfMonth" Type="int" />
-    <Property Name="MonthlyPayment" Type="decimal" Precision="18" Scale="0" />
-    <Property Name="DateOfPay" Type="int" />
+    <Property Name="CashPayment" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Remaining" Type="decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="TBL_SaleInstall">
+    <Key>
+      <PropertyRef Name="ISaleId" />
+    </Key>
+    <Property Name="ISaleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ContractNo" Type="varchar(max)" />
     <Property Name="ClientId" Type="int" />
+    <Property Name="ColonyId" Type="int" />
+    <Property Name="PlotId" Type="int" />
+    <Property Name="SaleStatus" Type="varchar" MaxLength="20" />
+    <Property Name="SaleDate" Type="datetime" />
+    <Property Name="TotalInstall" Type="int" />
+    <Property Name="MonthlyPayment" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="DownPayment" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="DatOfPay" Type="int" />
+    <Property Name="Balance" Type="decimal" Precision="18" Scale="2" />
   </EntityType>
   <!--Errors Found During Generation:
 warning 6002: The table/view 'RealEstate.dbo.View_PartnerTransaction' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -116,13 +143,66 @@ warning 6002: The table/view 'RealEstate.dbo.View_Plot' does not have a primary 
     <Property Name="ColonyName" Type="varchar(max)" />
     <Property Name="Installment" Type="decimal" Precision="18" Scale="2" />
   </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'RealEstate.dbo.View_SaleCash' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="View_SaleCash">
+    <Key>
+      <PropertyRef Name="CSaleId" />
+    </Key>
+    <Property Name="CSaleId" Type="int" Nullable="false" />
+    <Property Name="ContractNo" Type="varchar(max)" />
+    <Property Name="ClientId" Type="int" />
+    <Property Name="ClientName" Type="varchar" MaxLength="200" />
+    <Property Name="Cnic" Type="varchar" MaxLength="20" />
+    <Property Name="MobNo" Type="varchar" MaxLength="20" />
+    <Property Name="ColonyId" Type="int" />
+    <Property Name="ColonyName" Type="varchar(max)" />
+    <Property Name="PlotId" Type="int" />
+    <Property Name="PlotNo" Type="int" />
+    <Property Name="Size" Type="varchar" MaxLength="50" />
+    <Property Name="PlotAmount" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Area" Type="varchar" MaxLength="30" />
+    <Property Name="SaleStatus" Type="varchar" MaxLength="20" />
+    <Property Name="SaleDate" Type="datetime" />
+    <Property Name="CashPayment" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Remaining" Type="decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'RealEstate.dbo.View_SaleInstall' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="View_SaleInstall">
+    <Key>
+      <PropertyRef Name="ISaleId" />
+    </Key>
+    <Property Name="ISaleId" Type="int" Nullable="false" />
+    <Property Name="ContractNo" Type="varchar(max)" />
+    <Property Name="ClientId" Type="int" />
+    <Property Name="ClientName" Type="varchar" MaxLength="200" />
+    <Property Name="Cnic" Type="varchar" MaxLength="20" />
+    <Property Name="MobNo" Type="varchar" MaxLength="20" />
+    <Property Name="ColonyId" Type="int" />
+    <Property Name="ColonyName" Type="varchar(max)" />
+    <Property Name="PlotId" Type="int" />
+    <Property Name="PlotNo" Type="int" />
+    <Property Name="Size" Type="varchar" MaxLength="50" />
+    <Property Name="Area" Type="varchar" MaxLength="30" />
+    <Property Name="AmountOnInstall" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="SaleStatus" Type="varchar" MaxLength="20" />
+    <Property Name="SaleDate" Type="datetime" />
+    <Property Name="TotalInstall" Type="int" />
+    <Property Name="MonthlyPayment" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="DownPayment" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="DatOfPay" Type="int" />
+    <Property Name="Balance" Type="decimal" Precision="18" Scale="2" />
+  </EntityType>
   <EntityContainer Name="RealEstateModelStoreContainer">
     <EntitySet Name="Tbl_Client" EntityType="Self.Tbl_Client" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Tbl_Colony" EntityType="Self.Tbl_Colony" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_InstallDetail" EntityType="Self.Tbl_InstallDetail" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Tbl_Partner" EntityType="Self.Tbl_Partner" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Tbl_Partner_Transaction" EntityType="Self.Tbl_Partner_Transaction" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Tbl_Plot" EntityType="Self.Tbl_Plot" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Tbl_Sale" EntityType="Self.Tbl_Sale" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_SaleCash" EntityType="Self.Tbl_SaleCash" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBL_SaleInstall" EntityType="Self.TBL_SaleInstall" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="View_PartnerTransaction" EntityType="Self.View_PartnerTransaction" store:Type="Views" store:Schema="dbo">
       <DefiningQuery>SELECT 
     [View_PartnerTransaction].[TransactionId] AS [TransactionId], 
@@ -152,6 +232,51 @@ warning 6002: The table/view 'RealEstate.dbo.View_Plot' does not have a primary 
     [View_Plot].[ColonyName] AS [ColonyName], 
     [View_Plot].[Installment] AS [Installment]
     FROM [dbo].[View_Plot] AS [View_Plot]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="View_SaleCash" EntityType="Self.View_SaleCash" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [View_SaleCash].[CSaleId] AS [CSaleId], 
+    [View_SaleCash].[ContractNo] AS [ContractNo], 
+    [View_SaleCash].[ClientId] AS [ClientId], 
+    [View_SaleCash].[ClientName] AS [ClientName], 
+    [View_SaleCash].[Cnic] AS [Cnic], 
+    [View_SaleCash].[MobNo] AS [MobNo], 
+    [View_SaleCash].[ColonyId] AS [ColonyId], 
+    [View_SaleCash].[ColonyName] AS [ColonyName], 
+    [View_SaleCash].[PlotId] AS [PlotId], 
+    [View_SaleCash].[PlotNo] AS [PlotNo], 
+    [View_SaleCash].[Size] AS [Size], 
+    [View_SaleCash].[PlotAmount] AS [PlotAmount], 
+    [View_SaleCash].[Area] AS [Area], 
+    [View_SaleCash].[SaleStatus] AS [SaleStatus], 
+    [View_SaleCash].[SaleDate] AS [SaleDate], 
+    [View_SaleCash].[CashPayment] AS [CashPayment], 
+    [View_SaleCash].[Remaining] AS [Remaining]
+    FROM [dbo].[View_SaleCash] AS [View_SaleCash]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="View_SaleInstall" EntityType="Self.View_SaleInstall" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [View_SaleInstall].[ISaleId] AS [ISaleId], 
+    [View_SaleInstall].[ContractNo] AS [ContractNo], 
+    [View_SaleInstall].[ClientId] AS [ClientId], 
+    [View_SaleInstall].[ClientName] AS [ClientName], 
+    [View_SaleInstall].[Cnic] AS [Cnic], 
+    [View_SaleInstall].[MobNo] AS [MobNo], 
+    [View_SaleInstall].[ColonyId] AS [ColonyId], 
+    [View_SaleInstall].[ColonyName] AS [ColonyName], 
+    [View_SaleInstall].[PlotId] AS [PlotId], 
+    [View_SaleInstall].[PlotNo] AS [PlotNo], 
+    [View_SaleInstall].[Size] AS [Size], 
+    [View_SaleInstall].[Area] AS [Area], 
+    [View_SaleInstall].[AmountOnInstall] AS [AmountOnInstall], 
+    [View_SaleInstall].[SaleStatus] AS [SaleStatus], 
+    [View_SaleInstall].[SaleDate] AS [SaleDate], 
+    [View_SaleInstall].[TotalInstall] AS [TotalInstall], 
+    [View_SaleInstall].[MonthlyPayment] AS [MonthlyPayment], 
+    [View_SaleInstall].[DownPayment] AS [DownPayment], 
+    [View_SaleInstall].[DatOfPay] AS [DatOfPay], 
+    [View_SaleInstall].[Balance] AS [Balance]
+    FROM [dbo].[View_SaleInstall] AS [View_SaleInstall]</DefiningQuery>
     </EntitySet>
   </EntityContainer>
 </Schema>

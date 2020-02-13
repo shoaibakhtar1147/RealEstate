@@ -12,17 +12,20 @@ namespace RealStateManagment.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class Tbl_Sale
+    public partial class TBL_SaleInstall
     {
-        public int SaleId { get; set; }
-        public string ContractId { get; set; }
+        public int ISaleId { get; set; }
+        public string ContractNo { get; set; }
+        public Nullable<int> ClienId { get; set; }
         public Nullable<int> ColonyId { get; set; }
         public Nullable<int> PlotId { get; set; }
-        public Nullable<int> SaleStatus { get; set; }
+        public string SaleStatus { get; set; }
         public Nullable<System.DateTime> SaleDate { get; set; }
-        public Nullable<int> NoOfMonth { get; set; }
+        public Nullable<int> TotalInstall { get; set; }
         public Nullable<decimal> MonthlyPayment { get; set; }
-        public Nullable<int> DateOfPay { get; set; }
+        public Nullable<decimal> DownPayment { get; set; }
+        public Nullable<int> DatOfPay { get; set; }
+        public Nullable<decimal> Balance { get; set; }
         public Nullable<int> ClientId { get; set; }
     }
 }

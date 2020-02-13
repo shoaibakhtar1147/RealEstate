@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -9,9 +10,10 @@ namespace RealStateManagment.DAL
 {
     class DB
     {
+        public static string constring = ConfigurationManager.ConnectionStrings["Connection"].ToString();
         public static DataTable SelectTableWithSP(string spName, SqlParameter[] prm)
         {
-            string constring = @"Data Source=SHOAIB-PC\SQLEXPRESS;Database=RealEstate;integrated security=true";
+            
             try
             {
                 SqlConnection cn = new SqlConnection(constring);
@@ -37,7 +39,7 @@ namespace RealStateManagment.DAL
 
         public static int ExecuteNonQueryWithSP(string spName, SqlParameter[] prm)
         {
-            string constring = @"Data Source=SHOAIB-PC\SQLEXPRESS;Database=RealEstate;integrated security=true";
+            //string constring = @"Data Source=SHOAIB-PC\SQLEXPRESS;Database=RealEstate;integrated security=true";
             //SqlConnection con = new SqlConnection();
             SqlConnection cn = new SqlConnection(constring);
             try

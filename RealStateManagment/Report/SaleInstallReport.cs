@@ -16,14 +16,14 @@ namespace RealStateManagment.Report {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class CrystalReport1 : ReportClass {
+    public class SaleInstallReport : ReportClass {
         
-        public CrystalReport1() {
+        public SaleInstallReport() {
         }
         
         public override string ResourceName {
             get {
-                return "CrystalReport1.rpt";
+                return "SaleInstallReport.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace RealStateManagment.Report {
         
         public override string FullResourceName {
             get {
-                return "RealStateManagment.Report.CrystalReport1.rpt";
+                return "RealStateManagment.Report.SaleInstallReport.rpt";
             }
             set {
                 // Do nothing
@@ -90,7 +90,7 @@ namespace RealStateManagment.Report {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_Cnic {
+        public CrystalDecisions.Shared.IParameterField Parameter_ContractNo {
             get {
                 return this.DataDefinition.ParameterFields[0];
             }
@@ -98,9 +98,9 @@ namespace RealStateManagment.Report {
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedCrystalReport1 : Component, ICachedReport {
+    public class CachedSaleInstallReport : Component, ICachedReport {
         
-        public CachedCrystalReport1() {
+        public CachedSaleInstallReport() {
         }
         
         [Browsable(false)]
@@ -137,7 +137,7 @@ namespace RealStateManagment.Report {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            CrystalReport1 rpt = new CrystalReport1();
+            SaleInstallReport rpt = new SaleInstallReport();
             rpt.Site = this.Site;
             return rpt;
         }

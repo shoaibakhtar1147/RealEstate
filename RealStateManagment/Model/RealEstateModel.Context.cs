@@ -31,7 +31,11 @@ namespace RealStateManagment.Model
         public virtual DbSet<Tbl_Plot> Tbl_Plot { get; set; }
         public virtual DbSet<Tbl_Partner_Transaction> Tbl_Partner_Transaction { get; set; }
         public virtual DbSet<View_PartnerTransaction> View_PartnerTransaction { get; set; }
-        public virtual DbSet<Tbl_Sale> Tbl_Sale { get; set; }
         public virtual DbSet<View_Plot> View_Plot { get; set; }
+        public virtual DbSet<Tbl_InstallDetail> Tbl_InstallDetail { get; set; }
+        public virtual DbSet<Tbl_SaleCash> Tbl_SaleCash { get; set; }
+        public virtual DbSet<TBL_SaleInstall> TBL_SaleInstall { get; set; }
+        public virtual DbSet<View_SaleCash> View_SaleCash { get; set; }
+        public virtual DbSet<View_SaleInstall> View_SaleInstall { get; set; }
     }
 }

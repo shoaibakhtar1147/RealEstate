@@ -96,7 +96,8 @@
             this.txtColonyName.Name = "txtColonyName";
             this.txtColonyName.Size = new System.Drawing.Size(238, 24);
             this.txtColonyName.TabIndex = 55;
-            this.txtColonyName.Leave += new System.EventHandler(this.txtColonyName_Leave);
+            this.txtColonyName.SelectedIndexChanged += new System.EventHandler(this.txtColonyName_SelectedIndexChanged);
+         //   this.txtColonyName.Leave += new System.EventHandler(this.txtColonyName_Leave);
             // 
             // txtPlotNo
             // 
@@ -121,7 +122,7 @@
             this.btnSearch.TabIndex = 57;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = false;
-            this.btnSearch.Click += new System.EventHandler(this.btnClear_Click);
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // ViewPlot
             // 

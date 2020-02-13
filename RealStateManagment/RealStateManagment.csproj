@@ -75,6 +75,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
@@ -123,10 +124,13 @@
     <Compile Include="BL\ClientBL.cs" />
     <Compile Include="BL\ColonyBL.cs" />
     <Compile Include="BL\ContractNoBL.cs" />
+    <Compile Include="BL\InstallDetailBL.cs" />
+    <Compile Include="BL\SaleInstallmentBL.cs" />
     <Compile Include="BL\PartnerBL.cs" />
     <Compile Include="BL\PlotBL.cs" />
     <Compile Include="BL\SaleBL.cs" />
     <Compile Include="BL\TransactionBL.cs" />
+    <Compile Include="ColonyManagement\ComboBoxItem.cs" />
     <Compile Include="ColonyManagement\FrmAddColony.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -228,6 +232,9 @@
     <Compile Include="Model\Tbl_Colony.cs">
       <DependentUpon>RealEstateModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\Tbl_InstallDetail.cs">
+      <DependentUpon>RealEstateModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\Tbl_Partner.cs">
       <DependentUpon>RealEstateModel.tt</DependentUpon>
     </Compile>
@@ -237,7 +244,10 @@
     <Compile Include="Model\Tbl_Plot.cs">
       <DependentUpon>RealEstateModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\Tbl_Sale.cs">
+    <Compile Include="Model\Tbl_SaleCash.cs">
+      <DependentUpon>RealEstateModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\TBL_SaleInstall.cs">
       <DependentUpon>RealEstateModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\View_PartnerTransaction.cs">
@@ -246,14 +256,14 @@
     <Compile Include="Model\View_Plot.cs">
       <DependentUpon>RealEstateModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\View_SaleCash.cs">
+      <DependentUpon>RealEstateModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\View_SaleInstall.cs">
+      <DependentUpon>RealEstateModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Report\CrystalReport1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CrystalReport1.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="Report\FrmReportViewer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -264,6 +274,18 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>PartnerTransactionReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\SaleCashReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SaleCashReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\SaleInstallReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SaleInstallReport.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="SalePurchase\FrmSaleInstallment.cs">
@@ -278,11 +300,23 @@
     <Compile Include="SalePurchase\FrmSale.Designer.cs">
       <DependentUpon>FrmSale.cs</DependentUpon>
     </Compile>
+    <Compile Include="SalePurchase\FrmSaleLedger.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SalePurchase\FrmSaleLedger.Designer.cs">
+      <DependentUpon>FrmSaleLedger.cs</DependentUpon>
+    </Compile>
     <Compile Include="SalePurchase\FrmSaleMain.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="SalePurchase\FrmSaleMain.Designer.cs">
       <DependentUpon>FrmSaleMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SalePurchase\FrmSaleView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SalePurchase\FrmSaleView.Designer.cs">
+      <DependentUpon>FrmSaleView.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Accounts\FrmAccountMain.resx">
       <DependentUpon>FrmAccountMain.cs</DependentUpon>
@@ -348,10 +382,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Report\CrystalReport1.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>CrystalReport1.cs</LastGenOutput>
-    </EmbeddedResource>
     <EmbeddedResource Include="Report\FrmReportViewer.resx">
       <DependentUpon>FrmReportViewer.cs</DependentUpon>
     </EmbeddedResource>
@@ -359,14 +389,28 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>PartnerTransactionReport.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Report\SaleCashReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>SaleCashReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\SaleInstallReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>SaleInstallReport.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="SalePurchase\FrmSale.resx">
       <DependentUpon>FrmSale.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SalePurchase\FrmSaleInstallment.resx">
       <DependentUpon>FrmSaleInstallment.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="SalePurchase\FrmSaleLedger.resx">
+      <DependentUpon>FrmSaleLedger.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SalePurchase\FrmSaleMain.resx">
       <DependentUpon>FrmSaleMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SalePurchase\FrmSaleView.resx">
+      <DependentUpon>FrmSaleView.cs</DependentUpon>
     </EmbeddedResource>
     <EntityDeploy Include="Model\RealEstateModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
