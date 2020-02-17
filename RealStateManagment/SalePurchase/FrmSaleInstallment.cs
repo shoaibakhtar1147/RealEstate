@@ -25,7 +25,7 @@ namespace RealStateManagment.SalePurchase
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            SaleBL obj = new SaleBL() 
+            SaleInstallmentBL obj = new SaleInstallmentBL() 
             {
             Cnic=txtCnic.Text
             };
@@ -35,8 +35,8 @@ namespace RealStateManagment.SalePurchase
                 txtContractId.DataSource = dt;
                 txtContractId.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
                 txtContractId.AutoCompleteSource = AutoCompleteSource.ListItems;
-                txtContractId.DisplayMember = "ContractId";
-                txtContractId.ValueMember = "SaleId";
+                txtContractId.DisplayMember = "ContractNo";
+                txtContractId.ValueMember = "ISaleId";
                 
             }
             else
@@ -48,22 +48,24 @@ namespace RealStateManagment.SalePurchase
         private void txtContractId_SelectedIndexChanged(object sender, EventArgs e)
         {
             lblBalance.Visible = true;
-            //SaleBL obj = new SaleBL() 
-            //{
-            // ContractNo=txtContractId.Text
-            //};
-            //var dt = obj.Search();
-            //if(dt.Count>0 && dt != null)
-            //{
-                //txtClientName.Text = Convert.ToString(dt[0].ClientName);
-                //txtPlotNo.Text = Convert.ToString(dt[0].PlotNo);
-                //txtSize.Text = Convert.ToString(dt[0].Size);
-                //txtArea.Text = Convert.ToString(dt[0].Area);
-                //txtTotalAmount.Text = Convert.ToString(dt[0].AmountOnInstall);
-                //txtDownPayment.Text = Convert.ToString(dt[0].DownPayment);
-                //txtRemainInstall.Text = Convert.ToString(dt[0].NoOfMonth);
-                //txtMonthlyPayment.Text = Convert.ToString(dt[0].MonthlyPayment);
-           // }
+            SaleInstallmentBL obj = new  SaleInstallmentBL()
+            {
+                ContractNo = txtContractId.Text
+            };
+            var dt = obj.Search();
+            if (dt.Count > 0 && dt != null)
+            {
+                txtClientName.Text = Convert.ToString(dt[0].ClientName);
+                txtPlotNo.Text = Convert.ToString(dt[0].PlotNo);
+                txtSize.Text = Convert.ToString(dt[0].Size);
+                txtArea.Text = Convert.ToString(dt[0].Area);
+                txtTotalAmount.Text = Convert.ToString(dt[0].AmountOnInstall);
+                txtDownPayment.Text = Convert.ToString(dt[0].DownPayment);
+                txtRemainInstall.Text = Convert.ToString(dt[0].TotalInstall);
+                txtMonthlyPayment.Text = Convert.ToString(dt[0].MonthlyPayment);
+                txtColonyName.Text = Convert.ToString(dt[0].ColonyName);
+                lblBalance.Text = Convert.ToString(dt[0].Balance);
+            }
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
@@ -117,6 +119,109 @@ namespace RealStateManagment.SalePurchase
             FormEnable();
         }
 
+        private void txtNoInstallment_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Installment();
+        }
+
+        private void Installment()
+        {
+
+            SaleInstallmentBL obj = new  SaleInstallmentBL()
+            {
+                ContractNo = txtContractId.Text
+            };
+            var dt = obj.Search();
+            if (dt.Count > 0 && dt != null)
+            {
+                txtMonthlyPayment.Text = Convert.ToString(dt[0].MonthlyPayment);
+                int NoIstall=Convert.ToInt32(txtNoInstallment.Text);
+                if (NoIstall<= 10)
+                {
+                   
+                    decimal val1 = Convert.ToDecimal(txtMonthlyPayment.Text);
+                    decimal val2 = Convert.ToDecimal(val1 * NoIstall);
+                    txtMonthlyPayment.Text = val2.ToString();
+                    int remainIns = Convert.ToInt32(txtRemainInstall.Text);
+                    txtRemainInstall.Text = (Convert.ToInt32(remainIns - NoIstall)).ToString();
+                   
+                }
+
+                
+            }
+           
+           
+        }
+
+         private void Balance()
+        {
+            
+                 decimal val = Convert.ToDecimal(lblBalance.Text);
+                 decimal val1 = Convert.ToDecimal(txtPayment.Text);
+                 decimal val2=Convert.ToDecimal(val - val1); 
+             lblBalance.Text = val2.ToString();
+            
+        }
+        private void txtPayment_TextChanged(object sender, EventArgs e)
+        {
+          
+
+        }
+
+
+        private void MonthlyInstall()
+        {
+            int remainIns = Convert.ToInt32(txtRemainInstall.Text);
+            decimal val = Convert.ToDecimal(lblBalance.Text);
+            txtMonthlyPayment.Text = Convert.ToString(Convert.ToDecimal(val / remainIns));
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int val=Convert.ToInt32(txtRemainInstall.Text );
+                int val1=Convert.ToInt32(txtNoInstallment.Text);
+                int remainInstall=Convert.ToInt32(val - val1);
+                MonthlyInstall();
+                InstallDetailBL objdetail = new InstallDetailBL() 
+                {
+                 Balance=Convert.ToDecimal(lblBalance.Text),
+                  InstallmentDate=Convert.ToDateTime(txtDate.Text),
+                   PaidInstall=Convert.ToInt32(txtNoInstallment.Text),
+                    ISaleId=Convert.ToInt32(txtContractId.SelectedValue),
+                     RemainingInstall=Convert.ToInt32(remainInstall),
+                     InstallmentAmount=Convert.ToDecimal(txtPayment.Text),
+                      MonthlyInstallment=Convert.ToDecimal(txtMonthlyPayment.Text)
+                };
+                objdetail.Save();
+                objdetail.RemainingInstall=Convert.ToInt32(txtRemainInstall.Text);
+                (new SaleInstallmentBL()).UpdateBalance(objdetail.Balance, objdetail.ISaleId,objdetail.RemainingInstall);
+                MessageBox.Show("Installment Paid");
+                ClearGroup();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void ClearGroup()
+        {
+            foreach (Control c in groupBox1.Controls)
+            {
+                if (c is TextBox || c is ComboBox || c is MaskedTextBox)
+                {
+                    c.Text = "";
+                }
+            }
+        }
+
+        private void txtPayment_Leave(object sender, EventArgs e)
+        {
+            Balance();
+        }
         
+
     }
 }

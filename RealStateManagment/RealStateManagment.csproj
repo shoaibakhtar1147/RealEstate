@@ -250,6 +250,9 @@
     <Compile Include="Model\TBL_SaleInstall.cs">
       <DependentUpon>RealEstateModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\View_InstallDetail.cs">
+      <DependentUpon>RealEstateModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\View_PartnerTransaction.cs">
       <DependentUpon>RealEstateModel.tt</DependentUpon>
     </Compile>
@@ -269,6 +272,12 @@
     </Compile>
     <Compile Include="Report\FrmReportViewer.Designer.cs">
       <DependentUpon>FrmReportViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\InstallDetailReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InstallDetailReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Report\PartnerTransactionReport.cs">
       <AutoGen>True</AutoGen>
@@ -384,6 +393,10 @@
     </Compile>
     <EmbeddedResource Include="Report\FrmReportViewer.resx">
       <DependentUpon>FrmReportViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\InstallDetailReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InstallDetailReport.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Report\PartnerTransactionReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

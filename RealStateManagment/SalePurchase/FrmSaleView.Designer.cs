@@ -28,11 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label2 = new System.Windows.Forms.Label();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dgvSale = new System.Windows.Forms.DataGridView();
+            this.rdInstallment = new System.Windows.Forms.RadioButton();
+            this.rdCash = new System.Windows.Forms.RadioButton();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSale)).BeginInit();
             this.SuspendLayout();
@@ -53,7 +55,7 @@
             this.txtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.txtSearch.Location = new System.Drawing.Point(144, 116);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(282, 22);
+            this.txtSearch.Size = new System.Drawing.Size(228, 22);
             this.txtSearch.TabIndex = 48;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
@@ -68,14 +70,14 @@
             // dgvSale
             // 
             this.dgvSale.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvSale.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvSale.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvSale.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSale.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvSale.Location = new System.Drawing.Point(0, 0);
@@ -83,11 +85,39 @@
             this.dgvSale.Size = new System.Drawing.Size(898, 319);
             this.dgvSale.TabIndex = 0;
             // 
+            // rdInstallment
+            // 
+            this.rdInstallment.AutoSize = true;
+            this.rdInstallment.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.rdInstallment.Location = new System.Drawing.Point(267, 75);
+            this.rdInstallment.Name = "rdInstallment";
+            this.rdInstallment.Size = new System.Drawing.Size(105, 24);
+            this.rdInstallment.TabIndex = 51;
+            this.rdInstallment.TabStop = true;
+            this.rdInstallment.Text = "Installment";
+            this.rdInstallment.UseVisualStyleBackColor = true;
+            this.rdInstallment.CheckedChanged += new System.EventHandler(this.rdInstallment_CheckedChanged);
+            // 
+            // rdCash
+            // 
+            this.rdCash.AutoSize = true;
+            this.rdCash.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.rdCash.Location = new System.Drawing.Point(144, 75);
+            this.rdCash.Name = "rdCash";
+            this.rdCash.Size = new System.Drawing.Size(64, 24);
+            this.rdCash.TabIndex = 50;
+            this.rdCash.TabStop = true;
+            this.rdCash.Text = "Cash";
+            this.rdCash.UseVisualStyleBackColor = true;
+            this.rdCash.CheckedChanged += new System.EventHandler(this.rdCash_CheckedChanged);
+            // 
             // FrmSaleView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(904, 500);
+            this.Controls.Add(this.rdInstallment);
+            this.Controls.Add(this.rdCash);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.panel1);
@@ -107,5 +137,7 @@
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridView dgvSale;
+        private System.Windows.Forms.RadioButton rdInstallment;
+        private System.Windows.Forms.RadioButton rdCash;
     }
 }

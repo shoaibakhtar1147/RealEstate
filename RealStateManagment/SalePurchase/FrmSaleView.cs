@@ -49,6 +49,40 @@ namespace RealStateManagment.SalePurchase
             }
         }
 
+        private void rdCash_CheckedChanged(object sender, EventArgs e)
+        {
+            dgvSale.DataSource = null;
+            SaleBL obj = new SaleBL();
+            var dt = obj.Select();
+            if(dt.Count>0 && dt != null)
+            {
+                dgvSale.DataSource = dt;
+            }
+        }
+
+        private void rdInstallment_CheckedChanged(object sender, EventArgs e)
+        {
+            dgvSale.DataSource = null;
+            SaleInstallmentBL obj = new SaleInstallmentBL();
+            var dt = obj.Select();
+            if(dt.Count>0 && dt != null)
+            {
+                dgvSale.DataSource = dt;
+                 this.dgvSale.Columns["ISaleId"].Visible = false;
+                      this.dgvSale.Columns["ClientId"].Visible = false;
+                      this.dgvSale.Columns["ColonyId"].Visible = false;
+                      this.dgvSale.Columns["PlotId"].Visible = false;
+                      this.dgvSale.Columns["DatOfPay"].Visible = false;
+                      this.dgvSale.Columns["Size"].Visible = false;
+                      this.dgvSale.Columns["ColonyName"].Visible = false;
+                      this.dgvSale.Columns["SaleStatus"].Visible = false;
+                      this.dgvSale.Columns["DownPayment"].Visible = false;
+                      this.dgvSale.Columns["MobNo"].Visible = false;
+                      this.dgvSale.Columns["ClientName"].Visible = false;
+                      this.dgvSale.Columns["Area"].Visible = false;
+            }
+        }
+
         
     }
 }

@@ -197,23 +197,26 @@ namespace RealStateManagment.SalePurchase
 
         private void txtPlotNo_Leave(object sender, EventArgs e)
         {
-           PlotBL obj = new PlotBL()
-                {
-                    ColonyName = txtColonyName.Text,
-                    PlotNo = Convert.ToInt32(txtPlotNo.Text)
-                };
-                var dt = obj.Search();
-                if (rdInstallment.Checked == true)
-                {
-                    txtArea.Text = Convert.ToString(dt[0].Size);
-                    txtTotalAmount.Text = Convert.ToString(dt[0].Installment);
-                }
-                else if (rdCash.Checked == true)
-                {
+           if(!string.IsNullOrEmpty(txtPlotNo.Text))
+           {
+               PlotBL obj = new PlotBL()
+               {
+                    ColonyId = Convert.ToInt32(txtColonyName.SelectedValue),
+                    PlotId = Convert.ToInt32(txtPlotNo.SelectedValue)
+               };
+               var dt = obj.Search();
+               if (dt.Count>0 && rdInstallment.Checked == true)
+               {
+                   txtArea.Text = Convert.ToString(dt[0].Size);
+                   txtTotalAmount.Text = Convert.ToString(dt[0].Installment);
+               }
+               else if (dt.Count > 0 && rdCash.Checked == true)
+               {
 
-                    txtArea.Text = Convert.ToString(dt[0].Size);
-                    txtTotalAmount.Text = Convert.ToString(dt[0].Cash);
-                }
+                   txtArea.Text = Convert.ToString(dt[0].Size);
+                   txtTotalAmount.Text = Convert.ToString(dt[0].Cash);
+               }
+           }
         }
 
         //private void txtPaymentType_Leave(object sender, EventArgs e)
@@ -335,6 +338,25 @@ namespace RealStateManagment.SalePurchase
             }
         }
 
+        //private bool CheckPlot()
+        //{
+        //    PlotBL obj = new PlotBL() 
+        //    { 
+        //     PlotId=Convert.ToInt32(txtPlotNo.SelectedValue)
+        //    };
+
+        //    var dt = obj.Search();
+        //    if(dt.Count>0)
+        //    {
+        //        return true;
+        //    }
+        //    else
+        //    {
+        //        return false;
+        //    }
+
+        //}
+
         private void btnSave_Click(object sender, EventArgs e)
         {
             try
@@ -353,12 +375,12 @@ namespace RealStateManagment.SalePurchase
                         CashPayment = Convert.ToDecimal(txtTotalAmount.Text),
                     };
                     objSale.Save();
-                    SaleCashReport objRep = new SaleCashReport();
-                    FrmReportViewer objView = new FrmReportViewer();
-                    objRep.SetParameterValue("@ContractNo", txtContractID.Text);
-                    objView.crptViewer.ReportSource = objRep;
-                    objView.WindowState = FormWindowState.Maximized;
-                    objView.ShowDialog();
+                    //SaleCashReport objRep = new SaleCashReport();
+                    //FrmReportViewer objView = new FrmReportViewer();
+                    //objRep.SetParameterValue("@ContractNo", txtContractID.Text);
+                    //objView.crptViewer.ReportSource = objRep;
+                    //objView.WindowState = FormWindowState.Maximized;
+                    //objView.ShowDialog();
 
                    
                 }
@@ -377,15 +399,16 @@ namespace RealStateManagment.SalePurchase
                            DatOfPay=Convert.ToInt32(txtPayDate.Text),
                             Balance=Convert.ToDecimal(txtBalance.Text),
                              DownPayment=Convert.ToDecimal(txtDownPayment.Text),
-                              MonthlyPayment=Convert.ToDecimal(txtMonthlyPayment.Text)
+                              MonthlyPayment=Convert.ToDecimal(txtMonthlyPayment.Text),
+                               RemainingInstall=Convert.ToInt32(txtMonths.Text)
                     };
                     objIns.Save();
-                    SaleInstallReport objInsRep = new SaleInstallReport();
-                    FrmReportViewer objView = new FrmReportViewer();
-                    objInsRep.SetParameterValue("@contractNo", txtContractID.Text);
-                    objView.crptViewer.ReportSource = objInsRep;
-                    objView.WindowState = FormWindowState.Maximized;
-                    objView.ShowDialog();
+                    //SaleInstallReport objInsRep = new SaleInstallReport();
+                    //FrmReportViewer objView = new FrmReportViewer();
+                    //objInsRep.SetParameterValue("@contractNo", txtContractID.Text);
+                    //objView.crptViewer.ReportSource = objInsRep;
+                    //objView.WindowState = FormWindowState.Maximized;
+                    //objView.ShowDialog();
                 }
                 
                 PlotBL obj = new PlotBL() 
@@ -481,7 +504,7 @@ namespace RealStateManagment.SalePurchase
                 ColonyName = txtColonyName.Text
             };
             var dt = obj.Search();
-            if (dt.Count > 0 && dt != null)
+            if (dt.Count > 0 && dt != null )
             {
                 txtPlotNo.DataSource = dt;
                 txtPlotNo.AutoCompleteMode = AutoCompleteMode.SuggestAppend;

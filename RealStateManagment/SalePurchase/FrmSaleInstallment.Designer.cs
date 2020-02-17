@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblBalance = new System.Windows.Forms.Label();
+            this.txtPayment = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
             this.txtRemainInstall = new System.Windows.Forms.TextBox();
             this.txtSize = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
@@ -60,9 +63,6 @@
             this.btnClear = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnAddNew = new System.Windows.Forms.Button();
-            this.txtPayment = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.lblBalance = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -111,6 +111,39 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Installment Information";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // lblBalance
+            // 
+            this.lblBalance.AutoSize = true;
+            this.lblBalance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBalance.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblBalance.Location = new System.Drawing.Point(546, 301);
+            this.lblBalance.Name = "lblBalance";
+            this.lblBalance.Size = new System.Drawing.Size(91, 24);
+            this.lblBalance.TabIndex = 88;
+            this.lblBalance.Text = "Balance:";
+            // 
+            // txtPayment
+            // 
+            this.txtPayment.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.txtPayment.Location = new System.Drawing.Point(549, 208);
+            this.txtPayment.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtPayment.Name = "txtPayment";
+            this.txtPayment.Size = new System.Drawing.Size(184, 22);
+            this.txtPayment.TabIndex = 86;
+            this.txtPayment.TextChanged += new System.EventHandler(this.txtPayment_TextChanged);
+            this.txtPayment.Leave += new System.EventHandler(this.txtPayment_Leave);
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.label15.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label15.Location = new System.Drawing.Point(431, 209);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(64, 16);
+            this.label15.TabIndex = 87;
+            this.label15.Text = "Payment:";
             // 
             // txtRemainInstall
             // 
@@ -318,6 +351,7 @@
             this.txtNoInstallment.Name = "txtNoInstallment";
             this.txtNoInstallment.Size = new System.Drawing.Size(184, 24);
             this.txtNoInstallment.TabIndex = 4;
+            this.txtNoInstallment.SelectedIndexChanged += new System.EventHandler(this.txtNoInstallment_SelectedIndexChanged);
             // 
             // label6
             // 
@@ -443,6 +477,7 @@
             this.btnSave.TabIndex = 3;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnAddNew
             // 
@@ -459,37 +494,6 @@
             this.btnAddNew.Text = "New";
             this.btnAddNew.UseVisualStyleBackColor = false;
             this.btnAddNew.Click += new System.EventHandler(this.btnAddNew_Click);
-            // 
-            // txtPayment
-            // 
-            this.txtPayment.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.txtPayment.Location = new System.Drawing.Point(549, 208);
-            this.txtPayment.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtPayment.Name = "txtPayment";
-            this.txtPayment.Size = new System.Drawing.Size(184, 22);
-            this.txtPayment.TabIndex = 86;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.label15.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label15.Location = new System.Drawing.Point(431, 209);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(64, 16);
-            this.label15.TabIndex = 87;
-            this.label15.Text = "Payment:";
-            // 
-            // lblBalance
-            // 
-            this.lblBalance.AutoSize = true;
-            this.lblBalance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBalance.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblBalance.Location = new System.Drawing.Point(546, 301);
-            this.lblBalance.Name = "lblBalance";
-            this.lblBalance.Size = new System.Drawing.Size(91, 24);
-            this.lblBalance.TabIndex = 88;
-            this.lblBalance.Text = "Balance:";
             // 
             // FrmSaleInstallment
             // 

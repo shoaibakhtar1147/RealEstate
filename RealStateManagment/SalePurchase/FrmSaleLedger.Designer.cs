@@ -35,7 +35,7 @@
             this.dgvSale = new System.Windows.Forms.DataGridView();
             this.label13 = new System.Windows.Forms.Label();
             this.txtCnic = new System.Windows.Forms.MaskedTextBox();
-            this.txtPlotNo = new System.Windows.Forms.ComboBox();
+            this.txtContractNo = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSale)).BeginInit();
             this.SuspendLayout();
@@ -54,6 +54,7 @@
             this.button1.TabIndex = 64;
             this.button1.Text = "Print";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnSearch
             // 
@@ -69,6 +70,7 @@
             this.btnSearch.TabIndex = 63;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // label2
             // 
@@ -119,22 +121,23 @@
             this.txtCnic.Name = "txtCnic";
             this.txtCnic.Size = new System.Drawing.Size(184, 22);
             this.txtCnic.TabIndex = 74;
+            this.txtCnic.Leave += new System.EventHandler(this.txtCnic_Leave);
             // 
-            // txtPlotNo
+            // txtContractNo
             // 
-            this.txtPlotNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.txtPlotNo.FormattingEnabled = true;
-            this.txtPlotNo.Location = new System.Drawing.Point(144, 115);
-            this.txtPlotNo.Name = "txtPlotNo";
-            this.txtPlotNo.Size = new System.Drawing.Size(238, 24);
-            this.txtPlotNo.TabIndex = 76;
+            this.txtContractNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.txtContractNo.FormattingEnabled = true;
+            this.txtContractNo.Location = new System.Drawing.Point(144, 115);
+            this.txtContractNo.Name = "txtContractNo";
+            this.txtContractNo.Size = new System.Drawing.Size(238, 24);
+            this.txtContractNo.TabIndex = 76;
             // 
             // FrmSaleLedger
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(904, 500);
-            this.Controls.Add(this.txtPlotNo);
+            this.Controls.Add(this.txtContractNo);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.txtCnic);
             this.Controls.Add(this.label2);
@@ -160,6 +163,6 @@
         private System.Windows.Forms.DataGridView dgvSale;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.MaskedTextBox txtCnic;
-        private System.Windows.Forms.ComboBox txtPlotNo;
+        private System.Windows.Forms.ComboBox txtContractNo;
     }
 }

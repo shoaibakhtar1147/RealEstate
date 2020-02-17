@@ -64,7 +64,7 @@ namespace RealStateManagment.BL
         {
             using(var context=new RealEstateEntities())
             {
-                return context.View_Plot.Where(a => a.ColonyName == ColonyName|| a.PlotNo==PlotNo && ColonyName==ColonyName||ColonyId==ColonyId).ToList();
+                return context.View_Plot.Where(a => a.ColonyName == ColonyName|| a.PlotId==PlotId && ColonyId==ColonyId).ToList();
             }
         }
     }

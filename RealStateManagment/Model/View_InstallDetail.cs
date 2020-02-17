@@ -12,9 +12,10 @@ namespace RealStateManagment.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class View_SaleInstall
+    public partial class View_InstallDetail
     {
-        public int ISaleId { get; set; }
+        public int IDetailId { get; set; }
+        public Nullable<int> ISaleId { get; set; }
         public string ContractNo { get; set; }
         public Nullable<int> ClientId { get; set; }
         public string ClientName { get; set; }
@@ -25,15 +26,15 @@ namespace RealStateManagment.Model
         public Nullable<int> PlotId { get; set; }
         public Nullable<int> PlotNo { get; set; }
         public string Size { get; set; }
-        public string Area { get; set; }
-        public Nullable<decimal> AmountOnInstall { get; set; }
-        public string SaleStatus { get; set; }
-        public Nullable<System.DateTime> SaleDate { get; set; }
-        public Nullable<int> TotalInstall { get; set; }
         public Nullable<decimal> MonthlyPayment { get; set; }
-        public Nullable<decimal> DownPayment { get; set; }
-        public Nullable<int> DatOfPay { get; set; }
-        public Nullable<decimal> Balance { get; set; }
+        public Nullable<int> TotalInstall { get; set; }
         public Nullable<int> RemainingInstall { get; set; }
+        public Nullable<int> PaidInstall { get; set; }
+        public Nullable<int> DatOfPay { get; set; }
+        public Nullable<System.DateTime> InstallmentDate { get; set; }
+        public Nullable<decimal> InstallmentAmount { get; set; }
+        public Nullable<decimal> DownPayment { get; set; }
+        public Nullable<decimal> Balance { get; set; }
+        public Nullable<decimal> TotalAmount { get; set; }
     }
 }

@@ -16,13 +16,12 @@ namespace RealStateManagment.Model
     {
         public int CSaleId { get; set; }
         public string ContractNo { get; set; }
-        public Nullable<int> ClienId { get; set; }
+        public Nullable<int> ClientId { get; set; }
         public Nullable<int> ColonyId { get; set; }
         public Nullable<int> PlotId { get; set; }
         public string SaleStatus { get; set; }
         public Nullable<System.DateTime> SaleDate { get; set; }
         public Nullable<decimal> CashPayment { get; set; }
         public Nullable<decimal> Remaining { get; set; }
-        public Nullable<int> ClientId { get; set; }
     }
 }

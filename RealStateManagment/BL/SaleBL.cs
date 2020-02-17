@@ -37,7 +37,7 @@ namespace RealStateManagment.BL
                PlotId=PlotId,
                SaleStatus=SaleStatus,
                SaleDate=SaleDate,
-                ClienId=ClientId,
+                ClientId=ClientId,
                CashPayment=CashPayment
               };
                 context.Tbl_SaleCash.Add(obj);

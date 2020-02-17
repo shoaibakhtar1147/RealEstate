@@ -17,8 +17,10 @@ namespace RealStateManagment.Model
         public int IDetailId { get; set; }
         public Nullable<int> ISaleId { get; set; }
         public Nullable<System.DateTime> InstallmentDate { get; set; }
-        public Nullable<int> RemainingInstall { get; set; }
+        public Nullable<int> PaidInstall { get; set; }
         public Nullable<decimal> Balance { get; set; }
         public Nullable<decimal> InstallmentAmount { get; set; }
+        public Nullable<decimal> MonthlyInstallment { get; set; }
+        public Nullable<int> RemainingInstall { get; set; }
     }
 }

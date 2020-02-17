@@ -21,7 +21,8 @@ namespace RealStateManagment.BL
        public decimal DownPayment{get;set;}
         public int  DatOfPay{get;set;}
         public decimal Balance { get; set; }
-        public string Cnic { get; set; } 
+        public string Cnic { get; set; }
+        public int RemainingInstall { get; set; }
             
         
 
@@ -38,10 +39,11 @@ namespace RealStateManagment.BL
                      SaleDate=SaleDate,
                      DatOfPay = DatOfPay,
                     DownPayment = DownPayment,
-                     ClienId=ClienId,
+                     ClientId=ClienId,
                       ContractNo=ContractNo,
                        PlotId=PlotId,
-                        SaleStatus=SaleStatus
+                        SaleStatus=SaleStatus,
+                        RemainingInstall=RemainingInstall
                 };
                 context.TBL_SaleInstall.Add(obj);
                 context.SaveChanges();
@@ -61,6 +63,21 @@ namespace RealStateManagment.BL
             using (var context = new RealEstateEntities())
             {
                 return context.View_SaleInstall.ToList();
+            }
+        }
+
+        public bool UpdateBalance(decimal Balance, int ISaleId, int RemainingInstall)
+        {
+            using (var context = new RealEstateEntities())
+            {
+                var install = context.TBL_SaleInstall.Where(m => m.ISaleId == ISaleId).FirstOrDefault();
+                if (install != null)
+                {
+                    install.Balance = Balance;
+                    install.RemainingInstall = RemainingInstall;
+                }
+                context.SaveChanges();
+                return true;
             }
         }
 

@@ -7,12 +7,13 @@
     <EntitySet Name="Tbl_Plot" EntityType="RealEstateModel.Tbl_Plot" />
     <EntitySet Name="Tbl_Partner_Transaction" EntityType="RealEstateModel.Tbl_Partner_Transaction" />
     <EntitySet Name="View_PartnerTransaction" EntityType="RealEstateModel.View_PartnerTransaction" />
-    <EntitySet Name="View_Plot" EntityType="RealEstateModel.View_Plot" />
-    <EntitySet Name="Tbl_InstallDetail" EntityType="RealEstateModel.Tbl_InstallDetail" />
-    <EntitySet Name="Tbl_SaleCash" EntityType="RealEstateModel.Tbl_SaleCash" />
-    <EntitySet Name="TBL_SaleInstall" EntityType="RealEstateModel.TBL_SaleInstall" />
     <EntitySet Name="View_SaleCash" EntityType="RealEstateModel.View_SaleCash" />
     <EntitySet Name="View_SaleInstall" EntityType="RealEstateModel.View_SaleInstall" />
+    <EntitySet Name="TBL_SaleInstall" EntityType="RealEstateModel.TBL_SaleInstall" />
+    <EntitySet Name="Tbl_SaleCash" EntityType="RealEstateModel.Tbl_SaleCash" />
+    <EntitySet Name="Tbl_InstallDetail" EntityType="RealEstateModel.Tbl_InstallDetail" />
+    <EntitySet Name="View_Plot" EntityType="RealEstateModel.View_Plot" />
+    <EntitySet Name="View_InstallDetail" EntityType="RealEstateModel.View_InstallDetail" />
   </EntityContainer>
   <EntityType Name="Tbl_Client">
     <Key>
@@ -96,65 +97,6 @@
     <Property Name="Debit" Type="Decimal" Precision="18" Scale="2" />
     <Property Name="Amount" Type="Decimal" Precision="18" Scale="2" />
   </EntityType>
-  <EntityType Name="View_Plot">
-    <Key>
-      <PropertyRef Name="PlotId" />
-    </Key>
-    <Property Name="PlotId" Type="Int32" Nullable="false" />
-    <Property Name="PlotNo" Type="Int32" />
-    <Property Name="PlotArea" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-    <Property Name="Size" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Cash" Type="Decimal" Precision="18" Scale="2" />
-    <Property Name="ColonyArea" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-    <Property Name="ColonyId" Type="Int32" />
-    <Property Name="ColonyName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <Property Name="Installment" Type="Decimal" Precision="18" Scale="2" />
-  </EntityType>
-  <EntityType Name="Tbl_InstallDetail">
-    <Key>
-      <PropertyRef Name="IDetailId" />
-    </Key>
-    <Property Name="IDetailId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="ISaleId" Type="Int32" />
-    <Property Name="InstallmentDate" Type="DateTime" Precision="3" />
-    <Property Name="RemainingInstall" Type="Int32" />
-    <Property Name="Balance" Type="Decimal" Precision="18" Scale="2" />
-    <Property Name="InstallmentAmount" Type="Decimal" Precision="18" Scale="2" />
-  </EntityType>
-  <EntityType Name="Tbl_SaleCash">
-    <Key>
-      <PropertyRef Name="CSaleId" />
-    </Key>
-    <Property Name="CSaleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="ContractNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <Property Name="ClienId" Type="Int32" />
-    <Property Name="ColonyId" Type="Int32" />
-    <Property Name="PlotId" Type="Int32" />
-    <Property Name="SaleStatus" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-    <Property Name="SaleDate" Type="DateTime" Precision="3" />
-    <Property Name="CashPayment" Type="Decimal" Precision="18" Scale="2" />
-    <Property Name="Remaining" Type="Decimal" Precision="18" Scale="2" />
-    <Property Name="ClientId" Type="Int32" />
-  </EntityType>
-  <EntityType Name="TBL_SaleInstall">
-    <Key>
-      <PropertyRef Name="ISaleId" />
-    </Key>
-    <Property Name="ISaleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="ContractNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <Property Name="ClienId" Type="Int32" />
-    <Property Name="ColonyId" Type="Int32" />
-    <Property Name="PlotId" Type="Int32" />
-    <Property Name="SaleStatus" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-    <Property Name="SaleDate" Type="DateTime" Precision="3" />
-    <Property Name="TotalInstall" Type="Int32" />
-    <Property Name="MonthlyPayment" Type="Decimal" Precision="18" Scale="2" />
-    <Property Name="DownPayment" Type="Decimal" Precision="18" Scale="2" />
-    <Property Name="DatOfPay" Type="Int32" />
-    <Property Name="Balance" Type="Decimal" Precision="18" Scale="2" />
-    <Property Name="ClientId" Type="Int32" />
-  </EntityType>
   <EntityType Name="View_SaleCash">
     <Key>
       <PropertyRef Name="CSaleId" />
@@ -201,5 +143,93 @@
     <Property Name="DownPayment" Type="Decimal" Precision="18" Scale="2" />
     <Property Name="DatOfPay" Type="Int32" />
     <Property Name="Balance" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="RemainingInstall" Type="Int32" />
+  </EntityType>
+  <EntityType Name="TBL_SaleInstall">
+    <Key>
+      <PropertyRef Name="ISaleId" />
+    </Key>
+    <Property Name="ISaleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ContractNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ClientId" Type="Int32" />
+    <Property Name="ColonyId" Type="Int32" />
+    <Property Name="PlotId" Type="Int32" />
+    <Property Name="SaleStatus" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="SaleDate" Type="DateTime" Precision="3" />
+    <Property Name="TotalInstall" Type="Int32" />
+    <Property Name="MonthlyPayment" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="DownPayment" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="DatOfPay" Type="Int32" />
+    <Property Name="Balance" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="RemainingInstall" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Tbl_SaleCash">
+    <Key>
+      <PropertyRef Name="CSaleId" />
+    </Key>
+    <Property Name="CSaleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ContractNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ClientId" Type="Int32" />
+    <Property Name="ColonyId" Type="Int32" />
+    <Property Name="PlotId" Type="Int32" />
+    <Property Name="SaleStatus" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="SaleDate" Type="DateTime" Precision="3" />
+    <Property Name="CashPayment" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Remaining" Type="Decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="Tbl_InstallDetail">
+    <Key>
+      <PropertyRef Name="IDetailId" />
+    </Key>
+    <Property Name="IDetailId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ISaleId" Type="Int32" />
+    <Property Name="InstallmentDate" Type="DateTime" Precision="3" />
+    <Property Name="PaidInstall" Type="Int32" />
+    <Property Name="Balance" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="InstallmentAmount" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="MonthlyInstallment" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="RemainingInstall" Type="Int32" />
+  </EntityType>
+  <EntityType Name="View_Plot">
+    <Key>
+      <PropertyRef Name="PlotId" />
+    </Key>
+    <Property Name="PlotId" Type="Int32" Nullable="false" />
+    <Property Name="PlotNo" Type="Int32" />
+    <Property Name="PlotArea" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Size" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Cash" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="ColonyArea" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ColonyId" Type="Int32" />
+    <Property Name="ColonyName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Installment" Type="Decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="View_InstallDetail">
+    <Key>
+      <PropertyRef Name="IDetailId" />
+    </Key>
+    <Property Name="IDetailId" Nullable="false" Type="Int32" />
+    <Property Name="ISaleId" Type="Int32" />
+    <Property Name="ContractNo" MaxLength="Max" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="ClientId" Type="Int32" />
+    <Property Name="ClientName" MaxLength="200" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="Cnic" MaxLength="20" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="MobNo" MaxLength="20" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="ColonyId" Type="Int32" />
+    <Property Name="ColonyName" MaxLength="Max" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="PlotId" Type="Int32" />
+    <Property Name="PlotNo" Type="Int32" />
+    <Property Name="Size" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="MonthlyPayment" Precision="18" Scale="2" Type="Decimal" />
+    <Property Name="TotalInstall" Type="Int32" />
+    <Property Name="RemainingInstall" Type="Int32" />
+    <Property Name="PaidInstall" Type="Int32" />
+    <Property Name="DatOfPay" Type="Int32" />
+    <Property Name="InstallmentDate" Precision="3" Type="DateTime" />
+    <Property Name="InstallmentAmount" Precision="18" Scale="2" Type="Decimal" />
+    <Property Name="DownPayment" Precision="18" Scale="2" Type="Decimal" />
+    <Property Name="Balance" Precision="18" Scale="2" Type="Decimal" />
+    <Property Name="TotalAmount" Precision="18" Scale="2" Type="Decimal" />
   </EntityType>
 </Schema>

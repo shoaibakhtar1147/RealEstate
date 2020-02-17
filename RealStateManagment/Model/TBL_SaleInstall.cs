@@ -16,7 +16,7 @@ namespace RealStateManagment.Model
     {
         public int ISaleId { get; set; }
         public string ContractNo { get; set; }
-        public Nullable<int> ClienId { get; set; }
+        public Nullable<int> ClientId { get; set; }
         public Nullable<int> ColonyId { get; set; }
         public Nullable<int> PlotId { get; set; }
         public string SaleStatus { get; set; }
@@ -26,6 +26,6 @@ namespace RealStateManagment.Model
         public Nullable<decimal> DownPayment { get; set; }
         public Nullable<int> DatOfPay { get; set; }
         public Nullable<decimal> Balance { get; set; }
-        public Nullable<int> ClientId { get; set; }
+        public Nullable<int> RemainingInstall { get; set; }
     }
 }

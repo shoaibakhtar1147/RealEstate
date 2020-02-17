@@ -96,7 +96,7 @@
             this.txtInstallment.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtInstallment.Name = "txtInstallment";
             this.txtInstallment.Size = new System.Drawing.Size(228, 22);
-            this.txtInstallment.TabIndex = 49;
+            this.txtInstallment.TabIndex = 8;
             // 
             // label3
             // 
@@ -138,7 +138,7 @@
             this.txtMarla.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtMarla.Name = "txtMarla";
             this.txtMarla.Size = new System.Drawing.Size(68, 22);
-            this.txtMarla.TabIndex = 45;
+            this.txtMarla.TabIndex = 6;
             // 
             // label11
             // 
@@ -158,7 +158,7 @@
             this.txtKanal.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtKanal.Name = "txtKanal";
             this.txtKanal.Size = new System.Drawing.Size(68, 22);
-            this.txtKanal.TabIndex = 43;
+            this.txtKanal.TabIndex = 5;
             // 
             // label10
             // 
@@ -189,7 +189,7 @@
             this.txtWidth.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtWidth.Name = "txtWidth";
             this.txtWidth.Size = new System.Drawing.Size(68, 22);
-            this.txtWidth.TabIndex = 39;
+            this.txtWidth.TabIndex = 4;
             // 
             // txtCash
             // 
@@ -198,7 +198,7 @@
             this.txtCash.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtCash.Name = "txtCash";
             this.txtCash.Size = new System.Drawing.Size(228, 22);
-            this.txtCash.TabIndex = 38;
+            this.txtCash.TabIndex = 7;
             // 
             // txtStatus
             // 
@@ -210,7 +210,7 @@
             this.txtStatus.Location = new System.Drawing.Point(526, 151);
             this.txtStatus.Name = "txtStatus";
             this.txtStatus.Size = new System.Drawing.Size(228, 24);
-            this.txtStatus.TabIndex = 37;
+            this.txtStatus.TabIndex = 9;
             // 
             // txtPlotNo
             // 
@@ -219,7 +219,7 @@
             this.txtPlotNo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtPlotNo.Name = "txtPlotNo";
             this.txtPlotNo.Size = new System.Drawing.Size(228, 22);
-            this.txtPlotNo.TabIndex = 35;
+            this.txtPlotNo.TabIndex = 2;
             this.txtPlotNo.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label5
@@ -241,7 +241,7 @@
             this.txtColonyName.Location = new System.Drawing.Point(155, 59);
             this.txtColonyName.Name = "txtColonyName";
             this.txtColonyName.Size = new System.Drawing.Size(228, 24);
-            this.txtColonyName.TabIndex = 34;
+            this.txtColonyName.TabIndex = 1;
             // 
             // label4
             // 
@@ -283,7 +283,7 @@
             this.txtLength.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtLength.Name = "txtLength";
             this.txtLength.Size = new System.Drawing.Size(68, 22);
-            this.txtLength.TabIndex = 4;
+            this.txtLength.TabIndex = 3;
             // 
             // label1
             // 
@@ -339,7 +339,7 @@
             this.btnAddNew.Location = new System.Drawing.Point(249, 439);
             this.btnAddNew.Name = "btnAddNew";
             this.btnAddNew.Size = new System.Drawing.Size(180, 41);
-            this.btnAddNew.TabIndex = 32;
+            this.btnAddNew.TabIndex = 1;
             this.btnAddNew.Text = "New";
             this.btnAddNew.UseVisualStyleBackColor = false;
             this.btnAddNew.Click += new System.EventHandler(this.btnAddNew_Click);
