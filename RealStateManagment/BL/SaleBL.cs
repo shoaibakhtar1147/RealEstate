@@ -23,7 +23,7 @@ namespace RealStateManagment.BL
           public decimal DownPayment { get; set; }
           public decimal Balance { get; set; }
           public decimal CashPayment { get; set; }
-        
+          public decimal Remaining { get; set; }
 
 
         public void Save()
@@ -38,7 +38,8 @@ namespace RealStateManagment.BL
                SaleStatus=SaleStatus,
                SaleDate=SaleDate,
                 ClientId=ClientId,
-               CashPayment=CashPayment
+               CashPayment=CashPayment,
+                Remaining=Remaining
               };
                 context.Tbl_SaleCash.Add(obj);
                 context.SaveChanges();

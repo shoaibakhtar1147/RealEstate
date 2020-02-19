@@ -22,7 +22,13 @@ namespace RealStateManagment.SalePurchase
 
         private void FrmSale_Load(object sender, EventArgs e)
         {
+            this.Location = new Point(200, 80);
             FromDisable();
+            groupBox1.Height = 315;
+            btnSave.Location = new Point(433, 415);
+            btnAddNew.Location = new Point(234, 415);
+            btnClear.Location = new Point(637, 415);
+            this.Size = new Size(999, 477);
         }
 
         private void FromDisable()
@@ -33,6 +39,8 @@ namespace RealStateManagment.SalePurchase
             txtDownPayment.Enabled = false;
             txtMonthlyPayment.Enabled = false;
             txtArea.Enabled = false;
+            txtRemaining.Enabled = false;
+            txtpayment.Enabled = false;
             txtMonths.Enabled = false;
             cmbDownPayment.Enabled = false;
             rdCash.Enabled = false;
@@ -53,6 +61,8 @@ namespace RealStateManagment.SalePurchase
             txtColonyName.Enabled = true;
             txtMonths.Enabled = true;
             rdCash.Enabled = true;
+           
+            txtpayment.Enabled = true;
             rdInstallment.Enabled = true;
             txtPlotNo.Enabled = true;
             txtBuyDate.Enabled = true;
@@ -334,7 +344,20 @@ namespace RealStateManagment.SalePurchase
         {
             if(rdInstallment.Checked==true)
             {
+               
+                this.Size = new Size(999, 651);
+                groupBox1.Height = 493;
+                btnSave.Location = new Point(434, 585);
+                btnClear.Location = new Point(637, 585);
+                btnAddNew.Location = new Point(234, 585);
                 groupBox2.Visible = true;
+            }
+            else
+            {
+                groupBox1.Height = 315;
+                btnSave.Location = new Point(433, 415);
+                btnAddNew.Location = new Point(234, 415);
+                btnClear.Location = new Point(637, 415);
             }
         }
 
@@ -372,7 +395,9 @@ namespace RealStateManagment.SalePurchase
                         PlotId = Convert.ToInt32(txtPlotNo.SelectedValue),
                         SaleStatus = "Cash",
                         SaleDate = Convert.ToDateTime(txtBuyDate.Text),
-                        CashPayment = Convert.ToDecimal(txtTotalAmount.Text),
+                        CashPayment = Convert.ToDecimal(txtpayment.Text),
+                        Remaining=Convert.ToDecimal(txtRemaining.Text)
+                         
                     };
                     objSale.Save();
                     //SaleCashReport objRep = new SaleCashReport();
@@ -420,9 +445,10 @@ namespace RealStateManagment.SalePurchase
                  obj.Update();
 
                 MessageBox.Show("Contract Save Successfull");
+                ClearGroup();
                 FromDisable();
                 btnAddNew.Enabled = true;
-                ClearGroup();
+               
             }
 
             catch(Exception ex)
@@ -436,30 +462,60 @@ namespace RealStateManagment.SalePurchase
         {
             foreach (Control c in groupBox1.Controls)
             {
+                
                 if (c is TextBox || c is ComboBox || c is MaskedTextBox)
                 {
                     c.Text = "";
                 }
             }
-            foreach (Control c in groupBox2.Controls)
+            if(rdInstallment.Checked == true)
             {
-                if (c is TextBox || c is ComboBox || c is MaskedTextBox)
+                foreach (Control c in groupBox2.Controls)
                 {
-                    c.Text = "";
+                    if (c is TextBox || c is ComboBox || c is MaskedTextBox)
+                    {
+                        c.Text = "";
+                    }
                 }
+                rdInstallment.Checked = false;
             }
-            rdInstallment.Checked = false;
+          
             rdCash.Checked = false;
         }
 
         private void rdCash_CheckedChanged(object sender, EventArgs e)
         {
-            groupBox2.Visible = false;
+           if(rdCash.Checked==true)
+           {
+               this.Size = new Size(999, 477);
+               btnSave.Location = new Point(433, 415);
+               btnAddNew.Location = new Point(234, 415);
+               btnClear.Location = new Point(637, 415);
+               groupBox2.Visible = false;
+           }
+           else
+           {
+               groupBox1.Height = 493;
+               btnSave.Location = new Point(434, 585);
+               btnClear.Location = new Point(637, 585);
+               btnAddNew.Location = new Point(234, 585);
+               groupBox2.Visible = true;
+
+           }
         }
 
         private void btnClear_Click(object sender, EventArgs e)
         {
             ClearGroup();
+
+            this.Location = new Point(200, 80);
+            FromDisable();
+            groupBox1.Height = 315;
+            btnSave.Location = new Point(433, 415);
+            btnAddNew.Location = new Point(234, 415);
+            btnClear.Location = new Point(637, 415);
+            this.Size = new Size(999, 477);
+            btnAddNew.Enabled = true;
         }
 
         
@@ -538,6 +594,14 @@ namespace RealStateManagment.SalePurchase
                 cmbDownPayment.Clear();
                 cmbDownPayment.Enabled = false;
             }
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+            decimal total = Convert.ToDecimal(txtTotalAmount.Text);
+            decimal payment = Convert.ToDecimal(txtpayment.Text);
+            decimal Remain = Convert.ToDecimal(total - payment);
+            txtRemaining.Text = Remain.ToString();
         }
 
        

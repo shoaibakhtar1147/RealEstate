@@ -104,6 +104,7 @@ namespace RealStateManagment.ColonyManagement
 
                 MessageBox.Show("Saved Successfull");
                 ClearGroup();
+                FormDisable();
                 btnAddNew.Enabled = true;
             }
             catch(Exception ex)

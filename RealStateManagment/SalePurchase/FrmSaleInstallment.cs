@@ -215,6 +215,8 @@ namespace RealStateManagment.SalePurchase
                     c.Text = "";
                 }
             }
+            lblBalance.Text = "";
+            
         }
 
         private void txtPayment_Leave(object sender, EventArgs e)
